@@ -1,8 +1,34 @@
+<script context="module">
+	export async function load({ session }) {
+		if (session.user) {
+			return {
+				status: 302,
+				redirect: '/home'
+			};
+		}
+		return {};
+	}
+</script>
 <script>
+	import { goto } from '$app/navigation';
 	import { _, locale } from 'svelte-i18n';
 	import PasswordBox from './_PasswordBox.svelte';
 	import LanguageSetting from './_SetLanguage.svelte';
 	import TextBox from './_TextBox.svelte';
+	import request from 'superagent';
+	let username='';
+	let password='';
+	let error = '';
+	const submitLogin = (e)=>{
+		e.preventDefault();
+		request.post('/login').send({username, password}).then(data=>{
+			if (data.body.success)
+				goto('/home');
+			else {
+				error = data.body.message
+			}	
+		});
+	}
 </script>
 
 <div class="container mx-auto flex justify-center ">
@@ -13,10 +39,20 @@
 		<h1 class="text-xl my-2 w-2/3">
 			{$_('login')}
 		</h1>
+		{#if error.length != 0}
+			<div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-amber-500">
+			  <span class="text-xl inline-block mr-5 align-middle">
+			    <i class="fas fa-bell"></i>
+			  </span>
+			  <span class="inline-block align-middle mr-8">
+			    <b class="capitalize">{$_('error')}!</b> {$_(error)}
+			  </span>
+			</div>
+		{/if}
 		<div class="border-2 w-2/3 p-4">
-<form action='/login' method='post'>
-			<TextBox label={$_('username')} name='username' />
-			<PasswordBox hint={$_('newUserHint')} label={$_('password')} name='password'/>
+<form on:submit={submitLogin} >
+			<TextBox label={$_('username')} bind:value={username} />
+			<PasswordBox hint={$_('newUserHint')} label={$_('password')} bind:value={password} />
 
 			<hr />
 			<button

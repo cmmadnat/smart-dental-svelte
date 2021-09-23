@@ -3,5 +3,10 @@
   "username": "Username",
   "enter": "Enter",
   "password": "Password",
-  "newUserHint": "If this is your first time here, leave this field blank"
+  "newUserHint": "If this is your first time here, leave this field blank",
+  "logout" : "Logout",
+  "hello" : "Hello",
+  "appName" : "Smart Dental System",
+  "error" : "Error",
+  "userNotFoundOrWrongPassword" : "Username not found or wrong password"
 }
