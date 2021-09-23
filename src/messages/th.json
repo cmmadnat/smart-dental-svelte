@@ -4,9 +4,12 @@
   "enter": "กรอก",
   "password": "รหัสผ่าน",
   "newUserHint": "หากคุณมาที่นี่เป็นครั้งแรก ให้เว้นช่องนี้ว่างไว้",
-  "logout" : "ออกจากระบบ",
-  "hello" : "สวัสดี",
-  "appName" : "ระบบ Smart Dental",
-  "error" : "เกิดข้อผิดพลาด",
-  "userNotFoundOrWrongPassword" : "ไม่พบผู้ใช้งานหรือรหัสผ่านผิด"
+  "logout": "ออกจากระบบ",
+  "hello": "สวัสดี",
+  "appName": "ระบบ Smart Dental",
+  "error": "เกิดข้อผิดพลาด",
+  "userNotFoundOrWrongPassword": "ไม่พบผู้ใช้งานหรือรหัสผ่านผิด",
+  "search": "ค้นหา",
+  "searchUser": "ค้นหาผู้ป่วย",
+  "searchDoctor" : "ค้นหาคุณหมอ"
 }
