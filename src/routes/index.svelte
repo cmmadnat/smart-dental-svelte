@@ -14,16 +14,18 @@
 			{$_('login')}
 		</h1>
 		<div class="border-2 w-2/3 p-4">
-			<TextBox label={$_('username')} />
-			<PasswordBox hint={$_('newUserHint')} label={$_('password')} />
+<form action='/login' method='post'>
+			<TextBox label={$_('username')} name='username' />
+			<PasswordBox hint={$_('newUserHint')} label={$_('password')} name='password'/>
 
 			<hr />
 			<button
 				class="mt-2 bg-amber-500 text-white active:bg-amber-600 font-bold uppercase text-base px-8 py-3 rounded-full shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-				type="button"
+				type="submit"
 			>
 				{$_('login')}
 			</button>
+</form>
 		</div>
 
 		<div class="w-full my-2">
