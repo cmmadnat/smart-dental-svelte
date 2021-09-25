@@ -11,5 +11,6 @@
   "userNotFoundOrWrongPassword": "Username not found or wrong password",
   "search": "Search",
   "searchUser": "Search Patient",
-  "searchDoctor" : "Search Doctor"
+  "searchDoctor": "Search Doctor",
+  "addPatient": "Register New Patient"
 }

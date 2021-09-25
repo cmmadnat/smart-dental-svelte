@@ -11,5 +11,6 @@
   "userNotFoundOrWrongPassword": "ไม่พบผู้ใช้งานหรือรหัสผ่านผิด",
   "search": "ค้นหา",
   "searchUser": "ค้นหาผู้ป่วย",
-  "searchDoctor" : "ค้นหาคุณหมอ"
+  "searchDoctor": "ค้นหาคุณหมอ",
+  "addPatient": "ลงทะเบียนผู้ป่วยใหม่"
 }
