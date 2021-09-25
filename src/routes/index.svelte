@@ -9,6 +9,7 @@
 		return {};
 	}
 </script>
+
 <script>
 	import { goto } from '$app/navigation';
 	import { _, locale } from 'svelte-i18n';
@@ -16,19 +17,21 @@
 	import LanguageSetting from './_SetLanguage.svelte';
 	import TextBox from './_TextBox.svelte';
 	import request from 'superagent';
-	let username='';
-	let password='';
+	let username = '';
+	let password = '';
 	let error = '';
-	const submitLogin = (e)=>{
+	const submitLogin = (e) => {
 		e.preventDefault();
-		request.post('/login').send({username, password}).then(data=>{
-			if (data.body.success)
-				goto('/home');
-			else {
-				error = data.body.message
-			}	
-		});
-	}
+		request
+			.post('/login')
+			.send({ username, password })
+			.then((data) => {
+				if (data.body.success) goto('/home');
+				else {
+					error = data.body.message;
+				}
+			});
+	};
 </script>
 
 <div class="container mx-auto flex justify-center ">
@@ -41,27 +44,28 @@
 		</h1>
 		{#if error.length != 0}
 			<div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-amber-500">
-			  <span class="text-xl inline-block mr-5 align-middle">
-			    <i class="fas fa-bell"></i>
-			  </span>
-			  <span class="inline-block align-middle mr-8">
-			    <b class="capitalize">{$_('error')}!</b> {$_(error)}
-			  </span>
+				<span class="text-xl inline-block mr-5 align-middle">
+					<i class="fas fa-bell" />
+				</span>
+				<span class="inline-block align-middle mr-8">
+					<b class="capitalize">{$_('error')}!</b>
+					{$_(error)}
+				</span>
 			</div>
 		{/if}
 		<div class="border-2 w-2/3 p-4">
-<form on:submit={submitLogin} >
-			<TextBox label={$_('username')} bind:value={username} />
-			<PasswordBox hint={$_('newUserHint')} label={$_('password')} bind:value={password} />
+			<form on:submit={submitLogin}>
+				<TextBox label={$_('username')} bind:value={username} />
+				<PasswordBox hint={$_('newUserHint')} label={$_('password')} bind:value={password} />
 
-			<hr />
-			<button
-				class="mt-2 bg-amber-500 text-white active:bg-amber-600 font-bold uppercase text-base px-8 py-3 rounded-full shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-				type="submit"
-			>
-				{$_('login')}
-			</button>
-</form>
+				<hr />
+				<button
+					class="mt-2 bg-amber-500 text-white active:bg-amber-600 font-bold uppercase text-base px-8 py-3 rounded-full shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+					type="submit"
+				>
+					{$_('login')}
+				</button>
+			</form>
 		</div>
 
 		<div class="w-full my-2">

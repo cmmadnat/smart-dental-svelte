@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	export let label: string;
-	export let value = ''
+	export let value = '';
 </script>
 
 <label for={label}>
@@ -11,7 +11,7 @@
 <!-- Regular Input -->
 <div class="relative flex w-full flex-wrap items-stretch mt-2 mb-3">
 	<input
-		bind:value={value}
+		bind:value
 		id={label}
 		type="text"
 		placeholder={$_('enter') + ' ' + label + '...'}

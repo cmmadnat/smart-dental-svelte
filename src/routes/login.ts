@@ -1,11 +1,10 @@
-export const post = ({body})=>{
-	const {username, password} = body
+export const post = ({ body }) => {
+	const { username, password } = body;
 	console.log(username);
 	console.log(password);
-	if (username == 'cmmadnat'){
-		return { body : { success: true } };
+	if (username == 'cmmadnat') {
+		return { body: { success: true } };
+	} else {
+		return { body: { success: false, message: 'userNotFoundOrWrongPassword' } };
 	}
-	else {
-		return { body : { success : false, message : 'userNotFoundOrWrongPassword' } };
-	}
-}
+};

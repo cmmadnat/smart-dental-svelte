@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Button from './_Button.svelte';
 	import ButtonGreen from './_ButtonGreen.svelte';
+	import { goto } from '$app/navigation';
 </script>
 
 <div class="rounded-lg bg-yellow-100 p-3">
@@ -21,6 +22,8 @@
 	</div>
 	<div class="mt-2">
 		<Button size="small"><i class="lni lni-search" /> {$_('search')}</Button>
-		<ButtonGreen size="small"><i class="lni lni-plus" /> {$_('addPatient')}</ButtonGreen>
+		<ButtonGreen on:click={() => goto('/NewPatient')} size="small"
+			><i class="lni lni-plus" /> {$_('addPatient')}</ButtonGreen
+		>
 	</div>
 </div>
