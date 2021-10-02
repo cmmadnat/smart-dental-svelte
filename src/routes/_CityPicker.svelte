@@ -3,6 +3,7 @@
 	import SelectBox from './_SelectBox.svelte';
 	import { _ } from 'svelte-i18n';
 	import superagent from 'superagent';
+	export let value = '';
 	let postalCode = '';
 	let subDistricts = [];
 	let selectedSubdistrict = '';
@@ -28,10 +29,10 @@
 			.get('/postalCodeInfo')
 			.query({ postalCode, subDistrict: selectedSubdistrict })
 			.then((data) => data.body)
-			.then(
-				(data) =>
-					(selectedSecondAddress = `${data.subDistrict}, ${data.districtName}, ${data.provinceName}, ${data.zipCode}`)
-			);
+			.then((data) => {
+				selectedSecondAddress = `${data.subDistrict}, ${data.districtName}, ${data.provinceName}, ${data.zipCode}`;
+				value = selectedSecondAddress;
+			});
 	};
 </script>
 

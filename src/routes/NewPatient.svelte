@@ -13,6 +13,8 @@
 	let lastName = 'Hemvimon';
 	let gender = 'm';
 	let birthday = new Date();
+	let addressLineOne = '';
+	let addressLineTwo = '';
 	/*
        let citizenID = '';
        let firstName = '';
@@ -33,6 +35,10 @@
 		console.log(gender);
 		step = 3;
 	};
+	const gotAddress = () => {
+		step = 4;
+	};
+	const myEval = (label) => eval(label);
 </script>
 
 <Header />
@@ -60,7 +66,25 @@
 	{:else if step == 3}
 		<div class="py-3 flex justify-center">
 			<Button on:click={goBack}><i class="lni lni-backward" /> {$_('back')}</Button>
-			<GetAddress />
+			<GetAddress bind:addressLineOne bind:addressLineTwo on:complete={gotAddress} />
+		</div>
+	{:else if step == 4}
+		<div class="py-3 flex justify-center">
+			<Button on:click={goBack}><i class="lni lni-backward" /> {$_('back')}</Button>
+			<div class="p-3 bg-yellow-100">
+				<h1 class="text-2xl bold mb-2">{$_('confirm')}</h1>
+				<table class="table-auto">
+					{#each ['citizenID', 'firstName', 'lastName', 'gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
+						<tr>
+							<td class="text-blue-800">{$_(a)}</td>
+							<td>{myEval(a)}</td>
+						</tr>
+					{/each}
+				</table>
+				<hr class="my-2" />
+				<Button>{$_('confirm')}</Button>
+			</div>
 		</div>
 	{/if}
+	<div />
 </div>

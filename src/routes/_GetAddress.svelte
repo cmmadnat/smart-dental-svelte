@@ -1,15 +1,16 @@
-<script>
+<script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import TextBox from './_TextBox.svelte';
 	import Button from './_Button.svelte';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
-	import DateInput from './_DateInput.svelte';
+
 	import CityPicker from './_CityPicker.svelte';
 	const dispatch = createEventDispatcher();
 	export let addressLineOne = '';
-	let error = '';
+	export let addressLineTwo = '';
+
 	const check = () => {
 		dispatch('complete');
 	};
@@ -26,7 +27,7 @@
 	<hr />
 	<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
 	<div class="my-2">
-		<CityPicker />
+		<CityPicker bind:value={addressLineTwo} />
 	</div>
 	<Button on:click={check}>{$_('next')}</Button>
 </div>
