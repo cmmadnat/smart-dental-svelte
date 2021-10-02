@@ -1,5 +1,4 @@
 <script>
-	import TextBox from './_TextBox.svelte';
 	import { _ } from 'svelte-i18n';
 	import Header from './_Navigation.svelte';
 	import LanguageSetting from './_SetLanguage.svelte';
@@ -13,8 +12,9 @@
 	let lastName = 'Hemvimon';
 	let gender = 'm';
 	let birthday = new Date();
-	let addressLineOne = '';
+	let addressLineOne = '66/97 ม.ศุภาลัย ถ.ราชมนตรี';
 	let addressLineTwo = '';
+	let phone = '0818365575';
 	/*
        let citizenID = '';
        let firstName = '';
@@ -50,7 +50,7 @@
 	<hr />
 	{#if step == 1}
 		<div class="py-3 flex justify-center">
-			<CheckCitizenID bind:citizenID on:complete={gotCitizenID} />
+			<CheckCitizenID bind:phone bind:citizenID on:complete={gotCitizenID} />
 		</div>
 	{:else if step == 2}
 		<div class="py-3 flex justify-center">
@@ -74,7 +74,7 @@
 			<div class="p-3 bg-yellow-100">
 				<h1 class="text-2xl bold mb-2">{$_('confirm')}</h1>
 				<table class="table-auto">
-					{#each ['citizenID', 'firstName', 'lastName', 'gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
+					{#each ['citizenID', 'phone', 'firstName', 'lastName', 'gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
 						<tr>
 							<td class="text-blue-800">{$_(a)}</td>
 							<td>{myEval(a)}</td>

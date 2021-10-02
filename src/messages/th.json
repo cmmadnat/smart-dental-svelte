@@ -34,5 +34,6 @@
   "postalCode": "รหัสไปรษณีย์",
   "subdistrict": "แขวง / ตำบล",
   "confirm": "ยืนยัน",
-  "gender": "เพศ"
+  "gender": "เพศ",
+  "phone": "โทรศัพท์มือถือ"
 }

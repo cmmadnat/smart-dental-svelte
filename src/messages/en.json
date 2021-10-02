@@ -34,5 +34,6 @@
   "addressLineTwo": " Address Line 2 (Subdistrict, District, Province, Zip Code)",
   "subdistrict": "Subdistrict",
   "confirm": "Confirm",
-  "gender": "Gender"
+  "gender": "Gender",
+  "phone": "Mobile Phone"
 }

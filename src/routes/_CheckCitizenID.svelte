@@ -8,6 +8,7 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	export let citizenID = '';
+	export let phone = '';
 	let error = '';
 	const check = () => {
 		const citizenIDLength = citizenID.length;
@@ -46,6 +47,8 @@
 	</p>
 	<hr />
 	<TextBox label={$_('citizenID')} bind:value={citizenID} />
+	<TextBox label={$_('phone')} bind:value={phone} />
+
 	<p class="my-2">{$_('checkDuplicateCitizenID')}</p>
 	{#if citizenID != ''}
 		<p>
