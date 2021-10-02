@@ -6,7 +6,7 @@
 	import Button from './_Button.svelte';
 	import CheckCitizenID from './_CheckCitizenID.svelte';
 	import GetBasicPatientInfo from './_GetBasicPatientInfo.svelte';
-	import GetAddress from './_GetAddress.svelte'
+	import GetAddress from './_GetAddress.svelte';
 	let step = 1;
 	let citizenID = '1100500333162';
 	let firstName = 'Thitiwat';
@@ -31,7 +31,7 @@
 		console.log(lastName);
 		console.log(birthday);
 		console.log(gender);
-			step  =3;
+		step = 3;
 	};
 </script>
 
@@ -46,7 +46,7 @@
 		<div class="py-3 flex justify-center">
 			<CheckCitizenID bind:citizenID on:complete={gotCitizenID} />
 		</div>
-	{:else if (step== 2)}
+	{:else if step == 2}
 		<div class="py-3 flex justify-center">
 			<Button on:click={goBack}><i class="lni lni-backward" /> {$_('back')}</Button>
 			<GetBasicPatientInfo
@@ -57,10 +57,10 @@
 				on:complete={gotBasicInfo}
 			/>
 		</div>
-	{:else if step ==3}
+	{:else if step == 3}
 		<div class="py-3 flex justify-center">
 			<Button on:click={goBack}><i class="lni lni-backward" /> {$_('back')}</Button>
-		<GetAddress/>
+			<GetAddress />
 		</div>
 	{/if}
 </div>

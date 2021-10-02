@@ -8,8 +8,7 @@
 	import DateInput from './_DateInput.svelte';
 	import CityPicker from './_CityPicker.svelte';
 	const dispatch = createEventDispatcher();
-	export let firstName = '';
-	export let lastName = '';
+	export let addressLineOne = '';
 	let error = '';
 	const check = () => {
 		dispatch('complete');
@@ -25,7 +24,9 @@
 		{$_('of')} <span class="text-blue-600">3</span>
 	</p>
 	<hr />
-	<TextBox label={$_('addressLineOne')} bind:value={firstName} />
-	<CityPicker/>
+	<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
+	<div class="my-2">
+		<CityPicker />
+	</div>
 	<Button on:click={check}>{$_('next')}</Button>
 </div>

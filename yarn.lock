@@ -2384,6 +2384,11 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+thai-data@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/thai-data/-/thai-data-1.0.9.tgz#e321757f91c0d5092338f6a327ef1bcf5cea2728"
+  integrity sha512-vKTSV4utaYjY424PwJzYMCO9/bifXs1MJzISxms/m5MVRAs7FZbC8ScAO5m4KHY9pVbKiKQYhvjVu1pgXzOGGA==
+
 timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
