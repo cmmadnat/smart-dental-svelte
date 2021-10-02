@@ -16,7 +16,17 @@
 	"citizenID": "บัตรประชาชน",
 	"checkDuplicateCitizenID": "เราจะตรวจสอบเลขบัตรประจำตัวประชาชนก่อนดำเนินการต่อ",
 	"checkDuplicateCitizenIDandProceed": "ตรวจสอบเลขบัตรประชาชน",
-
 	"step": "ขั้นตอนที่",
-	"of": "จาก"
+	"of": "จาก",
+	"firstName": "ชื่อจริง",
+	"lastName": "นามสกุล",
+	"next": "ต่อไป",
+	"back": "กลับ",
+	"female": "หญิง",
+	"male": "ชาย",
+	"birthday": "วันเกิด",
+	"be": "เป็น",
+	"citizenIDWrongLength": "บัตรประชาชนต้องเป็นตัวเลข 13 หลัก",
+	"citizenIDWrongFormat": "เลขบัตรประชาชนไม่ถูกต้อง",
+	"date": "วันที่"
 }
