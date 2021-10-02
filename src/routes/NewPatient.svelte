@@ -15,6 +15,8 @@
 	let addressLineOne = '66/97 ม.ศุภาลัย ถ.ราชมนตรี';
 	let addressLineTwo = '';
 	let phone = '0818365575';
+	let postalCode = '';
+	let subdistrict = '';
 	/*
        let citizenID = '';
        let firstName = '';
@@ -66,7 +68,13 @@
 	{:else if step == 3}
 		<div class="py-3 flex justify-center">
 			<Button on:click={goBack}><i class="lni lni-backward" /> {$_('back')}</Button>
-			<GetAddress bind:addressLineOne bind:addressLineTwo on:complete={gotAddress} />
+			<GetAddress
+				bind:postalCode
+				bind:subdistrict
+				bind:addressLineOne
+				bind:addressLineTwo
+				on:complete={gotAddress}
+			/>
 		</div>
 	{:else if step == 4}
 		<div class="py-3 flex justify-center">

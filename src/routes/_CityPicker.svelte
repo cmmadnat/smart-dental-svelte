@@ -4,10 +4,14 @@
 	import { _ } from 'svelte-i18n';
 	import superagent from 'superagent';
 	export let value = '';
-	let postalCode = '';
-	let subDistricts = [];
-	let selectedSubdistrict = '';
+	export let postalCode = '';
+	export let selectedSubdistrict = '';
 	let selectedSecondAddress = '';
+
+	let subDistricts = [];
+	$: {
+		selectedSecondAddress = value;
+	}
 	$: {
 		if (postalCode.length == 5) {
 			superagent

@@ -11,7 +11,7 @@
 
 	export let date = new Date();
 	let d = dayjs(date).date(),
-		m = dayjs(date).month(),
+		m = dayjs(date).month() + 1,
 		y = dayjs(date).year() + 543;
 
 	dayjs.locale('en');

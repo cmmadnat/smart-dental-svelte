@@ -10,6 +10,8 @@
 	const dispatch = createEventDispatcher();
 	export let addressLineOne = '';
 	export let addressLineTwo = '';
+	export let postalCode = '';
+	export let subdistrict = '';
 
 	const check = () => {
 		dispatch('complete');
@@ -27,7 +29,11 @@
 	<hr />
 	<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
 	<div class="my-2">
-		<CityPicker bind:value={addressLineTwo} />
+		<CityPicker
+			bind:postalCode
+			bind:selectedSubdistrict={subdistrict}
+			bind:value={addressLineTwo}
+		/>
 	</div>
 	<Button on:click={check}>{$_('next')}</Button>
 </div>
