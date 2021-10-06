@@ -8,20 +8,8 @@
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '../_SetLanguage.svelte';
+	const random = Math.random()
 
-	let fakeAccount: Account[] = [];
-
-	for (let i = 0; i < 20; i++) {
-		fakeAccount = [
-			...fakeAccount,
-			{
-				firstName: 'FakeFirstName' + i,
-				lastName: 'fakeLastName' + i,
-				age: Math.floor((Math.random() * 100) % 60),
-				citizenID: '' + Math.floor(Math.random() * Math.pow(10, 13))
-			}
-		];
-	}
 </script>
 
 <Header />
@@ -31,4 +19,5 @@
 		<LanguageSetting />
 	</div>
 	<hr />
+	Hello world
 </div>
