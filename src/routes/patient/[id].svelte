@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '../_SetLanguage.svelte';
+	import Schedule from './_Schedule.svelte';
 	/*eslint-disable*/
 	const citizenID = '1100500333162',
 		phone = '0818365575',
@@ -24,13 +25,25 @@
 		<LanguageSetting />
 	</div>
 	<hr />
-	Display name and other information
-	<table class="table-auto">
-		{#each ['citizenID', 'phone', 'firstName', 'lastName', 'gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
-			<tr>
-				<td class="text-blue-800">{$_(a)}</td>
-				<td>{myEval(a)}</td>
-			</tr>
-		{/each}
-	</table>
+	<div class="flex bg-blue-50 my-2">
+		<table class="table-auto">
+			{#each ['citizenID', 'phone', 'firstName', 'lastName'] as a}
+				<tr>
+					<td class="text-blue-800 text-right p-2">{$_(a)}</td>
+					<td class="p-2">{myEval(a)}</td>
+				</tr>
+			{/each}
+		</table>
+		<table class="table-auto">
+			{#each ['gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
+				<tr>
+					<td class="text-blue-800 text-right p-2">{$_(a)}</td>
+					<td class="p-2">{myEval(a)}</td>
+				</tr>
+			{/each}
+		</table>
+	</div>
+	<div>
+		<Schedule {citizenID} />
+	</div>
 </div>
