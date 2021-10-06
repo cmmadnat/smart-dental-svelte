@@ -19,5 +19,5 @@
 		<LanguageSetting />
 	</div>
 	<hr />
-	Hello world
+	Display name and other information
 </div>
