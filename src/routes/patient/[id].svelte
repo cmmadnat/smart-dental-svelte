@@ -1,15 +1,10 @@
 <script lang="ts">
-	interface Account {
-		firstName: string;
-		lastName: string;
-		age: number;
-		citizenID: string;
-	}
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '../_SetLanguage.svelte';
-	const random = Math.random()
-
+	const myEval = (q: string) => {
+		return eval(q);
+	};
 </script>
 
 <Header />
