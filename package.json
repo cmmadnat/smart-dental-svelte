@@ -41,6 +41,9 @@
 	"type": "module",
 	"dependencies": {},
 	"lint-staged": {
-		"*.svelte":["prettier --write", "eslint --fix --max-warnings 0"]
+		"*.svelte": [
+			"prettier --write",
+			"eslint --fix --max-warnings 0"
+		]
 	}
 }

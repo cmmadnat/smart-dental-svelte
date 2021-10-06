@@ -2,6 +2,16 @@
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '../_SetLanguage.svelte';
+	/*eslint-disable*/
+	const citizenID = '1100500333162',
+		phone = '0818365575',
+		firstName = 'Thitiwat',
+		lastName = 'Hemvimon',
+		gender = 'm',
+		birthday = '2-5-1989',
+		addressLineOne = '66/97 M.Supalai Ratchamontri Rd.',
+		addressLineTwo = 'Bangpai, Bangkae, Bangkok, 10160';
+	/*eslint-enable*/
 	const myEval = (q: string) => {
 		return eval(q);
 	};
