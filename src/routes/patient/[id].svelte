@@ -10,7 +10,7 @@
 	import LanguageSetting from '../_SetLanguage.svelte';
 
 	let fakeAccount: Account[] = [];
-	const random = Math.random();
+
 	for (let i = 0; i < 20; i++) {
 		fakeAccount = [
 			...fakeAccount,
