@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let size: 'small' | 'regular' | 'large' = 'small';
-	export let type = 'button'
+	export let type = 'button';
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	const click = (e) => {

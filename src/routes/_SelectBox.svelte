@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	export let options: { id: string; label: string }[] = [];
-	export let label: string = '';
-	export let value: string = '';
+	export let label = '';
+	export let value = '';
 	const dispatch = createEventDispatcher();
 	const change = () => {
 		dispatch('change');

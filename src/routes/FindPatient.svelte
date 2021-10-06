@@ -1,3 +1,20 @@
+<script context="module">
+	/**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
+	export async function load({ page }) {
+		const query = page.query.get('query');
+		if (query)
+			return {
+				props: {
+					query
+				}
+			};
+
+		return {};
+	}
+</script>
+
 <script lang="ts">
 	interface Account {
 		firstName: string;
@@ -13,6 +30,7 @@
 
 	let fakeAccount: Account[] = [];
 	const random = Math.random();
+	export let query = '';
 	for (let i = 0; i < 20; i++) {
 		fakeAccount = [
 			...fakeAccount,
@@ -34,7 +52,7 @@
 	</div>
 	<hr />
 	<div class=" p-4">
-		<SearchUser />
+		<SearchUser {query} />
 	</div>
 	<table class="table-auto w-full border-2 ">
 		<thead>

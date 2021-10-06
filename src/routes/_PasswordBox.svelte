@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	export let label: string;
-	export let hint: string = '';
-	export let value: string = '';
+	export let hint = '';
+	export let value = '';
 </script>
 
 <label for={label}>
