@@ -1,5 +1,6 @@
-<script context="module">
-	export async function load({ session }) {
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	export function load({ session }: LoadInput): LoadOutput {
 		if (session.user) {
 			return {
 				status: 302,
@@ -12,7 +13,7 @@
 
 <script>
 	import { goto } from '$app/navigation';
-	import { _, locale } from 'svelte-i18n';
+	import { _ } from 'svelte-i18n';
 	import PasswordBox from './_PasswordBox.svelte';
 	import LanguageSetting from './_SetLanguage.svelte';
 	import TextBox from './_TextBox.svelte';

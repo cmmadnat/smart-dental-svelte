@@ -18,10 +18,6 @@
 			return parts[0] === name ? decodeURIComponent(parts[1]) : r;
 		}, '');
 	};
-
-	const deleteCookie = (name, path) => {
-		setCookie(name, '', -1, path);
-	};
 </script>
 
 <div class="flex text-gray-400">

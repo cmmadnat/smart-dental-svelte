@@ -3,7 +3,7 @@
 	let step = 1;
 	import TextBox from './_TextBox.svelte';
 	import Button from './_Button.svelte';
-	import { slide, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -24,7 +24,7 @@
 	};
 	function IsNumeric(input) {
 		var RE =
-			/^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+			/^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[.,]))([.,][0-9]+)?([eE]-?\d+)?))$/;
 		return RE.test(input);
 	}
 	function Script_checkID(id) {

@@ -1,8 +1,7 @@
-<script context="module">
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
-	export async function load({ page }) {
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export function load({ page }: LoadInput): LoadOutput {
 		const query = page.query.get('query');
 		if (query)
 			return {
@@ -29,7 +28,7 @@
 	import SearchUser from './_SearchUser.svelte';
 
 	let fakeAccount: Account[] = [];
-	const random = Math.random();
+
 	export let query = '';
 	for (let i = 0; i < 20; i++) {
 		fakeAccount = [

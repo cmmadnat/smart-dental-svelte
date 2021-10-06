@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import Button from './_Button.svelte';
+
 	let query = '';
 	const fakeNames = [
 		'กฤตยา อดุสาระดี',
