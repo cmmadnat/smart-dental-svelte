@@ -6,10 +6,12 @@
 </script>
 
 <div class="rounded-lg bg-yellow-100 p-3">
+	<form action='/FindPatient' method='get'>
 	<h1 class="text-xl bold mb-3">{$_('searchUser')}</h1>
 	<!-- Regular Input -->
 	<div class="relative flex w-full flex-wrap items-stretch mb-3">
 		<input
+			name='query'
 			type="text"
 			placeholder={$_('searchUser') + '...'}
 			class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
@@ -21,9 +23,10 @@
 		</span>
 	</div>
 	<div class="mt-2">
-		<Button size="small"><i class="lni lni-search" /> {$_('search')}</Button>
+		<Button type='submit' size="small"><i class="lni lni-search" /> {$_('search')}</Button>
 		<ButtonGreen on:click={() => goto('/NewPatient')} size="small"
 			><i class="lni lni-plus" /> {$_('addPatient')}</ButtonGreen
 		>
 	</div>
+	</form>
 </div>
