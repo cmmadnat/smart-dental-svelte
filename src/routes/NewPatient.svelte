@@ -6,23 +6,31 @@
 	import CheckCitizenID from './_CheckCitizenID.svelte';
 	import GetBasicPatientInfo from './_GetBasicPatientInfo.svelte';
 	import GetAddress from './_GetAddress.svelte';
+	import { goto } from '$app/navigation';
 	let step = 1;
-	let citizenID = '1100500333162';
-	let firstName = 'Thitiwat';
-	let lastName = 'Hemvimon';
+
+	// let citizenID = '1100500333162';
+	// let firstName = 'Thitiwat';
+	// let lastName = 'Hemvimon';
+	// let gender = 'm';
+	// let birthday = new Date();
+	// let addressLineOne = '66/97 ม.ศุภาลัย ถ.ราชมนตรี';
+	// let addressLineTwo = '';
+	// let phone = '0818365575';
+	// let postalCode = '';
+	// let subdistrict = '';
+
+	let citizenID = '';
+	let firstName = '';
+	let lastName = '';
 	let gender = 'm';
 	let birthday = new Date();
-	let addressLineOne = '66/97 ม.ศุภาลัย ถ.ราชมนตรี';
+	let addressLineOne = '';
 	let addressLineTwo = '';
-	let phone = '0818365575';
+	let phone = '';
 	let postalCode = '';
 	let subdistrict = '';
-	/*
-       let citizenID = '';
-       let firstName = '';
-       let lastName = '';
-       let gender = 'm';
-	*/
+
 	const goBack = () => {
 		step = step - 1;
 	};
@@ -39,6 +47,9 @@
 	};
 	const gotAddress = () => {
 		step = 4;
+	};
+	const confirm = () => {
+		goto('/FindPatient');
 	};
 	const myEval = (label) => eval(label);
 </script>
@@ -90,7 +101,7 @@
 					{/each}
 				</table>
 				<hr class="my-2" />
-				<Button>{$_('confirm')}</Button>
+				<Button on:click={confirm}>{$_('confirm')}</Button>
 			</div>
 		</div>
 	{/if}

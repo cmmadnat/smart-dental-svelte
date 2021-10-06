@@ -10,6 +10,7 @@ const config = {
 		},
 
 		extend: {
+			
 			minHeight: {
 				'screen-75': '75vh'
 			},

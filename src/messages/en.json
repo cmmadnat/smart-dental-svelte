@@ -35,5 +35,8 @@
   "subdistrict": "Subdistrict",
   "confirm": "Confirm",
   "gender": "Gender",
-  "phone": "Mobile Phone"
+  "phone": "Mobile Phone",
+  "findPatient": "Find Patient",
+  "age": "Age",
+  "patientDetail": "Patient Detail"
 }
