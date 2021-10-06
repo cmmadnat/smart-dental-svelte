@@ -20,4 +20,12 @@
 	</div>
 	<hr />
 	Display name and other information
+	<table class="table-auto">
+		{#each ['citizenID', 'phone', 'firstName', 'lastName', 'gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
+			<tr>
+				<td class="text-blue-800">{$_(a)}</td>
+				<td>{myEval(a)}</td>
+			</tr>
+		{/each}
+	</table>
 </div>
