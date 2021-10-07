@@ -6,8 +6,6 @@
 	import ButtonGreen from '../_ButtonGreen.svelte';
 
 	dayjs.extend(LocalizedFormat);
-	// eslint-ignore-line
-	export const citizenID = '';
 </script>
 
 <h1 class="text-2xl my-2 bold text-blue-800">{$_('schedule')}</h1>

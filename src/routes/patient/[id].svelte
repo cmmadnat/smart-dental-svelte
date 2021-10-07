@@ -3,6 +3,7 @@
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '../_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
+	import NewRecord from './_NewRecord.svelte';
 	/*eslint-disable*/
 	const citizenID = '1100500333162',
 		phone = '0818365575',
@@ -25,7 +26,7 @@
 		<LanguageSetting />
 	</div>
 	<hr />
-	<div class="flex bg-blue-50 my-2">
+	<div class="flex bg-blue-50 my-2 p-2">
 		<table class="table-auto">
 			{#each ['citizenID', 'phone', 'firstName', 'lastName'] as a}
 				<tr>
@@ -44,8 +45,11 @@
 		</table>
 	</div>
 	<div class="flex">
-		<div class="w-1/3">
-			<Schedule {citizenID} />
+		<div class="w-1/3 p-2">
+			<Schedule />
+		</div>
+		<div class="w-2/3 p-2">
+			<NewRecord />
 		</div>
 	</div>
 </div>
