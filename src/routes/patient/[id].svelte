@@ -4,6 +4,7 @@
 	import LanguageSetting from '../_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
 	import NewRecord from './_NewRecord.svelte';
+	import Visits from './_Visits.svelte';
 	/*eslint-disable*/
 	const citizenID = '1100500333162',
 		phone = '0818365575',
@@ -47,6 +48,7 @@
 	<div class="flex">
 		<div class="w-1/3 p-2">
 			<Schedule />
+			<Visits />
 		</div>
 		<div class="w-2/3 p-2">
 			<NewRecord />
