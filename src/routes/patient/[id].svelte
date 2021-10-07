@@ -4,8 +4,7 @@
 	import LanguageSetting from '../_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
 	/*eslint-disable*/
-	const citizenID = '1100500333162',
-		phone = '0818365575',
+	const citizenID = '1100500333162', phone = '0818365575',
 		firstName = 'Thitiwat',
 		lastName = 'Hemvimon',
 		gender = 'm',
@@ -43,7 +42,9 @@
 			{/each}
 		</table>
 	</div>
-	<div>
-		<Schedule {citizenID} />
+	<div class='flex'>
+		<div class='w-1/3'>
+			<Schedule {citizenID} />
+		</div>
 	</div>
 </div>
