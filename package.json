@@ -12,6 +12,7 @@
 		"prepare": "husky install"
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/forms": "^0.3.3",
 		"@typescript-eslint/eslint-plugin": "^4.31.1",
@@ -43,7 +44,7 @@
 	"lint-staged": {
 		"*.{svelte,js,ts,html,css}": [
 			"prettier --write",
-			"eslint --fix --max-warnings 0"
+			"eslint --fix"
 		]
 	}
 }

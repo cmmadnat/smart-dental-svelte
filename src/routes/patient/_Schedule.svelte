@@ -1,6 +1,6 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
-	import LocalizedFormat from 'dayjs/plugin/localizedFormat';
+	import LocalizedFormat from 'dayjs/plugin/localizedFormat.js';
 	import { _ } from 'svelte-i18n';
 	import ButtonRed from '../_ButtonRed.svelte';
 	import ButtonGreen from '../_ButtonGreen.svelte';

@@ -1,9 +1,9 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import dayjs from 'dayjs';
-	import localeData from 'dayjs/plugin/localeData';
-	import customParseFormat from 'dayjs/plugin/customParseFormat';
-	import 'dayjs/locale/th';
+	import localeData from 'dayjs/plugin/localeData.js';
+	import customParseFormat from 'dayjs/plugin/customParseFormat.js';
+	import 'dayjs/locale/th.js';
 
 	dayjs.extend(localeData);
 	dayjs.extend(customParseFormat);
