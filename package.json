@@ -44,7 +44,8 @@
 	"lint-staged": {
 		"*.{svelte,js,ts,html,css}": [
 			"prettier --write",
-			"eslint --fix"
+			"eslint --fix  --max-warnings 0"
+
 		]
 	}
 }
