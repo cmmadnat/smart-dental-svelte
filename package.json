@@ -45,7 +45,6 @@
 		"*.{svelte,js,ts,html,css}": [
 			"prettier --write",
 			"eslint --fix  --max-warnings 0"
-
 		]
 	}
 }
