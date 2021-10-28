@@ -49,5 +49,13 @@
   "save": "Save",
   "view": "View",
   "videoCall": "Telemedicine",
-  "title": "Name Title"
+  "title": "Name Title",
+  "email": "E-Mail",
+  "cardNumber": "Card Number",
+  "verifyPassword": "Retype Password",
+  "agreeAndConfirm": "Agree And Confirm Signup",
+  "userAgreement": "User Agreement",
+  "agreeTo": "Agree to",
+  "signup": "Sign Up",
+  "IDCard": "ID Card"
 }
