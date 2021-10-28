@@ -37,7 +37,7 @@
 
 <div class="container mx-auto flex justify-center ">
 	<div
-		class="p-3 mt-40 w-1/2 object-center bg-white shadow-lg flex justify-center flex-col items-center"
+		class="p-3 mt-40 lg:w-1/2 object-center bg-white shadow-lg flex justify-center flex-col items-center"
 	>
 		<img src="/Mahidol_dentis_th.png" class="w-96 shadowfilter" alt="" />
 		<h1 class="text-xl my-2 w-2/3">
