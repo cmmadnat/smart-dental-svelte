@@ -58,5 +58,12 @@
   "agreeTo": "Agree to",
   "signup": "Sign Up",
   "IDCard": "ID Card",
-  "personalInfo": "Personal Info"
+  "personalInfo": "Personal Info",
+  "middleName": "Middle Name",
+  "expireDate": "Expire Date",
+  "nationality": "Nationality",
+  "religion": "Religion",
+  "occupation": "Occupation",
+  "organization": "Organization",
+  "maritalStatus": "Marital Status"
 }

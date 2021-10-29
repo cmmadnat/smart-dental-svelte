@@ -51,5 +51,19 @@
   "view": "ดู",
   "title": "คำนำหน้า",
   "email": "อีเมล",
-  "personalInfo": "ข้อมูลส่วนตัว"
+  "personalInfo": "ข้อมูลส่วนตัว",
+  "IDCard": "บัตรประจำตัวประชาชน",
+  "agreeAndConfirm": "ตกลงและยืนยันการสมัคร",
+  "agreeTo": "เห็นด้วยกับ",
+  "cardNumber": "หมายเลขบัตร",
+  "signup": "ลงชื่อ",
+  "userAgreement": "ข้อตกลงการใช้",
+  "verifyPassword": "พิมพ์รหัสผ่านอีกครั้ง",
+  "expireDate": "วันที่หมดอายุ",
+  "middleName": "ชื่อกลาง",
+  "nationality": "สัญชาติ",
+  "religion": "ศาสนา",
+  "maritalStatus": "สถานภาพการสมรส",
+  "occupation": "อาชีพ",
+  "organization": "องค์กร"
 }
