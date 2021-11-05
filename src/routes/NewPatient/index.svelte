@@ -4,6 +4,7 @@
 	import LanguageSetting from '../_SetLanguage.svelte';
 	import Menu from '../_menu.svelte';
 	import PersonalInfo from './_PersonalInfo.svelte';
+	import AddressInfo from './_AddressInfo.svelte';
 </script>
 
 <Header />
@@ -20,6 +21,7 @@
 		</div>
 		<div class="md:w-2/3 ">
 			<PersonalInfo />
+			<AddressInfo />
 		</div>
 	</div>
 </div>
