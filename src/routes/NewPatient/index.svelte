@@ -5,6 +5,7 @@
 	import Menu from '../_menu.svelte';
 	import PersonalInfo from './_PersonalInfo.svelte';
 	import AddressInfo from './_AddressInfo.svelte';
+	import FamilyInfo from './_FamilyInfo.svelte';
 </script>
 
 <Header />
@@ -22,6 +23,7 @@
 		<div class="md:w-2/3 ">
 			<PersonalInfo />
 			<AddressInfo />
+			<FamilyInfo />
 		</div>
 	</div>
 </div>
