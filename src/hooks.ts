@@ -1,5 +1,10 @@
 import 'reflect-metadata';
 import { connectionToDatabase } from '$lib/database';
 
-console.log('Connecting to database...');
-connectionToDatabase();
+import type { Handle } from '@sveltejs/kit/types/hooks';
+
+export const handle: Handle = ({ request, resolve }) => {
+	console.log('Connecting to database...');
+	connectionToDatabase().then(() => console.log('database connected'));
+	return resolve(request);
+};

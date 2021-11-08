@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { AppUser } from '$lib/AppUser';
+import { AppUser } from '$lib/entity/AppUser';
 
 export const post: RequestHandler = async ({ body }) => {
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment

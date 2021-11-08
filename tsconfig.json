@@ -1,9 +1,7 @@
 {
 	"compilerOptions": {
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
 		"moduleResolution": "node",
-		"module": "es2020",
+		"module": "ES2020",
 		"lib": [
 			"es2020",
 			"DOM"
@@ -34,7 +32,9 @@
 			"$lib/*": [
 				"src/lib/*"
 			]
-		}
+		},
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
 	},
 	"include": [
 		"src/**/*.d.ts",
