@@ -80,10 +80,10 @@
 			</div>
 
 			<div class="p-2 w-1/2">
-				<TextBox label={$_('password')} />
+				<TextBox type="password" label={$_('password')} />
 			</div>
 			<div class="p-2 w-1/2">
-				<TextBox label={$_('verifyPassword')} />
+				<TextBox type="password" label={$_('verifyPassword')} />
 			</div>
 			<hr class="w-full my-2" />
 			<div class="text-center w-full flex justify-center">

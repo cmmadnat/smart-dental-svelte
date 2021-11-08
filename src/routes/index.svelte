@@ -66,6 +66,14 @@
 				>
 					{$_('login')}
 				</button>
+				<button
+					class="mt-2 bg-rose-500 text-white active:bg-rose-600 font-bold uppercase text-base px-8 py-3 rounded-full shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+					on:click={() => {
+						goto('/sign-up');
+					}}
+				>
+					{$_('register')}
+				</button>
 			</form>
 		</div>
 
