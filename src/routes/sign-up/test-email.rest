@@ -1,0 +1,4 @@
+POST http://localhost:3000/sign-up/check-duplicate-email HTTP/1.1
+Content-Type: application/json
+
+{"email":"cmmadnat@gmail.com"}

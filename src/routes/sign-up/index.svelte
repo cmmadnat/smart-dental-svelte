@@ -2,15 +2,16 @@
 	import request from 'superagent';
 	import Papa from 'papaparse';
 	import { _ } from 'svelte-i18n';
-	import LanguageSetting from './_SetLanguage.svelte';
+	import LanguageSetting from '../_SetLanguage.svelte';
 	import { onMount } from 'svelte';
-	import TextBox from './_TextBox.svelte';
-	import ButtonGreen from './_ButtonGreen.svelte';
+	import TextBox from '../_TextBox.svelte';
+	import ButtonGreen from '../_ButtonGreen.svelte';
 
-	import SelectBox from './_SelectBox.svelte';
-	import ErrorBox from './_ErrorBox.svelte';
-	import checkCitizenID from './citizenIDValidator';
-	import emailValidator from './emailValidator';
+	import SelectBox from '../_SelectBox.svelte';
+	import ErrorBox from '../_ErrorBox.svelte';
+	import checkCitizenID from '../citizenIDValidator';
+	import emailValidator from '../emailValidator';
+
 	let gender = 'm';
 	let titles;
 	// data form
@@ -70,6 +71,12 @@
 		if (!emailValidator(email)) {
 			error = $_('email') + ' ' + $_('wrong');
 		}
+		// check email duplicate
+		request
+			.post('/sign-up/check-duplicate-email')
+			.send({ email })
+			.then((data) => data.body)
+			.then((data) => alert(data));
 	};
 </script>
 
