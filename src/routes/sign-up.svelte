@@ -9,6 +9,8 @@
 
 	import SelectBox from './_SelectBox.svelte';
 	import ErrorBox from './_ErrorBox.svelte';
+	import checkCitizenID from './citizenIDValidator';
+	import emailValidator from './emailValidator';
 	let gender = 'm';
 	let titles;
 	// data form
@@ -54,6 +56,20 @@
 			}
 			return true;
 		});
+		if (error !== '') return;
+
+		if (IDCard === '1' && !checkCitizenID(cardNumber)) {
+			error = $_('cardNumber') + ' ' + $_('wrong');
+		}
+		if (mobile.length !== 10 || mobile.substring(0, 1) !== '0') {
+			error = $_('mobile') + ' ' + $_('wrong');
+		}
+		if (verifyPassword !== password) {
+			error = $_('passwordNotMatch');
+		}
+		if (!emailValidator(email)) {
+			error = $_('email') + ' ' + $_('wrong');
+		}
 	};
 </script>
 
@@ -84,10 +100,14 @@
 					<div class="text-center py-5">
 						<p class="my-2">
 							<span>{$_('gender')}</span>
-							<input type="radio" bind:group={gender} value="m" id="male" />
-							<label for="male">{$_('male')}</label>
-							<input type="radio" bind:group={gender} value="f" id="female" />
-							<label for="female"> {$_('female')}</label>
+							<label for="male">
+								<input type="radio" name="gender" bind:group={gender} value="m" id="male" />
+								{$_('male')}</label
+							>
+							<label for="female">
+								<input type="radio" name="gender" bind:group={gender} value="f" id="female" />
+								{$_('female')}</label
+							>
 						</p>
 					</div>
 				</div>

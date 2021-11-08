@@ -74,5 +74,6 @@
   "motherName": "ชื่อแม่",
   "sprouseName": "ชื่อคู่สมรส",
   "workPhone": "โทรศัพท์ที่ทำงาน",
-  "pleaseInput": "กรุณากรอก"
+  "pleaseInput": "กรุณากรอก",
+  "wrong": "ผิด"
 }

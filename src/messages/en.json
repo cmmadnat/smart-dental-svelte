@@ -75,5 +75,7 @@
   "familyInfo": "Family Info",
   "motherName": "Mother Name",
   "sprouseName": "Sprouse Name",
-  "pleaseInput": "Please Input"
+  "pleaseInput": "Please Input",
+  "wrong": "is wrong.",
+  "passwordNotMatch": "Password and verify password does not match."
 }
