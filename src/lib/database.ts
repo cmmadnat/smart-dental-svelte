@@ -1,5 +1,4 @@
 import { createConnection, Connection } from 'typeorm';
-import { AppUser } from './entity/AppUser';
 
 export function connectionToDatabase(): Promise<Connection> {
 	const connection = createConnection({
@@ -9,8 +8,11 @@ export function connectionToDatabase(): Promise<Connection> {
 		username: 'web_user',
 		password: '1234',
 		database: 'smart-dental',
-		entities: [AppUser],
+		entities: ['./entity/**'],
 		synchronize: true
+	}).then((connection) => {
+		// const titles = await checkTitles();
+		return connection;
 	});
 	return connection;
 }

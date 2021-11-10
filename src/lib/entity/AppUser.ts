@@ -1,12 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, BaseEntity, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, BaseEntity, Column, ManyToOne } from 'typeorm';
+import { Title } from './Titles';
 
 @Entity()
 export class AppUser extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({ length: 3, type: 'varchar' })
-	title: string;
+	// @Column({ length: 3, type: 'varchar' })
+	// title: string;
+	@ManyToOne(() => Title, (title) => title.users)
+	title: Title;
 	@Column({ length: 50, type: 'varchar' })
 	firstName: string;
 	@Column({ length: 50, type: 'varchar' })
