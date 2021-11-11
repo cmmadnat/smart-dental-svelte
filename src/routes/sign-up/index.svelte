@@ -33,11 +33,22 @@
 			.then((data) => (titles = data.map((it) => ({ label: it.TITLE, id: it.CODE }))));
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		//@ts-ignore
-		hcaptcha.render('captcha'); // eslint-disable-line no-undef
+		widgetID = hcaptcha.render('captcha'); // eslint-disable-line no-undef
 	});
 	let error = '';
+	let widgetID = '';
 	const submit = (e: Event) => {
 		e.preventDefault();
+
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		const hcaptchaResponse = hcaptcha.getRespKey(widgetID); // eslint-disable-line no-undef
+		console.log(hcaptchaResponse);
+		if (hcaptchaResponse === '') {
+			error = 'กรุณาติ๊กที่ I am human เพื่อยืนยันตัวตน';
+			return;
+		}
+
 		const fields = [
 			'title',
 			'firstName',
@@ -167,7 +178,7 @@
 						<a class="underline" href="/" target="_blank">{$_('userAgreement')}</a>
 					</div>
 					<div class="w-1/2 text-center my-2">
-						<ButtonGreen>{$_('agreeAndConfirm')}</ButtonGreen>
+						<ButtonGreen type="submit">{$_('agreeAndConfirm')}</ButtonGreen>
 					</div>
 				</div>
 			</div>
