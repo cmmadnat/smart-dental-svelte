@@ -7,6 +7,7 @@ export const checkTitles = async (): Promise<Title[]> => {
 		const t = new Title();
 		t.code = element['CODE'];
 		t.name = element.TITLE;
+		t.users = [];
 		return t;
 	});
 	return d2;
