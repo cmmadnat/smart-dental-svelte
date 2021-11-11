@@ -8,7 +8,7 @@ export function connectionToDatabase(): Promise<Connection> {
 		username: 'web_user',
 		password: '1234',
 		database: 'smart-dental',
-		entities: ['./entity/**'],
+		entities: ['src/lib/entity/**'],
 		synchronize: true
 	}).then((connection) => {
 		// const titles = await checkTitles();

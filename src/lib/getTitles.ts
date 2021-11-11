@@ -1,4 +1,4 @@
-import { Title } from './entity/Titles';
+import { Title } from './entity/Title';
 import fs from 'fs';
 import Papa from 'papaparse';
 export const checkTitles = async (): Promise<Title[]> => {

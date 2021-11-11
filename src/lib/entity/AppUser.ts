@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, BaseEntity, Column, ManyToOne } from 'typeorm';
-import { Title } from './Titles';
+import { Title } from './Title';
 
 @Entity()
 export class AppUser extends BaseEntity {
