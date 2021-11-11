@@ -1,6 +1,7 @@
 import { connectionToDatabase } from './database';
 import { transformAppUser } from './signupService';
 import bcrypt from 'bcrypt';
+import { getConnection } from 'typeorm';
 
 beforeAll(async () => {
 	await connectionToDatabase();
@@ -23,8 +24,7 @@ test('it should tranform appuser stream data to appuser object', async () => {
 		cardNumber,
 		mobile,
 		email,
-		password,
-		verifyPassword
+		password
 	);
 	expect(appUser.title.name).toBe('นาย');
 	expect(appUser.firstName).toBe(firstName);
@@ -49,4 +49,7 @@ test('it should convert the password to bcrypt format', async () => {
 		verifyPassword
 	);
 	return expect(await bcrypt.compare(password, appUser.password)).toBeTruthy();
+});
+afterAll(async () => {
+	await getConnection().close();
 });
