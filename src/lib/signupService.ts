@@ -33,3 +33,7 @@ export const transformAppUser = async (
 	appUser.password = bcrypt.hashSync(password, 10);
 	return appUser;
 };
+
+export const checkDuplicateEmail = (email: string): boolean => {
+	return AppUser.findOne({ email }) != null;
+};

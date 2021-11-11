@@ -1,5 +1,5 @@
 import { connectionToDatabase } from './database';
-import { transformAppUser } from './signupService';
+import { checkDuplicateEmail, transformAppUser } from './signupService';
 import bcrypt from 'bcrypt';
 import { getConnection } from 'typeorm';
 
@@ -13,8 +13,8 @@ const title = '002',
 	cardNumber = '1100500333162',
 	mobile = '0818365575',
 	email = 'cmmadnat@gmail.com',
-	password = 'qwer1234',
-	verifyPassword = 'qwer1234';
+	password = 'qwer1234';
+
 test('it should tranform appuser stream data to appuser object', async () => {
 	const appUser = await transformAppUser(
 		title,
@@ -45,10 +45,26 @@ test('it should convert the password to bcrypt format', async () => {
 		cardNumber,
 		mobile,
 		email,
-		password,
-		verifyPassword
+		password
 	);
 	return expect(await bcrypt.compare(password, appUser.password)).toBeTruthy();
+});
+
+test('it should check for duplicate email', async () => {
+	const appUser = await transformAppUser(
+		title,
+		firstName,
+		lastName,
+		IDCard,
+		cardNumber,
+		mobile,
+		email,
+		password
+	);
+	const a2 = await appUser.save();
+	const result = checkDuplicateEmail(email);
+	expect(result).toBeTruthy();
+	await a2.remove();
 });
 afterAll(async () => {
 	await getConnection().close();
