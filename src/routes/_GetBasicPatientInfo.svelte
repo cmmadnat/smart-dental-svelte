@@ -1,11 +1,11 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import TextBox from '../lib/_TextBox.svelte';
-	import Button from '../lib/_Button.svelte';
+	import TextBox from '$lib/_TextBox.svelte';
+	import Button from '$lib/_Button.svelte';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
-	import DateInput from '../lib/_DateInput.svelte';
+	import DateInput from '$lib/_DateInput.svelte';
 	const dispatch = createEventDispatcher();
 	export let firstName = '';
 	export let lastName = '';

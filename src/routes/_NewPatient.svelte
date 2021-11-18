@@ -2,7 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import Header from './_Navigation.svelte';
 	import LanguageSetting from './_SetLanguage.svelte';
-	import Button from '../lib/_Button.svelte';
+	import Button from '$lib/_Button.svelte';
 	import CheckCitizenID from './_CheckCitizenID.svelte';
 	import GetBasicPatientInfo from './_GetBasicPatientInfo.svelte';
 	import GetAddress from './_GetAddress.svelte';

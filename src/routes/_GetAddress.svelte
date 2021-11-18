@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import TextBox from '../lib/_TextBox.svelte';
-	import Button from '../lib/_Button.svelte';
+	import TextBox from '$lib/_TextBox.svelte';
+	import Button from '$lib/_Button.svelte';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';

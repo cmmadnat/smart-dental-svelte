@@ -1,6 +1,6 @@
 <script>
-	import TextBox from '../lib/_TextBox.svelte';
-	import SelectBox from '../lib/_SelectBox.svelte';
+	import TextBox from '$lib/_TextBox.svelte';
+	import SelectBox from '$lib/_SelectBox.svelte';
 	import { _ } from 'svelte-i18n';
 	import superagent from 'superagent';
 	export let value = '';

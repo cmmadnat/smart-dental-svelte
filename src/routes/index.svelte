@@ -16,7 +16,7 @@
 	import { _ } from 'svelte-i18n';
 	import PasswordBox from './_PasswordBox.svelte';
 	import LanguageSetting from './_SetLanguage.svelte';
-	import TextBox from '../lib/_TextBox.svelte';
+	import TextBox from '$lib/_TextBox.svelte';
 	import request from 'superagent';
 	let username = '';
 	let password = '';
