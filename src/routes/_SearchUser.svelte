@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import Button from './_Button.svelte';
+	import Button from '../lib/_Button.svelte';
 	import ButtonGreen from './_ButtonGreen.svelte';
 	import { goto } from '$app/navigation';
 	export let query = '';

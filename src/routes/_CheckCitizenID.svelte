@@ -1,8 +1,8 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	let step = 1;
-	import TextBox from './_TextBox.svelte';
-	import Button from './_Button.svelte';
+	import TextBox from '../lib/_TextBox.svelte';
+	import Button from '../lib/_Button.svelte';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
