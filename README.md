@@ -4,6 +4,14 @@
 
 1. Node.JS (14.16.0 or higher)
 2. Yarn (Optional)
+3. supply a config file called .env
+```
+VITE_DB_HOST=
+VITE_DB_USER=
+VITE_DB_PASS=
+VITE_DB_PORT=
+VITE_DB_DATABASE=
+```
 
 ## Clone and build from source
 

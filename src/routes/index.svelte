@@ -15,7 +15,7 @@
 	import { goto } from '$app/navigation';
 	import { _ } from 'svelte-i18n';
 	import PasswordBox from './_PasswordBox.svelte';
-	import LanguageSetting from './_SetLanguage.svelte';
+	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import TextBox from '$lib/_TextBox.svelte';
 	import request from 'superagent';
 	let username = '';

@@ -1,7 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Button from '$lib/_Button.svelte';
-	import ButtonGreen from './_ButtonGreen.svelte';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	import { goto } from '$app/navigation';
 	export let query = '';
 </script>

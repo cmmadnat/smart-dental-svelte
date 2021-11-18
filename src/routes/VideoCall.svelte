@@ -14,7 +14,7 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import LanguageSetting from './_SetLanguage.svelte';
+	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import { _ } from 'svelte-i18n';
 	export let room;
 	onMount(() => {

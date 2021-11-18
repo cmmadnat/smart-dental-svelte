@@ -1,7 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n';
 	import Header from './_Navigation.svelte';
-	import LanguageSetting from './_SetLanguage.svelte';
+	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import SearchUser from './_SearchUser.svelte';
 	import SearchDoctor from './_SearchDoctor.svelte';
 	import Menu from './_menu.svelte';

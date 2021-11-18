@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
-	import LanguageSetting from '../_SetLanguage.svelte';
+	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
 	import NewRecord from './_NewRecord.svelte';
 	import Visits from './_Visits.svelte';

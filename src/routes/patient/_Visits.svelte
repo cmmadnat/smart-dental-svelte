@@ -2,7 +2,7 @@
 	import dayjs from 'dayjs';
 	import LocalizedFormat from 'dayjs/plugin/localizedFormat.js';
 	import { _ } from 'svelte-i18n';
-	import ButtonGreen from '../_ButtonGreen.svelte';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 
 	dayjs.extend(LocalizedFormat);
 </script>

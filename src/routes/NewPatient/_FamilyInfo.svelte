@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SmallTextBox from '../_SmallTextBox.svelte';
+	import SmallTextBox from '$lib/_SmallTextBox.svelte';
 	import { _ } from 'svelte-i18n';
 </script>
 

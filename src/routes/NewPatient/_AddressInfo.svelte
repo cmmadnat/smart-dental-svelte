@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import CityPicker from '../_CityPicker.svelte';
-	import SelectBox from '../_SmallSelectBox.svelte';
-	import TextBox from '../_SmallTextBox.svelte';
+	import SelectBox from '$lib/_SmallSelectBox.svelte';
+	import TextBox from '$lib/_SmallTextBox.svelte';
 	let postalCode = '';
 	let subdistrict = '';
 	let addressLineOne = '';

@@ -3,9 +3,9 @@
 
 	import Papa from 'papaparse';
 	import { onMount } from 'svelte';
-	import TextBox from '../_SmallTextBox.svelte';
-	import SelectBox from '../_SmallSelectBox.svelte';
-	import DateInput from '../_SmallDateInput.svelte';
+	import TextBox from '$lib/_SmallTextBox.svelte';
+	import SelectBox from '$lib/_SmallSelectBox.svelte';
+	import DateInput from '$lib/_SmallDateInput.svelte';
 	let titles = [];
 	let countries = [];
 	let religions = [];

@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import ButtonGreen from '../_ButtonGreen.svelte';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	const serviceList = [
 		'การตรวจเช็คสุขภาพของฟันและช่องปาก',
 		'การขูดหินปูน',
