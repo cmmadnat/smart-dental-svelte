@@ -11,14 +11,16 @@
 	import ErrorBox from '$lib/_ErrorBox.svelte';
 	import checkCitizenID from '$lib/citizenIDValidator';
 	import emailValidator from '$lib/emailValidator';
+	import SmallModal from '$lib/_SmallModal.svelte';
 
+	let showRegisteredModal = false;
 	let gender = 'm';
 	let titles;
 	// data form
 	let title = '',
 		firstName = '',
 		lastName = '',
-		IDCard = '',
+		IDCard = '1',
 		cardNumber = '',
 		mobile = '',
 		email = '',
@@ -98,7 +100,7 @@
 			});
 	};
 	const proceedToRegister = () => {
-		alert('registering');
+		showRegisteredModal = true;
 	};
 </script>
 
@@ -203,6 +205,15 @@
 		</div>
 	</div>
 </form>
+<SmallModal
+	show={showRegisteredModal}
+	completeMessage={$_('login')}
+	on:complete={() => {
+		window.location = '/';
+	}}
+>
+	{$_('registerCompleted')}
+</SmallModal>
 
 <style>
 	.shadowfilter {

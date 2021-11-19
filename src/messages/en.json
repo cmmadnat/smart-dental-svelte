@@ -78,5 +78,6 @@
 	"pleaseInput": "Please Input",
 	"wrong": "is wrong.",
 	"passwordNotMatch": "Password and verify password does not match.",
-	"duplicateEmail":"There is a duplicate email registered. Please checked or reset your password to continue."
+	"duplicateEmail":"There is a duplicate email registered. Please checked or reset your password to continue.",
+	"registerCompleted":"Registration complete. Click continue to go to login page."
 }
