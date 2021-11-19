@@ -77,5 +77,6 @@
 	"sprouseName": "Sprouse Name",
 	"pleaseInput": "Please Input",
 	"wrong": "is wrong.",
-	"passwordNotMatch": "Password and verify password does not match."
+	"passwordNotMatch": "Password and verify password does not match.",
+	"duplicateEmail":"There is a duplicate email registered. Please checked or reset your password to continue."
 }

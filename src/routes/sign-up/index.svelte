@@ -86,8 +86,19 @@
 		request
 			.post('/sign-up/check-duplicate-email')
 			.send({ email })
-			.then((data) => data.body)
-			.then((data) => alert(data));
+			.then((data) => data.body as { duplicate: boolean })
+			.then((data) => {
+				if (data.duplicate) {
+					error = $_('duplicateEmail');
+					return false;
+				} else return true;
+			})
+			.then((checkDuplication) => {
+				if (checkDuplication) proceedToRegister();
+			});
+	};
+	const proceedToRegister = () => {
+		alert('registering');
 	};
 </script>
 
