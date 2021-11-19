@@ -18,6 +18,7 @@
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import TextBox from '$lib/_TextBox.svelte';
 	import request from 'superagent';
+	import { session } from '$app/stores';
 	let username = '';
 	let password = '';
 	let error = '';
@@ -27,8 +28,10 @@
 			.post('/login')
 			.send({ username, password })
 			.then((data) => {
-				if (data.body.success) goto('/home');
-				else {
+				if (data.body.success) {
+					$session.username = username;
+					goto('/home');
+				} else {
 					error = data.body.message;
 				}
 			});

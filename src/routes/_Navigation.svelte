@@ -1,5 +1,13 @@
 <script>
+	import { goto } from '$app/navigation';
+
+	import { session } from '$app/stores';
+
 	import { _ } from 'svelte-i18n';
+	const logout = () => {
+		$session.username = null;
+		goto('/');
+	};
 </script>
 
 <nav
@@ -39,13 +47,14 @@
 						href="#pablo"
 					>
 						<i class="lni lni-user" />&nbsp;
-						{$_('hello')}, user
+						{$_('hello')}, {$session.username}
 					</a>
 				</li>
 				<li class="nav-item">
 					<a
 						class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75"
 						href="#pablo"
+						on:click={logout}
 					>
 						<i class="lni lni-exit" />&nbsp;
 						{$_('logout')}
