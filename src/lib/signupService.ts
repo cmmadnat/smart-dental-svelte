@@ -24,12 +24,12 @@ export const transformAppUser = async (
 ): Promise<AppUser> => {
 	const appUser = new AppUser();
 	appUser.title = await convertCodeToTitle(title);
-	appUser.firstName = firstName.substring(0, 50);
-	appUser.lastName = lastName.substring(0, 50);
+	appUser.firstName = firstName.toLowerCase().substring(0, 50);
+	appUser.lastName = lastName.toLowerCase().substring(0, 50);
 	appUser.mobile = mobile.substring(0, 10);
 	appUser.IDCard = IDCard.substring(0, 1);
 	appUser.cardNumber = cardNumber.substring(0, 13);
-	appUser.email = email.substring(0, 50);
+	appUser.email = email.toLowerCase().substring(0, 50);
 	appUser.password = bcrypt.hashSync(password, 10);
 	return appUser;
 };
