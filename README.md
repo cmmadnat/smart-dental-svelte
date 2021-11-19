@@ -5,6 +5,7 @@
 1. Node.JS (14.16.0 or higher)
 2. Yarn (Optional)
 3. supply a config file called .env
+
 ```
 VITE_DB_HOST=
 VITE_DB_USER=

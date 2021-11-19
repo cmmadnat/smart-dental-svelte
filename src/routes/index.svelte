@@ -22,6 +22,9 @@
 	let username = '';
 	let password = '';
 	let error = '';
+	const forgotPassword = async () => {
+		await request.get('main-sendgrid');
+	};
 	const submitLogin = (e) => {
 		e.preventDefault();
 		request
@@ -79,6 +82,9 @@
 				</button>
 			</form>
 		</div>
+		<p>
+			<button on:click={forgotPassword}>{$_('forgotPassword')}</button>
+		</p>
 
 		<div class="w-full my-2">
 			<hr />
