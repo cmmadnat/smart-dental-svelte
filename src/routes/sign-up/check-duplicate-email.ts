@@ -6,10 +6,10 @@ export const post: RequestHandler = async ({ body }) => {
 	// @ts-ignore
 	const { email } = body;
 
-	let duplicate = true;
+	let duplicate = false;
 
 	const user = await AppUser.find({ email: email });
-	if (user !== null) duplicate = false;
+	if (user !== null) duplicate = true;
 
 	return {
 		body: { duplicate }
