@@ -23,7 +23,7 @@
 	let password = '';
 	let error = '';
 	const forgotPassword = async () => {
-		await request.get('main-sendgrid');
+		await request.post('main-sendgrid').send({ email: username });
 	};
 	const submitLogin = (e) => {
 		e.preventDefault();
