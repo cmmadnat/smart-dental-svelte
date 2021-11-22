@@ -15,7 +15,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { _ } from 'svelte-i18n';
-	import PasswordBox from './_PasswordBox.svelte';
+	import PasswordBox from '$lib/_PasswordBox.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import ErrorBox from '$lib/_ErrorBox.svelte';
 	import TextBox from '$lib/_TextBox.svelte';

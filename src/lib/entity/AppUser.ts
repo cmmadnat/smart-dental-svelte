@@ -24,6 +24,6 @@ export class AppUser extends BaseEntity {
 	email: string;
 	@Column({ length: 60, type: 'varchar' })
 	password: string;
-	@Column({ length: 10, type: 'varchar' })
+	@Column({ length: 20, type: 'varchar' })
 	salt: string;
 }

@@ -15,7 +15,7 @@ export const post = async ({ body }) => {
 	console.log(user);
 	user.save();
 
-	const link = import.meta.env.VITE_HOST_NAME + '/resetPassword?key=' + salt;
+	const link = import.meta.env.VITE_HOST_NAME + '/forgetPassword?key=' + salt;
 	const msg = {
 		to: to, // Change to your recipient
 		from: 'cmmadnat@gmail.com', // Change to your verified sender
