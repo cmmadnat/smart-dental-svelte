@@ -1,7 +1,8 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
 	export function load({ session }: LoadInput): LoadOutput {
-		if (session.user) {
+		if (session.username) {
 			return {
 				status: 302,
 				redirect: '/home'
@@ -16,14 +17,29 @@
 	import { _ } from 'svelte-i18n';
 	import PasswordBox from './_PasswordBox.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
+	import ErrorBox from '$lib/_ErrorBox.svelte';
 	import TextBox from '$lib/_TextBox.svelte';
+	import SmallModal from '$lib/_SmallModal.svelte';
 	import request from 'superagent';
 	import { session } from '$app/stores';
+	import emailValidator from '$lib/emailValidator';
 	let username = '';
 	let password = '';
 	let error = '';
+	let showModal = false;
+	let recoveryEmail = '';
+	let emailSent = false;
+	let recoveryError = '';
+	const sendRecoverEmail = async () => {
+		if (!emailValidator(recoveryEmail)) recoveryError = $_('email') + ' ' + $_('wrong');
+		else {
+			await request.post('main-sendgrid').send({ email: recoveryEmail });
+			emailSent = true;
+			showModal = false;
+		}
+	};
 	const forgotPassword = async () => {
-		await request.post('main-sendgrid').send({ email: username });
+		showModal = true;
 	};
 	const submitLogin = (e) => {
 		e.preventDefault();
@@ -85,6 +101,11 @@
 		<p>
 			<button on:click={forgotPassword}>{$_('forgotPassword')}</button>
 		</p>
+		{#if emailSent}
+			<p class="bold text-center my-2">
+				{$_('recoveryEmailSent')}
+			</p>
+		{/if}
 
 		<div class="w-full my-2">
 			<hr />
@@ -94,6 +115,12 @@
 		</div>
 	</div>
 </div>
+<SmallModal show={showModal} on:close={() => (showModal = false)} on:complete={sendRecoverEmail}>
+	{#if recoveryError.length != 0}
+		<ErrorBox message={recoveryError} />
+	{/if}
+	<TextBox label={$_('email')} bind:value={recoveryEmail} />
+</SmallModal>
 
 <style>
 	.shadowfilter {

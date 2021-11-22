@@ -80,6 +80,7 @@
 	"passwordNotMatch": "Password and verify password does not match.",
 	"duplicateEmail": "There is a duplicate email registered. Please checked or reset your password to continue.",
 	"registerCompleted": "Registration complete. Click continue to go to login page.",
-	"register":"Register",
-	"forgotPassword":"Forgot Password?"
+	"register": "Register",
+	"forgotPassword": "Forgot Password?",
+	"recoveryEmailSent": "Recovery Email Sent! Please check your inbox and click on the link to reset your password"
 }

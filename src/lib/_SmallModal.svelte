@@ -5,12 +5,11 @@
 	export let show = false;
 	export let completeMessage = 'Complete';
 	export let header = 'Smart Dental System';
-	function toggleModal() {
-		show = !show;
+	function close() {
+		dispatch('close');
 	}
 	function complete() {
 		dispatch('complete');
-		toggleModal();
 	}
 </script>
 
@@ -32,7 +31,7 @@
 					</h3>
 					<button
 						class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-						on:click={toggleModal}
+						on:click={close}
 					>
 						<span
 							class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none"
@@ -54,7 +53,7 @@
 					<button
 						class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 						type="button"
-						on:click={toggleModal}
+						on:click={close}
 					>
 						Close
 					</button>
