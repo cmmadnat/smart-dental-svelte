@@ -13,11 +13,12 @@
 	export let firstName = '';
 	export let lastName = '';
 	export let title = '';
+	export let idType = '1';
+	export let cardNumber = '';
 
 	let occupation = '';
 	let gender = 'm';
 	let nationality = 'THA';
-	let idType = '1';
 	let religion = '1';
 
 	onMount(() => {
@@ -55,14 +56,14 @@
 </div>
 <div class="flex flex-row flex-wrap">
 	<div class="w-1/3 px-2">
-		<SelectBox value={title} label={$_('title')} options={titles} />
+		<SelectBox bind:value={title} label={$_('title')} options={titles} />
 	</div>
 	<div class=" w-1/3 px-2">
-		<TextBox value={firstName} label={$_('firstName')} />
+		<TextBox bind:value={firstName} label={$_('firstName')} />
 	</div>
 
 	<div class=" w-1/3 px-2">
-		<TextBox value={lastName} label={$_('lastName')} />
+		<TextBox bind:value={lastName} label={$_('lastName')} />
 	</div>
 	<div class="w-1/3">
 		<div class="text-center py-5">
@@ -115,7 +116,7 @@
 		/>
 	</div>
 	<div class="px-3 w-2/5">
-		<TextBox label={$_('cardNumber')} />
+		<TextBox bind:value={cardNumber} label={$_('cardNumber')} />
 	</div>
 	<div class="w-2/5 px-2">
 		<span class="text-sm">{$_('expireDate')}</span>

@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	import MenuItem from './_menu-item.svelte';
 </script>
 
 <div>
 	<ul>
-		<MenuItem>หน้าแรก</MenuItem>
+		<MenuItem on:click={() => goto('/home')}>หน้าแรก</MenuItem>
 		<MenuItem>ระบบลงทะเบียน</MenuItem>
 		<MenuItem>ระบบนัดหมาย</MenuItem>
 		<MenuItem>ระบบเวชระเบียน</MenuItem>

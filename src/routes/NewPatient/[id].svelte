@@ -24,10 +24,24 @@
 	import PersonalInfo from './_PersonalInfo.svelte';
 	import AddressInfo from './_AddressInfo.svelte';
 	import FamilyInfo from './_FamilyInfo.svelte';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
+	import ButtonRed from '$lib/_ButtonRed.svelte';
 	export let user: AppUser;
-	$: firstName = user.firstName;
-	$: lastName = user.lastName;
-	$: title = user.title.code;
+	let firstName = user.firstName;
+	let lastName = user.lastName;
+	let title = user.title.code;
+	let idType = user.IDCard;
+	let cardNumber = user.cardNumber;
+	const save = () => {
+		console.log(firstName);
+	};
+	const reset = () => {
+		firstName = user.firstName;
+		lastName = user.lastName;
+		title = user.title.code;
+		idType = user.IDCard;
+		cardNumber = user.cardNumber;
+	};
 </script>
 
 <Header />
@@ -42,8 +56,10 @@
 		<div class="md:w-1/3">
 			<Menu />
 		</div>
-		<div class="md:w-2/3 ">
-			<PersonalInfo {firstName} {title} {lastName} />
+		<div class="md:w-2/3 relative">
+			<ButtonGreen on:click={save}>{$_('save')}</ButtonGreen>
+			<ButtonRed on:click={reset}>{$_('reset')}</ButtonRed>
+			<PersonalInfo bind:cardNumber {idType} bind:firstName {title} {lastName} />
 			<AddressInfo />
 			<FamilyInfo />
 		</div>
