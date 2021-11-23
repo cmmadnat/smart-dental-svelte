@@ -10,7 +10,7 @@
 			body: JSON.stringify({ id })
 		}).then((data) => data.json());
 		return {
-			props: { user: user ? user.user : null }
+			props: { id, user: user ? user.user : null }
 		};
 	};
 </script>
@@ -25,7 +25,9 @@
 	import type { AppUser } from '$lib/entity/AppUser';
 	import ButtonRed from '$lib/_ButtonRed.svelte';
 	import { goto } from '$app/navigation';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	export let user: AppUser;
+	export let id: string;
 	/*eslint-disable*/
 	let gender = 'm',
 		birthday = '2-5-1989',
@@ -49,7 +51,7 @@
 			<LanguageSetting />
 		</div>
 		<hr />
-		<div class="flex bg-blue-50 my-2 p-2">
+		<div class="flex flex-row justify-between bg-blue-50 my-2 p-2 ">
 			<table class="table-auto">
 				{#each ['citizenID', 'phone', 'firstName', 'lastName'] as a}
 					<tr>
@@ -66,6 +68,13 @@
 					</tr>
 				{/each}
 			</table>
+			<div>
+				<ButtonGreen
+					on:click={() => {
+						goto('/NewPatient/' + id);
+					}}>{$_('edit')}</ButtonGreen
+				>
+			</div>
 		</div>
 		<div class="flex">
 			<div class="w-1/3 p-2">

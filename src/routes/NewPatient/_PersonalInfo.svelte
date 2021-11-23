@@ -10,6 +10,9 @@
 	let countries = [];
 	let religions = [];
 	let occupations = [];
+	export let firstName = '';
+	export let lastName = '';
+	export let title = '';
 
 	let occupation = '';
 	let gender = 'm';
@@ -22,7 +25,6 @@
 			.then((data) => data.text())
 			.then((data) => Papa.parse(data, { header: true }).data)
 			.then((data) => {
-				console.log(data);
 				titles = data.map((it) => ({ id: it.CODE, label: it.TITLE }));
 			});
 		fetch('/country-list-th.json')
@@ -53,14 +55,14 @@
 </div>
 <div class="flex flex-row flex-wrap">
 	<div class="w-1/3 px-2">
-		<SelectBox label={$_('title')} options={titles} />
+		<SelectBox value={title} label={$_('title')} options={titles} />
 	</div>
 	<div class=" w-1/3 px-2">
-		<TextBox label={$_('firstName')} />
+		<TextBox value={firstName} label={$_('firstName')} />
 	</div>
 
 	<div class=" w-1/3 px-2">
-		<TextBox label={$_('lastName')} />
+		<TextBox value={lastName} label={$_('lastName')} />
 	</div>
 	<div class="w-1/3">
 		<div class="text-center py-5">
