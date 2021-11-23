@@ -12,17 +12,13 @@
 			},
 			body: JSON.stringify({ page: activePage, query })
 		}).then((data) => data.json());
-
-		if (query)
-			return {
-				props: {
-					activePage,
-					query,
-					list
-				}
-			};
-
-		return {};
+		return {
+			props: {
+				activePage,
+				query,
+				list
+			}
+		};
 	}
 </script>
 
