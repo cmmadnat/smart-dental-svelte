@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, BaseEntity, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, BaseEntity, Column, ManyToOne, OneToOne } from 'typeorm';
+import { AppUserInfo } from './AppUserInfo';
 import { Title } from './Title';
 
 @Entity()
@@ -26,4 +27,6 @@ export class AppUser extends BaseEntity {
 	password: string;
 	@Column({ length: 20, type: 'varchar' })
 	salt: string;
+	@OneToOne(() => AppUserInfo, (appUserInfo) => appUserInfo.appUser)
+	appUserInfo: AppUserInfo;
 }

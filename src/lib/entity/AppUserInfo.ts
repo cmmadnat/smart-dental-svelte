@@ -8,6 +8,7 @@ import {
 	PrimaryGeneratedColumn
 } from 'typeorm';
 import { Address } from './Address';
+import { AppUser } from './AppUser';
 import { FamilyInfo } from './FamilyInfo';
 import { Occupation } from './Occupation';
 import { Religion } from './Religion';
@@ -16,6 +17,10 @@ import { Religion } from './Religion';
 export class AppUserInfo extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
+
+	@OneToOne(() => AppUser, (appUser) => appUser.appUserInfo)
+	@JoinColumn()
+	appUser: AppUser;
 
 	@Column('char')
 	gender: string;
