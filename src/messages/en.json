@@ -87,5 +87,8 @@
   "forgetPassword": "Forgot Password",
   "passwordReset": "Password is reset",
   "reset": "Reset",
-  "updateSuccess": "Update Successful"
+  "updateSuccess": "Update Successful",
+  "emergencyContact": "Emergency Contact",
+  "relationship": "Relationship",
+  "sameAddressAsMe": "Under the same address"
 }
