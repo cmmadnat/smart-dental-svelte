@@ -17,15 +17,18 @@
 
 <script lang="ts">
 	import type { AppUser } from '$lib/entity/AppUser';
+	import request from 'superagent';
 	import { _ } from 'svelte-i18n';
 	import Header from '../_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import Menu from '../_menu.svelte';
+	import SmallModal from '$lib/_SmallModal.svelte';
 	import PersonalInfo from './_PersonalInfo.svelte';
 	import AddressInfo from './_AddressInfo.svelte';
 	import FamilyInfo from './_FamilyInfo.svelte';
 	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	import ButtonRed from '$lib/_ButtonRed.svelte';
+	export let id = '';
 	export let user: AppUser;
 	let firstName = user.firstName;
 	let lastName = user.lastName;
@@ -33,8 +36,24 @@
 	let idType = user.IDCard;
 	let cardNumber = user.cardNumber;
 	let gender = user.appUserInfo.gender;
+	let mobile = user.mobile;
+	let email = user.email;
+	let showModal = false;
 	const save = () => {
-		console.log(firstName);
+		request
+			.post('/NewPatient/save-user')
+			.send({
+				id,
+				firstName,
+				lastName,
+				cardNumber,
+				mobile,
+				email,
+				title
+			})
+			.then(() => {
+				showModal = true;
+			});
 	};
 	const reset = () => {
 		firstName = user.firstName;
@@ -42,6 +61,9 @@
 		title = user.title.code;
 		idType = user.IDCard;
 		cardNumber = user.cardNumber;
+		mobile = user.mobile;
+		email = user.email;
+		title = user.title.code;
 	};
 </script>
 
@@ -60,9 +82,26 @@
 		<div class="md:w-2/3 relative">
 			<ButtonGreen on:click={save}>{$_('save')}</ButtonGreen>
 			<ButtonRed on:click={reset}>{$_('reset')}</ButtonRed>
-			<PersonalInfo bind:gender bind:cardNumber {idType} bind:firstName {title} {lastName} />
+			<PersonalInfo
+				bind:mobile
+				bind:email
+				bind:gender
+				bind:cardNumber
+				{idType}
+				bind:firstName
+				bind:title
+				{lastName}
+			/>
 			<AddressInfo />
 			<FamilyInfo />
 		</div>
 	</div>
 </div>
+<SmallModal
+	show={showModal}
+	on:complete={() => {
+		showModal = false;
+	}}
+	showClose={false}
+	on:close={() => (showModal = false)}>{$_('updateSuccess')}</SmallModal
+>

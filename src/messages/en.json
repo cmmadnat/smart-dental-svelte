@@ -86,5 +86,6 @@
   "changePassword": "Change Password",
   "forgetPassword": "Forgot Password",
   "passwordReset": "Password is reset",
-  "reset": "Reset"
+  "reset": "Reset",
+  "updateSuccess": "Update Successful"
 }

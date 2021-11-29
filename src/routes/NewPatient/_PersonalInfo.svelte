@@ -16,6 +16,8 @@
 	export let idType = '1';
 	export let cardNumber = '';
 	export let gender = '';
+	export let mobile = '';
+	export let email = '';
 
 	let occupation = '';
 	let nationality = 'THA';
@@ -123,9 +125,9 @@
 		<DateInput />
 	</div>
 	<div class="px-3 w-1/2">
-		<TextBox label={$_('phone')} />
+		<TextBox bind:value={mobile} label={$_('phone')} />
 	</div>
 	<div class="px-3 w-1/2">
-		<TextBox label={$_('email')} />
+		<TextBox bind:value={email} label={$_('email')} />
 	</div>
 </div>
