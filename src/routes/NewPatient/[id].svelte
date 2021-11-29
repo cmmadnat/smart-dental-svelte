@@ -41,14 +41,17 @@
 	let gender = user.appUserInfo.gender;
 	let birthday = user.appUserInfo.birthday;
 	let maritalStatus = user.appUserInfo.maritalStatus;
-	let religion = user.appUserInfo.religion.code + '';
+	let religion = user.appUserInfo.religion ? user.appUserInfo.religion.code + '' : '';
 	let nationality = user.appUserInfo.nationality;
 	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
 	let organization = user.appUserInfo.organization;
 	let expireDate = user.appUserInfo.expireDate;
 	// address
-	let addressType = user.appUserInfo.addressType;
-	let emergencyAddressType = user.appUserInfo.emergencyAddressType;
+	let addressType = user.appUserInfo.address.addressType + '';
+	let emergencyAddressType = user.appUserInfo.emergencyAddress.addressType + '';
+
+	let addressLineOne = user.appUserInfo.address.line1;
+	let emergencyAddressLineOne = user.appUserInfo.emergencyAddress.line1;
 
 	let showModal = false;
 	const save = () => {
@@ -87,7 +90,6 @@
 		cardNumber = user.cardNumber;
 		mobile = user.mobile;
 		email = user.email;
-		title = user.title.code;
 		gender = user.appUserInfo.gender;
 		birthday = user.appUserInfo.birthday;
 		maritalStatus = user.appUserInfo.maritalStatus;
@@ -97,8 +99,8 @@
 		organization = user.appUserInfo.organization;
 		expireDate = user.appUserInfo.expireDate;
 		//address type
-		addressType = user.appUserInfo.addressType;
-		emergencyAddressType = user.appUserInfo.emergencyAddressType;
+		addressType = user.appUserInfo.address.addressType + '';
+		emergencyAddressType = user.appUserInfo.emergencyAddress.addressType + '';
 	};
 </script>
 
@@ -134,7 +136,12 @@
 				bind:occupation
 				bind:expireDate
 			/>
-			<AddressInfo bind:addressType bind:emergencyAddressType />
+			<AddressInfo
+				bind:addressType
+				bind:emergencyAddressType
+				bind:addressLineOne
+				bind:emergencyAddressLineOne
+			/>
 			<FamilyInfo />
 		</div>
 	</div>

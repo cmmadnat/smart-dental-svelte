@@ -5,10 +5,13 @@
 	import TextBox from '$lib/_SmallTextBox.svelte';
 	let postalCode = '';
 	let subdistrict = '';
-	let addressLineOne = '';
+
 	let addressLineTwo = '';
+
 	export let addressType = '0';
 	export let emergencyAddressType = '0';
+	export let addressLineOne = '';
+	export let emergencyAddressLineOne = '';
 
 	const addressTypes = ['ที่อยู่ตามทะเบียนบ้าน', 'อื่นๆ'].map((it, index) => ({
 		id: index + 1 + '',
@@ -24,7 +27,7 @@
 		<SelectBox bind:value={addressType} label={$_('addressType')} options={addressTypes} />
 	</div>
 	<div class="w-2/3 px-2">
-		<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
+		<TextBox bind:value={addressLineOne} label={$_('addressLineOne')} />
 	</div>
 	<div class="px-2 w-full">
 		<CityPicker
@@ -56,7 +59,7 @@
 		<SelectBox bind:value={emergencyAddressType} label={$_('addressType')} options={addressTypes} />
 	</div>
 	<div class="w-2/3 px-2">
-		<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
+		<TextBox bind:value={emergencyAddressLineOne} label={$_('addressLineOne')} />
 	</div>
 	<div class="px-2 w-full">
 		<CityPicker

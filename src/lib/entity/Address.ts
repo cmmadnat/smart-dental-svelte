@@ -5,14 +5,14 @@ import { AppUserInfo } from './AppUserInfo';
 export class Address extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
-	@Column('tinyint')
+	@Column('tinyint', { default: 1 })
 	addressType: number;
 
-	@Column('varchar', { length: 100 })
+	@Column('varchar', { length: 100, default: '' })
 	line1: string;
-	@Column('varchar', { length: 5 })
+	@Column('varchar', { length: 5, default: '' })
 	postalCode: string;
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	subdistrict: string;
 
 	@OneToOne(() => AppUserInfo, (appUserInfo) => appUserInfo.address)

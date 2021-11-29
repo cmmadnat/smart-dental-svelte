@@ -28,14 +28,15 @@ export const post = async ({ body }) => {
 		emergencyAddressType
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
-	const religionCode = await Religion.findOne({ code: parseInt(religion) });
+	const religionCode =
+		religion.length != 0 ? await Religion.findOne({ code: parseInt(religion) }) : null;
 	const occupationCode = await Occupation.findOne({ name: occupation });
 
 	let user = await AppUser.findOne(
 		{ id },
 		{
 			select: ['id', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
-			relations: ['appUserInfo', 'title']
+			relations: ['appUserInfo', 'title', 'appUserInfo.emergencyAddress', 'appUserInfo.address']
 		}
 	);
 	user.firstName = firstName;
@@ -53,8 +54,8 @@ export const post = async ({ body }) => {
 	user.appUserInfo.organization = organization;
 	user.appUserInfo.occupation = occupationCode;
 	user.appUserInfo.expireDate = dayjs(expireDate).toDate();
-	user.appUserInfo.addressType = addressType;
-	user.appUserInfo.emergencyAddressType = emergencyAddressType;
+	user.appUserInfo.address.addressType = addressType;
+	user.appUserInfo.emergencyAddress.addressType = emergencyAddressType;
 	user = await user.save();
 
 	return { body: { user } };
