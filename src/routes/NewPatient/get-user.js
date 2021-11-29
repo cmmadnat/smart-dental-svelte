@@ -8,13 +8,14 @@ export const post = async ({ body }) => {
 	let user = await AppUser.findOne(
 		{ id },
 		{
-			select: ['id', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
+			select: ['id', 'firstName', 'IDCard', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
 			relations: ['appUserInfo', 'title', 'appUserInfo.religion', 'appUserInfo.occupation']
 		}
 	);
 	if (user.appUserInfo == null) {
 		user.appUserInfo = new AppUserInfo();
 		user.appUserInfo.birthday = new Date();
+		user.appUserInfo.expireDate = new Date();
 		user = await user.save();
 	}
 	return { body: { user } };

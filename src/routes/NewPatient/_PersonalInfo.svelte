@@ -11,6 +11,7 @@
 	let religions = [];
 	let occupations = [];
 	export let birthday = null;
+	export let expireDate = null;
 	export let firstName = '';
 	export let lastName = '';
 	export let title = '';
@@ -126,7 +127,7 @@
 	</div>
 	<div class="w-2/5 px-2">
 		<span class="text-sm">{$_('expireDate')}</span>
-		<DateInput />
+		<DateInput bind:date={expireDate} />
 	</div>
 	<div class="px-3 w-1/2">
 		<TextBox bind:value={mobile} label={$_('phone')} />

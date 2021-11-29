@@ -44,6 +44,7 @@
 	let nationality = user.appUserInfo.nationality;
 	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
 	let organization = user.appUserInfo.organization;
+	let expireDate = user.appUserInfo.expireDate;
 
 	let showModal = false;
 	const save = () => {
@@ -57,13 +58,15 @@
 				mobile,
 				email,
 				title,
+				idType,
 				gender,
 				birthday: birthday.toUTCString(),
 				maritalStatus,
 				religion,
 				nationality,
 				occupation,
-				organization
+				organization,
+				expireDate: expireDate.toUTCString()
 			})
 			.then(() => {
 				showModal = true;
@@ -85,6 +88,7 @@
 		nationality = user.appUserInfo.nationality;
 		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
 		organization = user.appUserInfo.organization;
+		expireDate = user.appUserInfo.expireDate;
 	};
 </script>
 
@@ -108,7 +112,7 @@
 				bind:email
 				bind:gender
 				bind:cardNumber
-				{idType}
+				bind:idType
 				bind:firstName
 				bind:title
 				bind:lastName
@@ -118,6 +122,7 @@
 				bind:religion
 				bind:organization
 				bind:occupation
+				bind:expireDate
 			/>
 			<AddressInfo />
 			<FamilyInfo />

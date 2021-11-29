@@ -7,7 +7,7 @@ export const post = async ({ body }) => {
 	const user = await AppUser.findOne(
 		{ id },
 		{
-			select: ['id', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
+			select: ['id', 'IDCard', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
 			relations: ['title']
 		}
 	);

@@ -14,13 +14,15 @@ export const post = async ({ body }) => {
 		mobile,
 		email,
 		title,
+		idType,
 		gender,
 		birthday,
 		maritalStatus,
 		nationality,
 		religion,
 		occupation,
-		organization
+		organization,
+		expireDate
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
 	const religionCode = await Religion.findOne({ code: parseInt(religion) });
@@ -39,6 +41,7 @@ export const post = async ({ body }) => {
 	user.mobile = mobile;
 	user.email = email;
 	user.title = titleCode;
+	user.IDCard = idType;
 	user.appUserInfo.gender = gender;
 	user.appUserInfo.birthday = dayjs(birthday).toDate();
 	user.appUserInfo.maritalStatus = maritalStatus;
@@ -46,6 +49,7 @@ export const post = async ({ body }) => {
 	user.appUserInfo.religion = religionCode;
 	user.appUserInfo.organization = organization;
 	user.appUserInfo.occupation = occupationCode;
+	user.appUserInfo.expireDate = dayjs(expireDate).toDate();
 	user = await user.save();
 
 	return { body: { user } };
