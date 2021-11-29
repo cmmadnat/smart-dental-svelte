@@ -14,6 +14,7 @@ export const post = async ({ body }) => {
 	);
 	if (user.appUserInfo == null) {
 		user.appUserInfo = new AppUserInfo();
+		user.appUserInfo.birthday = new Date();
 		user = await user.save();
 	}
 	return { body: { user } };

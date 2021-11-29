@@ -10,6 +10,7 @@
 	let countries = [];
 	let religions = [];
 	let occupations = [];
+	export let birthday = null;
 	export let firstName = '';
 	export let lastName = '';
 	export let title = '';
@@ -79,7 +80,7 @@
 	</div>
 	<div class="w-1/3 px-2">
 		<span class="text-sm">{$_('birthday')}</span>
-		<DateInput />
+		<DateInput bind:date={birthday} />
 	</div>
 	<div class="w-1/3 px-2">
 		<SelectBox

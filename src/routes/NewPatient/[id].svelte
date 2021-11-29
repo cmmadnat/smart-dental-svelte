@@ -35,9 +35,11 @@
 	let title = user.title.code;
 	let idType = user.IDCard;
 	let cardNumber = user.cardNumber;
-	let gender = user.appUserInfo.gender;
 	let mobile = user.mobile;
 	let email = user.email;
+	let gender = user.appUserInfo.gender;
+	let birthday = user.appUserInfo.birthday;
+
 	let showModal = false;
 	const save = () => {
 		request
@@ -49,7 +51,9 @@
 				cardNumber,
 				mobile,
 				email,
-				title
+				title,
+				gender,
+				birthday: birthday.toISOString()
 			})
 			.then(() => {
 				showModal = true;
@@ -64,6 +68,8 @@
 		mobile = user.mobile;
 		email = user.email;
 		title = user.title.code;
+		gender = user.appUserInfo.gender;
+		birthday = user.appUserInfo.birthday;
 	};
 </script>
 
@@ -90,7 +96,8 @@
 				{idType}
 				bind:firstName
 				bind:title
-				{lastName}
+				bind:lastName
+				bind:birthday
 			/>
 			<AddressInfo />
 			<FamilyInfo />
