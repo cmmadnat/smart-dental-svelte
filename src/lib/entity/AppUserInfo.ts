@@ -22,14 +22,14 @@ export class AppUserInfo extends BaseEntity {
 	@JoinColumn()
 	appUser: AppUser;
 
-	@Column('char')
+	@Column('char', { default: 'm' })
 	gender: string;
 
-	@Column('date')
+	@Column('date', { nullable: true })
 	birthday: Date;
-	@Column('char')
+	@Column('char', { default: '1' })
 	maritalStatus: string;
-	@Column('varchar', { length: 3 })
+	@Column('varchar', { length: 3, default: 'THA' })
 	nationality: string;
 
 	@ManyToOne(() => Religion, (religion) => religion.appUserInfos)
@@ -40,19 +40,19 @@ export class AppUserInfo extends BaseEntity {
 
 	@ManyToOne(() => Occupation, (occupation) => occupation.appUserInfos)
 	occupation: Occupation;
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	organization: string;
-	@Column('date')
+	@Column('date', { nullable: true })
 	expireDate: Date;
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	homePhone: string;
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	workPhone: string;
 
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	emergencyName: string;
 
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { length: 50, default: '' })
 	emergencyRelationship: string;
 	@OneToOne(() => Address, (address) => address.emergencyAddress)
 	@JoinColumn()

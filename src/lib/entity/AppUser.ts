@@ -27,6 +27,6 @@ export class AppUser extends BaseEntity {
 	password: string;
 	@Column({ length: 20, type: 'varchar' })
 	salt: string;
-	@OneToOne(() => AppUserInfo, (appUserInfo) => appUserInfo.appUser)
+	@OneToOne(() => AppUserInfo, (appUserInfo) => appUserInfo.appUser, { cascade: true })
 	appUserInfo: AppUserInfo;
 }

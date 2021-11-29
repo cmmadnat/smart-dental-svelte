@@ -15,9 +15,9 @@
 	export let title = '';
 	export let idType = '1';
 	export let cardNumber = '';
+	export let gender = '';
 
 	let occupation = '';
-	let gender = 'm';
 	let nationality = 'THA';
 	let religion = '1';
 

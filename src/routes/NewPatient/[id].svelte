@@ -32,6 +32,7 @@
 	let title = user.title.code;
 	let idType = user.IDCard;
 	let cardNumber = user.cardNumber;
+	let gender = user.appUserInfo.gender;
 	const save = () => {
 		console.log(firstName);
 	};
@@ -59,7 +60,7 @@
 		<div class="md:w-2/3 relative">
 			<ButtonGreen on:click={save}>{$_('save')}</ButtonGreen>
 			<ButtonRed on:click={reset}>{$_('reset')}</ButtonRed>
-			<PersonalInfo bind:cardNumber {idType} bind:firstName {title} {lastName} />
+			<PersonalInfo bind:gender bind:cardNumber {idType} bind:firstName {title} {lastName} />
 			<AddressInfo />
 			<FamilyInfo />
 		</div>
