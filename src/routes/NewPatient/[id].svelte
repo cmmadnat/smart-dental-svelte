@@ -40,6 +40,8 @@
 	let gender = user.appUserInfo.gender;
 	let birthday = user.appUserInfo.birthday;
 	let maritalStatus = user.appUserInfo.maritalStatus;
+	let religion = user.appUserInfo.religion.code + '';
+	let nationality = user.appUserInfo.nationality;
 
 	let showModal = false;
 	const save = () => {
@@ -55,7 +57,9 @@
 				title,
 				gender,
 				birthday: birthday.toUTCString(),
-				maritalStatus
+				maritalStatus,
+				religion,
+				nationality
 			})
 			.then(() => {
 				showModal = true;
@@ -73,6 +77,8 @@
 		gender = user.appUserInfo.gender;
 		birthday = user.appUserInfo.birthday;
 		maritalStatus = user.appUserInfo.maritalStatus;
+		religion = user.appUserInfo.religion.code;
+		nationality = user.appUserInfo.nationality;
 	};
 </script>
 
@@ -102,6 +108,8 @@
 				bind:lastName
 				bind:birthday
 				bind:maritalStatus
+				bind:nationality
+				bind:religion
 			/>
 			<AddressInfo />
 			<FamilyInfo />

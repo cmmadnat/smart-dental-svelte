@@ -22,8 +22,8 @@
 	export let maritalStatus = '1';
 
 	let occupation = '';
-	let nationality = 'THA';
-	let religion = '1';
+	export let nationality = 'THA';
+	export let religion = '1';
 
 	onMount(() => {
 		fetch('/titles.csv')
@@ -98,7 +98,7 @@
 		<SelectBox bind:value={nationality} options={countries} label={$_('nationality')} />
 	</div>
 	<div class="w-1/3 px-2">
-		<SelectBox options={religions} bind:value={religion} label={$_('religion')} />
+		<SelectBox bind:value={religion} options={religions} label={$_('religion')} />
 	</div>
 </div>
 <div class="flex flex-row">

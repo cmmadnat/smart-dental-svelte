@@ -9,7 +9,7 @@ export const post = async ({ body }) => {
 		{ id },
 		{
 			select: ['id', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
-			relations: ['appUserInfo', 'title']
+			relations: ['appUserInfo', 'title', 'appUserInfo.religion']
 		}
 	);
 	if (user.appUserInfo == null) {

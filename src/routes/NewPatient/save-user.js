@@ -1,4 +1,5 @@
 import { AppUser } from '$lib/entity/AppUser';
+import { Religion } from '$lib/entity/Religion';
 import { Title } from '$lib/entity/Title';
 import dayjs from 'dayjs';
 
@@ -14,9 +15,12 @@ export const post = async ({ body }) => {
 		title,
 		gender,
 		birthday,
-		maritalStatus
+		maritalStatus,
+		nationality,
+		religion
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
+	const religionCode = await Religion.findOne({ code: parseInt(religion) });
 
 	let user = await AppUser.findOne(
 		{ id },
@@ -34,6 +38,8 @@ export const post = async ({ body }) => {
 	user.appUserInfo.gender = gender;
 	user.appUserInfo.birthday = dayjs(birthday).toDate();
 	user.appUserInfo.maritalStatus = maritalStatus;
+	user.appUserInfo.nationality = nationality;
+	user.appUserInfo.religion = religionCode;
 	user = await user.save();
 
 	return { body: { user } };
