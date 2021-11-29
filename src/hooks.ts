@@ -5,6 +5,7 @@ import type { Handle } from '@sveltejs/kit/types/hooks';
 import setupTitles from '$lib/setupTitles';
 import { getConnection } from 'typeorm';
 import setupReligions from '$lib/setupReligions';
+import setupOccupations from '$lib/setupOccupations';
 
 export const handle: Handle = ({ request, resolve }) => {
 	try {
@@ -15,6 +16,7 @@ export const handle: Handle = ({ request, resolve }) => {
 			.then(async () => {
 				await setupTitles();
 				await setupReligions();
+				await setupOccupations();
 			})
 			.then(() => console.log('database connected'));
 	}

@@ -94,7 +94,6 @@
 		<h1 class="text-2xl bold">{$_('addPatient')}</h1>
 		<LanguageSetting />
 	</div>
-	{@debug occupation}
 	<hr />
 
 	<div class="mt-2 flex">

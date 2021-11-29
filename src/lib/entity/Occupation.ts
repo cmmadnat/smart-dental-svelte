@@ -6,10 +6,7 @@ export class Occupation extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column('tinyint')
-	code: number;
-
-	@Column('varchar', { length: 40 })
+	@Column('varchar', { length: 150 })
 	name: string;
 
 	@OneToMany(() => AppUserInfo, (appUserInfo) => appUserInfo.occupation)
