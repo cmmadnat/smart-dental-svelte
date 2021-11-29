@@ -30,6 +30,7 @@
 	import ButtonRed from '$lib/_ButtonRed.svelte';
 	export let id = '';
 	export let user: AppUser;
+	//basic info
 	let firstName = user.firstName;
 	let lastName = user.lastName;
 	let title = user.title.code;
@@ -45,6 +46,9 @@
 	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
 	let organization = user.appUserInfo.organization;
 	let expireDate = user.appUserInfo.expireDate;
+	// address
+	let addressType = user.appUserInfo.addressType;
+	let emergencyAddressType = user.appUserInfo.emergencyAddressType;
 
 	let showModal = false;
 	const save = () => {
@@ -66,7 +70,10 @@
 				nationality,
 				occupation,
 				organization,
-				expireDate: expireDate.toUTCString()
+				expireDate: expireDate.toUTCString(),
+				// address
+				addressType,
+				emergencyAddressType
 			})
 			.then(() => {
 				showModal = true;
@@ -89,6 +96,9 @@
 		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
 		organization = user.appUserInfo.organization;
 		expireDate = user.appUserInfo.expireDate;
+		//address type
+		addressType = user.appUserInfo.addressType;
+		emergencyAddressType = user.appUserInfo.emergencyAddressType;
 	};
 </script>
 
@@ -124,7 +134,7 @@
 				bind:occupation
 				bind:expireDate
 			/>
-			<AddressInfo />
+			<AddressInfo bind:addressType bind:emergencyAddressType />
 			<FamilyInfo />
 		</div>
 	</div>

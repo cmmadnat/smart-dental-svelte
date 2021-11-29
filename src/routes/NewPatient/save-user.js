@@ -22,7 +22,10 @@ export const post = async ({ body }) => {
 		religion,
 		occupation,
 		organization,
-		expireDate
+		expireDate,
+		// address
+		addressType,
+		emergencyAddressType
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
 	const religionCode = await Religion.findOne({ code: parseInt(religion) });
@@ -50,6 +53,8 @@ export const post = async ({ body }) => {
 	user.appUserInfo.organization = organization;
 	user.appUserInfo.occupation = occupationCode;
 	user.appUserInfo.expireDate = dayjs(expireDate).toDate();
+	user.appUserInfo.addressType = addressType;
+	user.appUserInfo.emergencyAddressType = emergencyAddressType;
 	user = await user.save();
 
 	return { body: { user } };

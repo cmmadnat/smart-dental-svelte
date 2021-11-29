@@ -7,8 +7,11 @@
 	let subdistrict = '';
 	let addressLineOne = '';
 	let addressLineTwo = '';
+	export let addressType = '0';
+	export let emergencyAddressType = '0';
+
 	const addressTypes = ['ที่อยู่ตามทะเบียนบ้าน', 'อื่นๆ'].map((it, index) => ({
-		id: index + '',
+		id: index + 1 + '',
 		label: it
 	}));
 </script>
@@ -18,7 +21,7 @@
 </div>
 <div class="flex flex-row flex-wrap">
 	<div class="w-1/3 px-2">
-		<SelectBox label={$_('addressType')} options={addressTypes} />
+		<SelectBox bind:value={addressType} label={$_('addressType')} options={addressTypes} />
 	</div>
 	<div class="w-2/3 px-2">
 		<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
@@ -50,7 +53,7 @@
 		<label for="sameAddressAsMe">{$_('sameAddressAsMe')}</label>
 	</div>
 	<div class="w-1/3 px-2">
-		<SelectBox label={$_('addressType')} options={addressTypes} />
+		<SelectBox bind:value={emergencyAddressType} label={$_('addressType')} options={addressTypes} />
 	</div>
 	<div class="w-2/3 px-2">
 		<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
