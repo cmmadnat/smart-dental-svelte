@@ -21,7 +21,8 @@
 	export let email = '';
 	export let maritalStatus = '1';
 
-	let occupation = '';
+	export let occupation = '';
+	export let organization = '';
 	export let nationality = 'THA';
 	export let religion = '1';
 
@@ -106,7 +107,7 @@
 		<SelectBox bind:value={occupation} options={occupations} label={$_('occupation')} />
 	</div>
 	<div class="px-2 w-2/3">
-		<TextBox label={$_('organization')} />
+		<TextBox bind:value={organization} label={$_('organization')} />
 	</div>
 </div>
 <div class="flex flex-row flex-wrap">

@@ -42,6 +42,8 @@
 	let maritalStatus = user.appUserInfo.maritalStatus;
 	let religion = user.appUserInfo.religion.code + '';
 	let nationality = user.appUserInfo.nationality;
+	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
+	let organization = user.appUserInfo.organization;
 
 	let showModal = false;
 	const save = () => {
@@ -59,7 +61,9 @@
 				birthday: birthday.toUTCString(),
 				maritalStatus,
 				religion,
-				nationality
+				nationality,
+				occupation,
+				organization
 			})
 			.then(() => {
 				showModal = true;
@@ -77,8 +81,10 @@
 		gender = user.appUserInfo.gender;
 		birthday = user.appUserInfo.birthday;
 		maritalStatus = user.appUserInfo.maritalStatus;
-		religion = user.appUserInfo.religion.code;
+		religion = user.appUserInfo.religion.code + '';
 		nationality = user.appUserInfo.nationality;
+		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
+		organization = user.appUserInfo.organization;
 	};
 </script>
 
@@ -88,6 +94,7 @@
 		<h1 class="text-2xl bold">{$_('addPatient')}</h1>
 		<LanguageSetting />
 	</div>
+	{@debug occupation}
 	<hr />
 
 	<div class="mt-2 flex">
@@ -110,6 +117,8 @@
 				bind:maritalStatus
 				bind:nationality
 				bind:religion
+				bind:organization
+				bind:occupation
 			/>
 			<AddressInfo />
 			<FamilyInfo />
