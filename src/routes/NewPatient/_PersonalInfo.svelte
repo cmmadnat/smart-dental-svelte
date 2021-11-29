@@ -19,6 +19,7 @@
 	export let gender = '';
 	export let mobile = '';
 	export let email = '';
+	export let maritalStatus = '1';
 
 	let occupation = '';
 	let nationality = 'THA';
@@ -84,6 +85,7 @@
 	</div>
 	<div class="w-1/3 px-2">
 		<SelectBox
+			bind:value={maritalStatus}
 			label={$_('maritalStatus')}
 			options={[
 				{ id: '1', label: 'โสด' },

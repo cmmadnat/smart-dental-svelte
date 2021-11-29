@@ -39,6 +39,7 @@
 	let email = user.email;
 	let gender = user.appUserInfo.gender;
 	let birthday = user.appUserInfo.birthday;
+	let maritalStatus = user.appUserInfo.maritalStatus;
 
 	let showModal = false;
 	const save = () => {
@@ -53,7 +54,8 @@
 				email,
 				title,
 				gender,
-				birthday: birthday.toISOString()
+				birthday: birthday.toUTCString(),
+				maritalStatus
 			})
 			.then(() => {
 				showModal = true;
@@ -70,6 +72,7 @@
 		title = user.title.code;
 		gender = user.appUserInfo.gender;
 		birthday = user.appUserInfo.birthday;
+		maritalStatus = user.appUserInfo.maritalStatus;
 	};
 </script>
 
@@ -98,6 +101,7 @@
 				bind:title
 				bind:lastName
 				bind:birthday
+				bind:maritalStatus
 			/>
 			<AddressInfo />
 			<FamilyInfo />

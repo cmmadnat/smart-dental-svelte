@@ -4,7 +4,18 @@ import dayjs from 'dayjs';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const post = async ({ body }) => {
-	const { id, firstName, lastName, cardNumber, mobile, email, title, gender, birthday } = body;
+	const {
+		id,
+		firstName,
+		lastName,
+		cardNumber,
+		mobile,
+		email,
+		title,
+		gender,
+		birthday,
+		maritalStatus
+	} = body;
 	const titleCode = await Title.findOne({ code: title });
 
 	let user = await AppUser.findOne(
@@ -22,6 +33,7 @@ export const post = async ({ body }) => {
 	user.title = titleCode;
 	user.appUserInfo.gender = gender;
 	user.appUserInfo.birthday = dayjs(birthday).toDate();
+	user.appUserInfo.maritalStatus = maritalStatus;
 	user = await user.save();
 
 	return { body: { user } };
