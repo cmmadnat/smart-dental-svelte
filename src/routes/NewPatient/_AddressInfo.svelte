@@ -55,4 +55,11 @@
 	<div class="w-2/3 px-2">
 		<TextBox label={$_('addressLineOne')} bind:value={addressLineOne} />
 	</div>
+	<div class="px-2 w-full">
+		<CityPicker
+			bind:postalCode
+			bind:selectedSubdistrict={subdistrict}
+			bind:value={addressLineTwo}
+		/>
+	</div>
 </div>

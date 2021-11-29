@@ -34,6 +34,8 @@ export class AppUserInfo extends BaseEntity {
 
 	@ManyToOne(() => Religion, (religion) => religion.appUserInfos)
 	religion: Religion;
+	@Column('char', { default: '1' })
+	addressType: string;
 	@OneToOne(() => Address, (address) => address.appUserInfo)
 	@JoinColumn()
 	address: Address;
@@ -54,6 +56,9 @@ export class AppUserInfo extends BaseEntity {
 
 	@Column('varchar', { length: 50, default: '' })
 	emergencyRelationship: string;
+
+	@Column('char', { default: '1' })
+	emergencyAddressType: string;
 	@OneToOne(() => Address, (address) => address.emergencyAddress)
 	@JoinColumn()
 	emergencyAddress: Address;
