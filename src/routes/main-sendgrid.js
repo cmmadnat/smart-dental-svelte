@@ -1,6 +1,6 @@
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
-import * as sgMail from '@sendgrid/mail';
+import sgMail from '@sendgrid/mail';
 import { AppUser } from '$lib/entity/AppUser';
 sgMail.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY);
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
