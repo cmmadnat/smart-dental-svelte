@@ -47,11 +47,15 @@
 	let organization = user.appUserInfo.organization;
 	let expireDate = user.appUserInfo.expireDate;
 	// address
-	let addressType = user.appUserInfo.address.addressType + '';
-	let emergencyAddressType = user.appUserInfo.emergencyAddress.addressType + '';
+	let addressType = user.appUserInfo.address ? user.appUserInfo.address.addressType + '' : '';
+	let emergencyAddressType = user.appUserInfo.emergencyAddress
+		? user.appUserInfo.emergencyAddress.addressType + ''
+		: '';
 
-	let addressLineOne = user.appUserInfo.address.line1;
-	let emergencyAddressLineOne = user.appUserInfo.emergencyAddress.line1;
+	let addressLineOne = user.appUserInfo.address ? user.appUserInfo.address.line1 : '';
+	let emergencyAddressLineOne = user.appUserInfo.emergencyAddress
+		? user.appUserInfo.emergencyAddress.line1
+		: '';
 
 	let showModal = false;
 	const save = () => {

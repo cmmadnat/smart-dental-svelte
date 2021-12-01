@@ -26,7 +26,7 @@
 		</div>
 		<div class="mt-2">
 			<Button type="submit" size="small"><i class="lni lni-search" /> {$_('search')}</Button>
-			<ButtonGreen on:click={() => goto('/NewPatient')} size="small"
+			<ButtonGreen on:click={() => goto('/NewPatient/new')} size="small"
 				><i class="lni lni-plus" /> {$_('addPatient')}</ButtonGreen
 			>
 		</div>
