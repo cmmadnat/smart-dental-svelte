@@ -26,6 +26,7 @@
 	import ButtonRed from '$lib/_ButtonRed.svelte';
 	import { goto } from '$app/navigation';
 	import ButtonGreen from '$lib/_ButtonGreen.svelte';
+	import RowItem from './_RowItem.svelte';
 	export let user: AppUser;
 	export let id: string;
 	/*eslint-disable*/
@@ -38,9 +39,6 @@
 	$: lastName = user ? user.lastName : '';
 	$: phone = user ? user.mobile : '';
 	$: citizenID = user ? user.cardNumber : '';
-	const myEval = (q: string) => {
-		return eval(q);
-	};
 </script>
 
 <Header />
@@ -53,20 +51,16 @@
 		<hr />
 		<div class="flex flex-row justify-between bg-blue-50 my-2 p-2 ">
 			<table class="table-auto">
-				{#each ['citizenID', 'phone', 'firstName', 'lastName'] as a}
-					<tr>
-						<td class="text-blue-800 text-right p-2">{$_(a)}</td>
-						<td class="p-2">{myEval(a)}</td>
-					</tr>
-				{/each}
+				<RowItem key="citizenID" value={citizenID} />
+				<RowItem key="phone" value={phone} />
+				<RowItem key="firstName" value={firstName} />
+				<RowItem key="lastName" value={lastName} />
 			</table>
 			<table class="table-auto">
-				{#each ['gender', 'birthday', 'addressLineOne', 'addressLineTwo'] as a}
-					<tr>
-						<td class="text-blue-800 text-right p-2">{$_(a)}</td>
-						<td class="p-2">{myEval(a)}</td>
-					</tr>
-				{/each}
+				<RowItem key="gender" value={gender} />
+				<RowItem key="birthday" value={birthday} />
+				<RowItem key="addressLineOne" value={addressLineOne} />
+				<RowItem key="addressLineTwo" value={addressLineTwo} />
 			</table>
 			<div>
 				<ButtonGreen
