@@ -215,6 +215,8 @@
 	show={showRegisteredModal}
 	completeMessage={$_('login')}
 	on:complete={() => {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
 		window.location = '/';
 	}}
 >

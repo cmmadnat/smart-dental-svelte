@@ -3,8 +3,12 @@
 	import CityPicker from '../_CityPicker.svelte';
 	import SelectBox from '$lib/_SmallSelectBox.svelte';
 	import TextBox from '$lib/_SmallTextBox.svelte';
-	let postalCode = '';
-	let subdistrict = '';
+
+	export let postalCode = '';
+	export let subdistrict = '';
+
+	export let emergencySubdistrict = '';
+	export let emergencyPostalCode = '';
 
 	let addressLineTwo = '';
 
@@ -12,6 +16,10 @@
 	export let emergencyAddressType = '0';
 	export let addressLineOne = '';
 	export let emergencyAddressLineOne = '';
+	export let homePhone = '';
+	export let workPhone = '';
+	export let emergencyContact = '';
+	export let emergencyRelationship = '';
 
 	const addressTypes = ['ที่อยู่ตามทะเบียนบ้าน', 'อื่นๆ'].map((it, index) => ({
 		id: index + 1 + '',
@@ -36,20 +44,17 @@
 			bind:value={addressLineTwo}
 		/>
 	</div>
-	<div class="px-2 w-1/3">
-		<TextBox label={$_('phone')} />
+	<div class="px-2 w-1/2">
+		<TextBox bind:value={homePhone} label={$_('homePhone')} />
 	</div>
-	<div class="px-2 w-1/3">
-		<TextBox label={$_('homePhone')} />
+	<div class="px-2 w-1/2">
+		<TextBox bind:value={workPhone} label={$_('workPhone')} />
 	</div>
-	<div class="px-2 w-1/3">
-		<TextBox label={$_('workPhone')} />
+	<div class="px-2 w-1/2">
+		<TextBox bind:value={emergencyContact} label={$_('emergencyContact')} />
 	</div>
-	<div class="px-2 w-1/3">
-		<TextBox label={$_('emergencyContact')} />
-	</div>
-	<div class="px-2 w-1/3">
-		<TextBox label={$_('relationship')} />
+	<div class="px-2 w-1/2">
+		<TextBox bind:value={emergencyRelationship} label={$_('relationship')} />
 	</div>
 	<div class="w-full">
 		<input type="checkbox" id="sameAddressAsMe" />
@@ -63,8 +68,8 @@
 	</div>
 	<div class="px-2 w-full">
 		<CityPicker
-			bind:postalCode
-			bind:selectedSubdistrict={subdistrict}
+			bind:postalCode={emergencyPostalCode}
+			bind:selectedSubdistrict={emergencySubdistrict}
 			bind:value={addressLineTwo}
 		/>
 	</div>

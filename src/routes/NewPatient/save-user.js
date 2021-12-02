@@ -25,7 +25,17 @@ export const post = async ({ body }) => {
 		expireDate,
 		// address
 		addressType,
-		emergencyAddressType
+		emergencyAddressType,
+		addressLineOne,
+		emergencyAddressLineOne,
+		subdistrict,
+		postalCode,
+		emergencySubdistrict,
+		emergencyPostalCode,
+		emergencyContact,
+		emergencyRelationship,
+		homePhone,
+		workPhone
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
 	const religionCode =
@@ -56,6 +66,21 @@ export const post = async ({ body }) => {
 	user.appUserInfo.expireDate = dayjs(expireDate).toDate();
 	user.appUserInfo.address.addressType = addressType;
 	user.appUserInfo.emergencyAddress.addressType = emergencyAddressType;
+	user.appUserInfo.address.line1 = addressLineOne;
+	user.appUserInfo.emergencyAddress.line1 = emergencyAddressLineOne;
+
+	// subdistrict, postal code
+	user.appUserInfo.address.subdistrict = subdistrict;
+	user.appUserInfo.address.postalCode = postalCode;
+
+	user.appUserInfo.emergencyAddress.subdistrict = emergencySubdistrict;
+	user.appUserInfo.emergencyAddress.postalCode = emergencyPostalCode;
+	//contact
+
+	user.appUserInfo.emergencyName = emergencyContact;
+	user.appUserInfo.emergencyRelationship = emergencyRelationship;
+	user.appUserInfo.homePhone = homePhone;
+	user.appUserInfo.workPhone = workPhone;
 	user = await user.save();
 
 	return { body: { user } };

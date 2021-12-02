@@ -57,6 +57,19 @@
 		? user.appUserInfo.emergencyAddress.line1
 		: '';
 
+	let subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict : '';
+	let postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode : '';
+	let emergencySubdistrict = user.appUserInfo.emergencyAddress
+		? user.appUserInfo.emergencyAddress.subdistrict
+		: '';
+	let emergencyPostalCode = user.appUserInfo.emergencyAddress
+		? user.appUserInfo.emergencyAddress.postalCode
+		: '';
+	let emergencyContact = user.appUserInfo.emergencyName;
+	let emergencyRelationship = user.appUserInfo.emergencyRelationship;
+	let homePhone = user.appUserInfo.homePhone;
+	let workPhone = user.appUserInfo.workPhone;
+
 	let showModal = false;
 	const save = () => {
 		request
@@ -80,7 +93,19 @@
 				expireDate: expireDate.toUTCString(),
 				// address
 				addressType,
-				emergencyAddressType
+				emergencyAddressType,
+				addressLineOne,
+				emergencyAddressLineOne,
+				subdistrict,
+				postalCode,
+				//emergency
+				emergencySubdistrict,
+				emergencyPostalCode,
+				// contact
+				emergencyContact,
+				emergencyRelationship,
+				homePhone,
+				workPhone
 			})
 			.then(() => {
 				showModal = true;
@@ -103,8 +128,23 @@
 		organization = user.appUserInfo.organization;
 		expireDate = user.appUserInfo.expireDate;
 		//address type
-		addressType = user.appUserInfo.address.addressType + '';
-		emergencyAddressType = user.appUserInfo.emergencyAddress.addressType + '';
+		addressType = user.appUserInfo.address ? user.appUserInfo.address.addressType + '' : '';
+		emergencyAddressType = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.addressType + ''
+			: '';
+
+		subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict + '' : '';
+		postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode + '' : '';
+		emergencySubdistrict = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.subdistrict
+			: '';
+		emergencyPostalCode = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.postalCode
+			: '';
+		emergencyContact = user.appUserInfo.emergencyName;
+		emergencyRelationship = user.appUserInfo.emergencyRelationship;
+		homePhone = user.appUserInfo.homePhone;
+		workPhone = user.appUserInfo.workPhone;
 	};
 </script>
 
@@ -145,6 +185,14 @@
 				bind:emergencyAddressType
 				bind:addressLineOne
 				bind:emergencyAddressLineOne
+				bind:subdistrict
+				bind:postalCode
+				bind:emergencySubdistrict
+				bind:emergencyPostalCode
+				bind:emergencyContact
+				bind:emergencyRelationship
+				bind:homePhone
+				bind:workPhone
 			/>
 			<FamilyInfo />
 		</div>
