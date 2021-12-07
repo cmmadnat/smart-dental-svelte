@@ -90,5 +90,9 @@
 	"updateSuccess": "Update Successful",
 	"emergencyContact": "Emergency Contact",
 	"relationship": "Relationship",
-	"sameAddressAsMe": "Under the same address"
+	"sameAddressAsMe": "Under the same address",
+	"visits": "Visits",
+	"schedule": "Schedule",
+	"remove": "Remove",
+	"addSchedule": "Add Schedule"
 }

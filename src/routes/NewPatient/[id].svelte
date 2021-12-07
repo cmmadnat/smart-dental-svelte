@@ -145,9 +145,51 @@
 		emergencyRelationship = user.appUserInfo.emergencyRelationship;
 		homePhone = user.appUserInfo.homePhone;
 		workPhone = user.appUserInfo.workPhone;
+
+		addressLineOne = user.appUserInfo.address ? user.appUserInfo.address.line1 : '';
+		subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict : '';
+		postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode : '';
+
+		emergencyAddressLineOne = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.line1
+			: '';
+		emergencySubdistrict = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.subdistrict
+			: '';
+		emergencyPostalCode = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.postalCode
+			: '';
 	};
+	function beforeUnload(event) {
+		if (
+			firstName === user.firstName &&
+			lastName === user.lastName &&
+			idType === user.IDCard &&
+			cardNumber === user.cardNumber &&
+			mobile === user.mobile &&
+			email === user.email &&
+			gender === user.appUserInfo.gender &&
+			maritalStatus === user.appUserInfo.maritalStatus &&
+			nationality === user.appUserInfo.nationality &&
+			organization === user.appUserInfo.organization &&
+			emergencyContact === user.appUserInfo.emergencyName &&
+			emergencyRelationship === user.appUserInfo.emergencyRelationship &&
+			homePhone === user.appUserInfo.homePhone &&
+			workPhone === user.appUserInfo.workPhone
+		) {
+			return '';
+		} else {
+			// Cancel the event as stated by the standard.
+			event.preventDefault();
+			// Chrome requires returnValue to be set.
+			event.returnValue = '';
+			// more compatibility
+			return '...';
+		}
+	}
 </script>
 
+<svelte:window on:beforeunload={beforeUnload} />
 <Header />
 <div class="lg:container mx-auto bg-white p-2 rounded-lg shadow-lg">
 	<div class="flex justify-between">
