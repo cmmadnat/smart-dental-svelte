@@ -51,6 +51,7 @@
 		"superagent": "^6.1.0",
 		"svelte": "^3.42.6",
 		"svelte-check": "^2.2.6",
+		"svelte-dragdroplist": "^1.1.1",
 		"svelte-i18n": "^3.3.10",
 		"svelte-preprocess": "^4.9.4",
 		"tailwindcss": "^2.2.15",

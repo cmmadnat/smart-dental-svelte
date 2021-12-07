@@ -96,5 +96,8 @@
   "remove": "Remove",
   "addSchedule": "Add Schedule",
   "return": "Return",
-  "edit": "Edit"
+  "edit": "Edit",
+  "addEditItem": "Add Or Edit Item",
+  "itemName": "Item Name",
+  "itemDescription": "Item Description"
 }

@@ -6,6 +6,11 @@
 	import { onMount } from 'svelte';
 	import TextBox from '$lib/_TextBox.svelte';
 	import SaveResetBack from '$lib/_SaveResetBack.svelte';
+	// eslint-disable-next-line
+	import Quill from 'quill';
+	import DragDropList from 'svelte-dragdroplist';
+
+	let data = ['Adams', 'Boston', 'Chicago', 'Denver'];
 
 	let editor;
 
@@ -19,8 +24,6 @@
 
 	let quill;
 	onMount(async () => {
-		const { default: Quill } = await import('quill');
-
 		quill = new Quill(editor, {
 			modules: {
 				toolbar: toolbarOptions
@@ -37,7 +40,7 @@
 <Header />
 <div class="lg:container mx-auto bg-white p-2 rounded-lg shadow-lg">
 	<div class="flex justify-between">
-		<h1 class="text-2xl bold">
+		<h1 class="text-3xl bold">
 			{$_('addEditItem')}
 		</h1>
 		<LanguageSetting />
@@ -56,6 +59,21 @@
 			</div>
 			<div class="editor-wrapper">
 				<div bind:this={editor} />
+			</div>
+			<div class="bold my-2">
+				{$_('itemImages')}
+			</div>
+			<div class="flex flex-row">
+				<div class="w-1/2">
+					<DragDropList bind:data />
+				</div>
+				<div class="w-1/2 p-2">
+					<form action="">
+						<div class="border-solid border-2 p-2">
+							{$_('uploadImage')}
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
