@@ -9,6 +9,7 @@
 	// eslint-disable-next-line
 	import Quill from 'quill';
 	import DragDropList from 'svelte-dragdroplist';
+	import ImageTools from '$lib/ImageTool';
 
 	let data = ['Adams', 'Boston', 'Chicago', 'Denver'];
 
@@ -35,6 +36,25 @@
 	const save = () => {
 		console.log(quill.root.innerHTML);
 	};
+	let preview;
+	const uploadImage = (e) => {
+		ImageTools.resize(
+			e.target.files[0],
+			{
+				width: 320, // maximum width
+				height: 240 // maximum height
+			},
+			function (blob, didItResize) {
+				console.log('resized');
+				console.log(didItResize);
+				console.log(blob);
+				// didItResize will be true if it managed to resize it, otherwise false (and will return the original file as 'blob')
+				preview.src = window.URL.createObjectURL(blob);
+				// you can also now upload this blob using an XHR.
+				console.log(preview);
+			}
+		);
+	};
 </script>
 
 <Header />
@@ -60,19 +80,22 @@
 			<div class="editor-wrapper">
 				<div bind:this={editor} />
 			</div>
-			<div class="bold my-2">
+			<div class="my-2">
 				{$_('itemImages')}
 			</div>
 			<div class="flex flex-row">
-				<div class="w-1/2">
-					<DragDropList bind:data />
-				</div>
 				<div class="w-1/2 p-2">
 					<form action="">
 						<div class="border-solid border-2 p-2">
 							{$_('uploadImage')}
+							<br />
+							<input on:change={uploadImage} type="file" name="" id="" />
 						</div>
 					</form>
+				</div>
+				<div class="w-1/2">
+					<img bind:this={preview} alt="previewimage" />
+					<DragDropList bind:data />
 				</div>
 			</div>
 		</div>
