@@ -13,6 +13,11 @@
 		selectedSecondAddress = value;
 	}
 	$: {
+		if (selectedSubdistrict && postalCode) {
+			submit();
+		}
+	}
+	$: {
 		if (postalCode.length == 5) {
 			superagent
 				.get('/postalCodeInfo')

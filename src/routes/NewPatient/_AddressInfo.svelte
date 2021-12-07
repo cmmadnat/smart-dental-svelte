@@ -27,6 +27,11 @@
 		emergencyPostalCode = postalCode;
 		emergencySubdistrict = subdistrict;
 	};
+	$: {
+		if (emergencyAddressLineOne === addressLineOne) {
+			sameAddress = true;
+		}
+	}
 
 	const addressTypes = ['ที่อยู่ตามทะเบียนบ้าน', 'อื่นๆ'].map((it, index) => ({
 		id: index + 1 + '',
