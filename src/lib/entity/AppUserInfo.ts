@@ -59,15 +59,15 @@ export class AppUserInfo extends BaseEntity {
 	@JoinColumn()
 	emergencyAddress: Address;
 
-	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.father)
+	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.father, { cascade: true })
 	@JoinColumn()
 	fatherFamilyInfo: FamilyInfo;
 
-	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.mother)
+	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.mother, { cascade: true })
 	@JoinColumn()
 	motherFamilyInfo: FamilyInfo;
 
-	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.sprouse)
+	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.sprouse, { cascade: true })
 	@JoinColumn()
 	sprouseFamilyInfo: FamilyInfo;
 }

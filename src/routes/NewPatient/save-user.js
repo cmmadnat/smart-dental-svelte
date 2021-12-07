@@ -35,7 +35,13 @@ export const post = async ({ body }) => {
 		emergencyContact,
 		emergencyRelationship,
 		homePhone,
-		workPhone
+		workPhone,
+		fatherFirstname,
+		fatherLastName,
+		motherFirstname,
+		motherLastName,
+		sprouseFirstname,
+		sprouseLastName
 	} = body;
 	const titleCode = await Title.findOne({ code: title });
 	const religionCode =
@@ -46,7 +52,15 @@ export const post = async ({ body }) => {
 		{ id },
 		{
 			select: ['id', 'firstName', 'lastName', 'cardNumber', 'mobile', 'email', 'title'],
-			relations: ['appUserInfo', 'title', 'appUserInfo.emergencyAddress', 'appUserInfo.address']
+			relations: [
+				'appUserInfo',
+				'title',
+				'appUserInfo.emergencyAddress',
+				'appUserInfo.address',
+				'appUserInfo.fatherFamilyInfo',
+				'appUserInfo.motherFamilyInfo',
+				'appUserInfo.sprouseFamilyInfo'
+			]
 		}
 	);
 	user.firstName = firstName;
@@ -81,6 +95,13 @@ export const post = async ({ body }) => {
 	user.appUserInfo.emergencyRelationship = emergencyRelationship;
 	user.appUserInfo.homePhone = homePhone;
 	user.appUserInfo.workPhone = workPhone;
+
+	user.appUserInfo.fatherFamilyInfo.firstName = fatherFirstname;
+	user.appUserInfo.fatherFamilyInfo.lastName = fatherLastName;
+	user.appUserInfo.motherFamilyInfo.firstName = motherFirstname;
+	user.appUserInfo.motherFamilyInfo.lastName = motherLastName;
+	user.appUserInfo.sprouseFamilyInfo.firstName = sprouseFirstname;
+	user.appUserInfo.sprouseFamilyInfo.lastName = sprouseLastName;
 	user = await user.save();
 
 	return { body: { user } };

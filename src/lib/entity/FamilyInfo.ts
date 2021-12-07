@@ -6,10 +6,10 @@ export class FamilyInfo extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { default: '', length: 50 })
 	firstName: string;
 
-	@Column('varchar', { length: 50 })
+	@Column('varchar', { default: '', length: 50 })
 	lastName: string;
 
 	@OneToOne(() => AppUserInfo, (appUserInfo) => appUserInfo.fatherFamilyInfo)

@@ -48,27 +48,49 @@
 	let expireDate = user.appUserInfo.expireDate;
 	// address
 	let addressType = user.appUserInfo.address ? user.appUserInfo.address.addressType + '' : '';
+	let addressLineOne = user.appUserInfo.address ? user.appUserInfo.address.line1 : '';
+	let subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict : '';
+	let postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode : '';
+
+	// emergency address
 	let emergencyAddressType = user.appUserInfo.emergencyAddress
 		? user.appUserInfo.emergencyAddress.addressType + ''
 		: '';
-
-	let addressLineOne = user.appUserInfo.address ? user.appUserInfo.address.line1 : '';
 	let emergencyAddressLineOne = user.appUserInfo.emergencyAddress
 		? user.appUserInfo.emergencyAddress.line1
 		: '';
-
-	let subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict : '';
-	let postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode : '';
 	let emergencySubdistrict = user.appUserInfo.emergencyAddress
 		? user.appUserInfo.emergencyAddress.subdistrict
 		: '';
 	let emergencyPostalCode = user.appUserInfo.emergencyAddress
 		? user.appUserInfo.emergencyAddress.postalCode
 		: '';
+
+	//emergency contact
 	let emergencyContact = user.appUserInfo.emergencyName;
 	let emergencyRelationship = user.appUserInfo.emergencyRelationship;
+	//phone
 	let homePhone = user.appUserInfo.homePhone;
 	let workPhone = user.appUserInfo.workPhone;
+	// family
+	let fatherFirstname = user.appUserInfo.fatherFamilyInfo
+		? user.appUserInfo.fatherFamilyInfo.firstName
+		: '';
+	let fatherLastName = user.appUserInfo.fatherFamilyInfo
+		? user.appUserInfo.fatherFamilyInfo.lastName
+		: '';
+	let motherFirstname = user.appUserInfo.motherFamilyInfo
+		? user.appUserInfo.motherFamilyInfo.firstName
+		: '';
+	let motherLastName = user.appUserInfo.motherFamilyInfo
+		? user.appUserInfo.motherFamilyInfo.lastName
+		: '';
+	let sprouseFirstname = user.appUserInfo.sprouseFamilyInfo
+		? user.appUserInfo.sprouseFamilyInfo.firstName
+		: '';
+	let sprouseLastName = user.appUserInfo.sprouseFamilyInfo
+		? user.appUserInfo.sprouseFamilyInfo.lastName
+		: '';
 
 	let showModal = false;
 	const save = () => {
@@ -93,19 +115,27 @@
 				expireDate: expireDate.toUTCString(),
 				// address
 				addressType,
-				emergencyAddressType,
 				addressLineOne,
-				emergencyAddressLineOne,
 				subdistrict,
 				postalCode,
 				//emergency
+				emergencyAddressType,
+				emergencyAddressLineOne,
 				emergencySubdistrict,
 				emergencyPostalCode,
 				// contact
 				emergencyContact,
 				emergencyRelationship,
+				//phone
 				homePhone,
-				workPhone
+				workPhone,
+				// family
+				fatherFirstname,
+				fatherLastName,
+				motherFirstname,
+				motherLastName,
+				sprouseFirstname,
+				sprouseLastName
 			})
 			.then(() => {
 				showModal = true;
@@ -143,13 +173,25 @@
 			: '';
 		emergencyContact = user.appUserInfo.emergencyName;
 		emergencyRelationship = user.appUserInfo.emergencyRelationship;
-		homePhone = user.appUserInfo.homePhone;
-		workPhone = user.appUserInfo.workPhone;
 
+		//address
+		addressType = user.appUserInfo.address ? user.appUserInfo.address.addressType + '' : '1';
 		addressLineOne = user.appUserInfo.address ? user.appUserInfo.address.line1 : '';
 		subdistrict = user.appUserInfo.address ? user.appUserInfo.address.subdistrict : '';
 		postalCode = user.appUserInfo.address ? user.appUserInfo.address.postalCode : '';
 
+		//family
+		fatherFirstname = user.appUserInfo.fatherFamilyInfo.firstName;
+		fatherLastName = user.appUserInfo.fatherFamilyInfo.lastName;
+		motherFirstname = user.appUserInfo.motherFamilyInfo.firstName;
+		motherLastName = user.appUserInfo.motherFamilyInfo.lastName;
+		sprouseFirstname = user.appUserInfo.sprouseFamilyInfo.firstName;
+		sprouseLastName = user.appUserInfo.sprouseFamilyInfo.lastName;
+
+		//emergency address
+		emergencyAddressType = user.appUserInfo.emergencyAddress
+			? user.appUserInfo.emergencyAddress.addressType + ''
+			: '1';
 		emergencyAddressLineOne = user.appUserInfo.emergencyAddress
 			? user.appUserInfo.emergencyAddress.line1
 			: '';
@@ -159,6 +201,10 @@
 		emergencyPostalCode = user.appUserInfo.emergencyAddress
 			? user.appUserInfo.emergencyAddress.postalCode
 			: '';
+
+		//phone
+		homePhone = user.appUserInfo.homePhone;
+		workPhone = user.appUserInfo.workPhone;
 	};
 	function beforeUnload(event) {
 		if (
@@ -174,8 +220,16 @@
 			organization === user.appUserInfo.organization &&
 			emergencyContact === user.appUserInfo.emergencyName &&
 			emergencyRelationship === user.appUserInfo.emergencyRelationship &&
+			// we don't check the address, too lazy
 			homePhone === user.appUserInfo.homePhone &&
-			workPhone === user.appUserInfo.workPhone
+			workPhone === user.appUserInfo.workPhone &&
+			//family
+			fatherFirstname === user.appUserInfo.fatherFamilyInfo.firstName &&
+			fatherLastName === user.appUserInfo.fatherFamilyInfo.lastName &&
+			motherFirstname === user.appUserInfo.motherFamilyInfo.firstName &&
+			motherLastName === user.appUserInfo.motherFamilyInfo.lastName &&
+			sprouseFirstname === user.appUserInfo.sprouseFamilyInfo.firstName &&
+			sprouseLastName === user.appUserInfo.sprouseFamilyInfo.lastName
 		) {
 			return '';
 		} else {
@@ -236,7 +290,14 @@
 				bind:homePhone
 				bind:workPhone
 			/>
-			<FamilyInfo />
+			<FamilyInfo
+				bind:fatherFirstname
+				bind:fatherLastName
+				bind:motherFirstname
+				bind:motherLastName
+				bind:sprouseFirstname
+				bind:sprouseLastName
+			/>
 		</div>
 	</div>
 </div>
