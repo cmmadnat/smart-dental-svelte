@@ -1,6 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import Header from './_Navigation.svelte';
+	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import Button from '$lib/_Button.svelte';
 	import CheckCitizenID from './_CheckCitizenID.svelte';

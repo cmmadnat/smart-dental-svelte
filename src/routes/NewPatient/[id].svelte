@@ -19,9 +19,9 @@
 	import type { AppUser } from '$lib/entity/AppUser';
 	import request from 'superagent';
 	import { _ } from 'svelte-i18n';
-	import Header from '../_Navigation.svelte';
+	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
-	import Menu from '../_menu.svelte';
+	import Menu from '$lib/_menu.svelte';
 	import SmallModal from '$lib/_SmallModal.svelte';
 	import PersonalInfo from './_PersonalInfo.svelte';
 	import AddressInfo from './_AddressInfo.svelte';

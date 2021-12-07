@@ -2,8 +2,6 @@
 	import { _ } from 'svelte-i18n';
 	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
-	import SearchUser from './_SearchUser.svelte';
-	import SearchDoctor from './_SearchDoctor.svelte';
 	import Menu from '$lib/_menu.svelte';
 </script>
 
@@ -19,13 +17,6 @@
 		<div class="md:w-1/3">
 			<Menu />
 		</div>
-		<div class="md:w-1/3 w-full">
-			<div>
-				<SearchUser />
-			</div>
-			<div class="mt-2">
-				<SearchDoctor />
-			</div>
-		</div>
+		<div class="md:w-1/3 w-full" />
 	</div>
 </div>

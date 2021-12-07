@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 
-	import MenuItem from './_menu-item.svelte';
+	import MenuItem from '../routes/_menu-item.svelte';
 </script>
 
 <div>

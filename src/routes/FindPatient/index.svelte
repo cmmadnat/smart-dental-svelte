@@ -25,7 +25,7 @@
 <script lang="ts">
 	import Pagination from '$lib/_Pagination.svelte';
 	import { _ } from 'svelte-i18n';
-	import Header from '../_Navigation.svelte';
+	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 
 	import SearchUser from '../_SearchUser.svelte';
