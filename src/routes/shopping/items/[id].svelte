@@ -1,4 +1,7 @@
 <script>
+	// eslint-disable-next-line
+	// @ts-nocheck
+
 	import { _ } from 'svelte-i18n';
 	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
@@ -6,8 +9,6 @@
 	import { onMount } from 'svelte';
 	import TextBox from '$lib/_TextBox.svelte';
 	import SaveResetBack from '$lib/_SaveResetBack.svelte';
-	// eslint-disable-next-line
-	import Quill from 'quill';
 	import DragDropList from 'svelte-dragdroplist';
 	import ImageTools from '$lib/ImageTool';
 
@@ -25,6 +26,8 @@
 
 	let quill;
 	onMount(async () => {
+		const { default: Quill } = await import('quill');
+
 		quill = new Quill(editor, {
 			modules: {
 				toolbar: toolbarOptions
