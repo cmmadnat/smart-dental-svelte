@@ -28,6 +28,8 @@
 	import FamilyInfo from './_FamilyInfo.svelte';
 	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	import ButtonRed from '$lib/_ButtonRed.svelte';
+	import { goto } from '$app/navigation';
+	import ButtonBlue from '$lib/_ButtonBlue.svelte';
 	export let id = '';
 	export let user: AppUser;
 	//basic info
@@ -256,9 +258,23 @@
 		<div class="md:w-1/3">
 			<Menu />
 		</div>
-		<div class="md:w-2/3 relative">
-			<ButtonGreen on:click={save}>{$_('save')}</ButtonGreen>
-			<ButtonRed on:click={reset}>{$_('reset')}</ButtonRed>
+		<div class="md:w-2/3 relative ">
+			<div class="flex flex-row justify-between">
+				<div>
+					<ButtonGreen on:click={save}><i class="lni lni-save" /> {$_('save')}</ButtonGreen>
+					<ButtonRed on:click={reset}><i class="lni lni-archive" /> {$_('reset')}</ButtonRed>
+				</div>
+				<div class="justify-self-end ">
+					<ButtonBlue
+						on:click={() => {
+							history.back();
+						}}
+					>
+						<i class="lni lni-backward" />
+						{$_('return')}</ButtonBlue
+					>
+				</div>
+			</div>
 			<PersonalInfo
 				bind:mobile
 				bind:email
@@ -305,7 +321,7 @@
 	show={showModal}
 	on:complete={() => {
 		showModal = false;
+		goto(`/NewPatient/${id}`);
 	}}
-	showClose={false}
-	on:close={() => (showModal = false)}>{$_('updateSuccess')}</SmallModal
+	showClose={false}>{$_('updateSuccess')}</SmallModal
 >

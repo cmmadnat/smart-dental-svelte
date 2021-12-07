@@ -90,5 +90,11 @@
   "emergencyContact": "ติดต่อในกรณีฉุกเฉิน",
   "relationship": "ความสัมพันธ์",
   "sameAddressAsMe": "ภายใต้ที่อยู่เดียวกัน",
-  "updateSuccess": "อัพเดทสำเร็จ"
+  "updateSuccess": "อัพเดทสำเร็จ",
+  "addSchedule": "เพิ่มกำหนดการ",
+  "edit": "แก้ไข",
+  "remove": "ลบ",
+  "return": "กลับ",
+  "schedule": "กำหนดการ",
+  "visits": "เยี่ยมชม"
 }

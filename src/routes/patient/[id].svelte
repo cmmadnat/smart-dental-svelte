@@ -66,7 +66,9 @@
 				<ButtonGreen
 					on:click={() => {
 						goto('/NewPatient/' + id);
-					}}>{$_('edit')}</ButtonGreen
+					}}
+				>
+					<i class="lni lni-pencil" /> {$_('edit')}</ButtonGreen
 				>
 			</div>
 		</div>
