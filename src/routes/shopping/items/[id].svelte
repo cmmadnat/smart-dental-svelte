@@ -12,7 +12,7 @@
 	import DragDropList from 'svelte-dragdroplist';
 	import ImageTools from '$lib/ImageTool';
 
-	let data = ['Adams', 'Boston', 'Chicago', 'Denver'];
+	let data = [];
 
 	let editor;
 
@@ -39,7 +39,7 @@
 	const save = () => {
 		console.log(quill.root.innerHTML);
 	};
-	let preview;
+
 	const uploadImage = (e) => {
 		ImageTools.resize(
 			e.target.files[0],
@@ -47,14 +47,18 @@
 				width: 320, // maximum width
 				height: 240 // maximum height
 			},
-			function (blob, didItResize) {
-				console.log('resized');
-				console.log(didItResize);
-				console.log(blob);
+			function (blob) {
 				// didItResize will be true if it managed to resize it, otherwise false (and will return the original file as 'blob')
-				preview.src = window.URL.createObjectURL(blob);
+				// preview.src = window.URL.createObjectURL(blob);
+				data = [
+					...data,
+					{
+						id: data.length + 1,
+						html: `<img src='${window.URL.createObjectURL(blob)}' alt='preview image'/>`,
+						blob
+					}
+				];
 				// you can also now upload this blob using an XHR.
-				console.log(preview);
 			}
 		);
 	};
@@ -97,7 +101,7 @@
 					</form>
 				</div>
 				<div class="w-1/2">
-					<img bind:this={preview} alt="previewimage" />
+					{@debug data}
 					<DragDropList bind:data />
 				</div>
 			</div>

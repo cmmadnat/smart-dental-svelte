@@ -21,5 +21,10 @@
 		<MenuItem>ระบบบันทึกเวลาปฏิบัติงานผ่าน QR และ GPS</MenuItem>
 		<MenuItem>ระบบลงปฏิบัติงาน</MenuItem>
 		<MenuItem>ระบบพบทันตแพทย์ออนไลน์</MenuItem>
+		<MenuItem
+			on:click={() => {
+				goto('/shopping/items/1');
+			}}>ระบบ Shopping</MenuItem
+		>
 	</ul>
 </div>
