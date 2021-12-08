@@ -102,7 +102,7 @@
 				</div>
 				<div class="w-1/2">
 					{@debug data}
-					<DragDropList bind:data />
+					<DragDropList bind:data removesItems={true} />
 				</div>
 			</div>
 		</div>
