@@ -4,7 +4,9 @@ import { AppUser } from './entity/AppUser';
 import { AppUserInfo } from './entity/AppUserInfo';
 import { FamilyInfo } from './entity/FamilyInfo';
 import { Occupation } from './entity/Occupation';
+import { Photo } from './entity/Photo';
 import { Religion } from './entity/Religion';
+import { ShoppingItems } from './entity/ShoppingItem';
 import { Title } from './entity/Title';
 
 export function connectionToDatabase(): Promise<Connection> {
@@ -15,7 +17,17 @@ export function connectionToDatabase(): Promise<Connection> {
 		username: import.meta.env.VITE_DB_USER,
 		password: import.meta.env.VITE_DB_PASS,
 		database: import.meta.env.VITE_DB_DATABASE,
-		entities: [FamilyInfo, Religion, AppUserInfo, AppUser, Title, Address, Occupation],
+		entities: [
+			FamilyInfo,
+			Religion,
+			AppUserInfo,
+			AppUser,
+			Title,
+			Address,
+			Occupation,
+			Photo,
+			ShoppingItems
+		],
 		synchronize: true
 	}).then((connection) => {
 		// const titles = await checkTitles();

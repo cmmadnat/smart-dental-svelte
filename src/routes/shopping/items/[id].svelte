@@ -1,7 +1,21 @@
+<script lang="ts" context="module">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export const load = ({ page }: LoadInput): LoadOutput => {
+		const id = page.params.id;
+		return {
+			props: {
+				id
+			}
+		};
+	};
+</script>
+
 <script>
 	// eslint-disable-next-line
 	// @ts-nocheck
 
+	import request from 'superagent';
 	import { _ } from 'svelte-i18n';
 	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
@@ -11,8 +25,12 @@
 	import SaveResetBack from '$lib/_SaveResetBack.svelte';
 	import DragDropList from 'svelte-dragdroplist';
 	import ImageTools from '$lib/ImageTool';
+	import SmallModal from '$lib/_SmallModal.svelte';
+
+	export const id = '';
 
 	let data = [];
+	let showModal = false;
 
 	let editor;
 
@@ -37,7 +55,12 @@
 		});
 	});
 	const save = () => {
-		console.log(quill.root.innerHTML);
+		request.post('save').then(() => {
+			showModal = true;
+		});
+	};
+	const closeModal = () => {
+		showModal = false;
 	};
 
 	const uploadImage = (e) => {
@@ -101,13 +124,15 @@
 					</form>
 				</div>
 				<div class="w-1/2">
-					{@debug data}
 					<DragDropList bind:data removesItems={true} />
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<SmallModal showClose={false} show={showModal} on:complete={closeModal}>
+	{$_('updateSuccess')}
+</SmallModal>
 
 <style>
 	@import 'https://cdn.quilljs.com/1.3.6/quill.snow.css';

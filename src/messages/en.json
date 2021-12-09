@@ -99,5 +99,9 @@
   "edit": "Edit",
   "addEditItem": "Add Or Edit Item",
   "itemName": "Item Name",
-  "itemDescription": "Item Description"
+  "itemDescription": "Item Description",
+  "shortDescription": "Short Description",
+  "images": "Images",
+  "shoppingItems": "Shopping Items",
+  "add": "Add"
 }
