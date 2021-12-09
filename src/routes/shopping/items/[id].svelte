@@ -27,9 +27,10 @@
 	import ImageTools from '$lib/ImageTool';
 	import SmallModal from '$lib/_SmallModal.svelte';
 
-	export const id = '';
+	export let id = '';
 
 	let data = [];
+	let title = '';
 	let showModal = false;
 
 	let editor;
@@ -55,9 +56,17 @@
 		});
 	});
 	const save = () => {
-		request.post('save').then(() => {
-			showModal = true;
+		const description = quill.root.innerHTML;
+		const images = data.map((it, index) => {
+			return { order: index, base64: it.base64 };
 		});
+
+		request
+			.post('save')
+			.send({ id, title, description, images })
+			.then(() => {
+				showModal = true;
+			});
 	};
 	const closeModal = () => {
 		showModal = false;
@@ -73,14 +82,22 @@
 			function (blob) {
 				// didItResize will be true if it managed to resize it, otherwise false (and will return the original file as 'blob')
 				// preview.src = window.URL.createObjectURL(blob);
-				data = [
-					...data,
-					{
-						id: data.length + 1,
-						html: `<img src='${window.URL.createObjectURL(blob)}' alt='preview image'/>`,
-						blob
-					}
-				];
+
+				var reader = new FileReader();
+				reader.readAsDataURL(blob);
+				reader.onloadend = function () {
+					var base64data = reader.result;
+					// console.log(base64data);
+					data = [
+						...data,
+						{
+							id: data.length + 1,
+							html: `<img src='${window.URL.createObjectURL(blob)}' alt='preview image'/>`,
+							blob,
+							base64: base64data
+						}
+					];
+				};
 				// you can also now upload this blob using an XHR.
 			}
 		);
@@ -103,7 +120,7 @@
 		</div>
 		<div class="md:w-2/3 w-full">
 			<SaveResetBack on:save={save} />
-			<TextBox label={$_('itemName')} />
+			<TextBox bind:value={title} label={$_('itemName')} />
 			<div class="my-2">
 				<span class="">{$_('itemDescription')}</span>
 			</div>
