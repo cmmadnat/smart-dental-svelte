@@ -55,6 +55,10 @@
 		const { default: Quill } = await import('quill');
 		title = item.title;
 		editor.innerHTML = item.description;
+		data = item.photos.map((it) => ({
+			base64: it.base64,
+			html: `<img src='${it.base64}' alt='preview image'/>`
+		}));
 
 		quill = new Quill(editor, {
 			modules: {
@@ -128,7 +132,6 @@
 			<Menu />
 		</div>
 		<div class="md:w-2/3 w-full">
-			{@debug item}
 			<SaveResetBack on:save={save} />
 			<TextBox bind:value={title} label={$_('itemName')} />
 			<div class="my-2">
