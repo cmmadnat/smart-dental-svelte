@@ -1,11 +1,17 @@
 <script lang="ts" context="module">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
-	export const load = ({ page }: LoadInput): LoadOutput => {
+	export const load = async ({ page, fetch }: LoadInput): LoadOutput => {
 		const id = page.params.id;
+		const item = await fetch({
+			url: `/shopping/items/get-shopping-item`,
+			method: 'post',
+			body: JSON.stringify({ id })
+		}).then((data) => data.json());
 		return {
 			props: {
-				id
+				id,
+				item
 			}
 		};
 	};
@@ -28,6 +34,7 @@
 	import SmallModal from '$lib/_SmallModal.svelte';
 
 	export let id = '';
+	export let item = null;
 
 	let data = [];
 	let title = '';
@@ -46,6 +53,8 @@
 	let quill;
 	onMount(async () => {
 		const { default: Quill } = await import('quill');
+		title = item.title;
+		editor.innerHTML = item.description;
 
 		quill = new Quill(editor, {
 			modules: {
@@ -119,6 +128,7 @@
 			<Menu />
 		</div>
 		<div class="md:w-2/3 w-full">
+			{@debug item}
 			<SaveResetBack on:save={save} />
 			<TextBox bind:value={title} label={$_('itemName')} />
 			<div class="my-2">

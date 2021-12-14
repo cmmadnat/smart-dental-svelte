@@ -12,6 +12,6 @@ export class ShoppingItems extends BaseEntity {
 	@Column('text')
 	description: string;
 
-	@OneToMany(() => Photo, (photo) => photo.shoppingItems)
+	@OneToMany(() => Photo, (photo) => photo.shoppingItems, { cascade: true })
 	photos: Photo[];
 }

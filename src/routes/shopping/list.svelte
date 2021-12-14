@@ -36,6 +36,10 @@
 	export let activePage = '1';
 	$: pageCount = Math.floor(list[1] / 20) + 1;
 	$: activePageInt = parseInt(activePage);
+
+	const stripHtml = (text) => {
+		return text.replace(/<[^>]+>/g, '');
+	};
 </script>
 
 <Header />
@@ -70,7 +74,7 @@
 				>
 					<th class="border-2 p-2 text-center">{i + 1}</th>
 					<th class="border-2 p-2">{f.title} </th>
-					<th class="border-2 p-2">{f.description}</th>
+					<th class="border-2 p-2">{stripHtml(f.description)}</th>
 					<th class="border-2 p-2">{f.photos}</th>
 				</tr>
 			{/each}
