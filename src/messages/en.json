@@ -103,5 +103,6 @@
   "shortDescription": "Short Description",
   "images": "Images",
   "shoppingItems": "Shopping Items",
-  "add": "Add"
+  "add": "Add",
+  "itemImages": "Item Images"
 }

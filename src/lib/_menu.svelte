@@ -7,7 +7,7 @@
 <div>
 	<ul>
 		<MenuItem on:click={() => goto('/home')}>หน้าแรก</MenuItem>
-		<MenuItem>ระบบลงทะเบียน</MenuItem>
+		<!-- <MenuItem>ระบบลงทะเบียน</MenuItem>
 		<MenuItem>ระบบนัดหมาย</MenuItem>
 		<MenuItem>ระบบเวชระเบียน</MenuItem>
 		<MenuItem>ระบบ PACS</MenuItem>
@@ -20,10 +20,10 @@
 		<MenuItem>ระบบนำทาง</MenuItem>
 		<MenuItem>ระบบบันทึกเวลาปฏิบัติงานผ่าน QR และ GPS</MenuItem>
 		<MenuItem>ระบบลงปฏิบัติงาน</MenuItem>
-		<MenuItem>ระบบพบทันตแพทย์ออนไลน์</MenuItem>
+		<MenuItem>ระบบพบทันตแพทย์ออนไลน์</MenuItem> -->
 		<MenuItem
 			on:click={() => {
-				goto('/shopping/items/1');
+				goto('/shopping/list');
 			}}>ระบบ Shopping</MenuItem
 		>
 	</ul>

@@ -65,13 +65,13 @@
 				<tr
 					class="text-left cursor-pointer hover:bg-blue-50"
 					on:click={() => {
-						goto('/patient/' + f.id);
+						goto('/shopping/items/' + f.id);
 					}}
 				>
 					<th class="border-2 p-2 text-center">{i + 1}</th>
-					<th class="border-2 p-2">{f.firstName} </th>
-					<th class="border-2 p-2">{f.lastName}</th>
-					<th class="border-2 p-2">{f.cardNumber}</th>
+					<th class="border-2 p-2">{f.title} </th>
+					<th class="border-2 p-2">{f.description}</th>
+					<th class="border-2 p-2">{f.photos}</th>
 				</tr>
 			{/each}
 		</tbody>
