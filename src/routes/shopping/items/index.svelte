@@ -2,7 +2,7 @@
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
 	export const load = async ({ page, fetch }: LoadInput): LoadOutput => {
-		const id = page.params.id;
+		const id = page.query.id;
 		const item = await fetch({
 			url: `/shopping/items/get-shopping-item`,
 			method: 'post',

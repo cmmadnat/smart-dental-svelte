@@ -69,7 +69,7 @@
 				<tr
 					class="text-left cursor-pointer hover:bg-blue-50"
 					on:click={() => {
-						goto('/shopping/items/' + f.id);
+						window.location = `/shopping/items?id=${f.id}`;
 					}}
 				>
 					<th class="border-2 p-2 text-center">{i + 1}</th>
