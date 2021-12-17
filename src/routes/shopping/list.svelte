@@ -75,7 +75,11 @@
 					<th class="border-2 p-2 text-center">{i + 1}</th>
 					<th class="border-2 p-2">{f.title} </th>
 					<th class="border-2 p-2">{stripHtml(f.description)}</th>
-					<th class="border-2 p-2">{f.photos}</th>
+					<th class="border-2 p-2 flex flex-row">
+						{#each f.photos as p}
+							<img src={p.base64} class="p-1" alt="" />
+						{/each}
+					</th>
 				</tr>
 			{/each}
 		</tbody>

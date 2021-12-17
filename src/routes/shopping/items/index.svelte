@@ -32,6 +32,7 @@
 	import DragDropList from 'svelte-dragdroplist';
 	import ImageTools from '$lib/ImageTool';
 	import SmallModal from '$lib/_SmallModal.svelte';
+	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 
 	export let id = '';
 	export let item = null;
@@ -39,6 +40,7 @@
 	let data = [];
 	let title = '';
 	let showModal = false;
+	let showArrangeModal = false;
 
 	let editor;
 
@@ -115,6 +117,9 @@
 			}
 		);
 	};
+	const toggleReaarange = () => {
+		showArrangeModal = true;
+	};
 </script>
 
 <Header />
@@ -143,23 +148,32 @@
 			<div class="my-2">
 				{$_('itemImages')}
 			</div>
+			<div class="border-solid border-2 p-2">
+				{$_('uploadImage')}
+				<br />
+				<input on:change={uploadImage} type="file" name="" id="" />
+			</div>
+			<div class="py-2">
+				<ButtonGreen on:click={toggleReaarange}>{$_('rearrangeImage')}</ButtonGreen>
+			</div>
 			<div class="flex flex-row">
-				<div class="w-1/2 p-2">
-					<form action="">
-						<div class="border-solid border-2 p-2">
-							{$_('uploadImage')}
-							<br />
-							<input on:change={uploadImage} type="file" name="" id="" />
-						</div>
-					</form>
-				</div>
-				<div class="w-1/2">
-					<DragDropList bind:data removesItems={true} />
-				</div>
+				{#each data as p}
+					<img src={p.base64} class="p-1" alt="" />
+				{/each}
 			</div>
 		</div>
 	</div>
 </div>
+<SmallModal
+	showClose={false}
+	show={showArrangeModal}
+	header={$_('rearrangeImage')}
+	on:complete={() => {
+		showArrangeModal = false;
+	}}
+>
+	<DragDropList bind:data removesItems={true} />
+</SmallModal>
 <SmallModal showClose={false} show={showModal} on:complete={closeModal}>
 	{$_('updateSuccess')}
 </SmallModal>
