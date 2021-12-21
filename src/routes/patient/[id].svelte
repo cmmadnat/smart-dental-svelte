@@ -27,6 +27,8 @@
 	import { goto } from '$app/navigation';
 	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	import RowItem from './_RowItem.svelte';
+	import Allergy from '$lib/_Allergy.svelte';
+
 	export let user: AppUser;
 	export let id: string;
 	/*eslint-disable*/
@@ -72,6 +74,7 @@
 				>
 			</div>
 		</div>
+		<Allergy />
 		<div class="flex">
 			<div class="w-1/3 p-2">
 				<Schedule />
