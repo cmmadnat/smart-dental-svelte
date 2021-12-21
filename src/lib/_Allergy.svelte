@@ -1,7 +1,12 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import MultiSelectBox from './_MultiSelectBox.svelte';
 </script>
 
-<div class="p-2 bg-rose-400 rounded-sm text-white">
-	<span class="bold text-xl">{$_('allergy')}</span> :
+<div class="flex flex-row p-2 items-center bg-rose-400 rounded-sm">
+	<span class="mr-2 text-white">
+		{$_('allergy')} :
+	</span>
+
+	<MultiSelectBox />
 </div>

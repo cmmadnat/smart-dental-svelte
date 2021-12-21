@@ -54,6 +54,7 @@
 		"svelte-dragdroplist": "^1.1.1",
 		"svelte-i18n": "^3.3.10",
 		"svelte-preprocess": "^4.9.4",
+		"svelte-select": "^4.4.6",
 		"tailwindcss": "^2.2.15",
 		"thai-data": "^1.0.9",
 		"tslib": "^2.3.1",
