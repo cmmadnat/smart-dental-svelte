@@ -8,5 +8,9 @@
 		{$_('allergy')} :
 	</span>
 
-	<MultiSelectBox />
+	<MultiSelectBox
+		on:change={(e) => {
+			console.log(e.detail);
+		}}
+	/>
 </div>
