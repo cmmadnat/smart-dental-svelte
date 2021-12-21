@@ -74,7 +74,7 @@
 				>
 			</div>
 		</div>
-		<Allergy />
+		<Allergy {id} />
 		<div class="flex">
 			<div class="w-1/3 p-2">
 				<Schedule />

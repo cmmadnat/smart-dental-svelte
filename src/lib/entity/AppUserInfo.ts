@@ -3,12 +3,15 @@ import {
 	Column,
 	Entity,
 	JoinColumn,
+	JoinTable,
+	ManyToMany,
 	ManyToOne,
 	OneToOne,
 	PrimaryGeneratedColumn
 } from 'typeorm';
 import { Address } from './Address';
 import { AppUser } from './AppUser';
+import { Drug } from './Drug';
 import { FamilyInfo } from './FamilyInfo';
 import { Occupation } from './Occupation';
 import { Religion } from './Religion';
@@ -70,4 +73,8 @@ export class AppUserInfo extends BaseEntity {
 	@OneToOne(() => FamilyInfo, (familyInfo) => familyInfo.sprouse, { cascade: true })
 	@JoinColumn()
 	sprouseFamilyInfo: FamilyInfo;
+
+	@ManyToMany(() => Drug)
+	@JoinTable()
+	allergies: Drug[];
 }
