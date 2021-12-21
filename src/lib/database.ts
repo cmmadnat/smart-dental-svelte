@@ -2,6 +2,7 @@ import { createConnection, Connection } from 'typeorm';
 import { Address } from './entity/Address';
 import { AppUser } from './entity/AppUser';
 import { AppUserInfo } from './entity/AppUserInfo';
+import { Drug } from './entity/Drug';
 import { FamilyInfo } from './entity/FamilyInfo';
 import { Occupation } from './entity/Occupation';
 import { Photo } from './entity/Photo';
@@ -18,6 +19,7 @@ export function connectionToDatabase(): Promise<Connection> {
 		password: import.meta.env.VITE_DB_PASS,
 		database: import.meta.env.VITE_DB_DATABASE,
 		entities: [
+			Drug,
 			FamilyInfo,
 			Religion,
 			AppUserInfo,

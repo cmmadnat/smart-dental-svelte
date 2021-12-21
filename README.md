@@ -20,3 +20,6 @@ VITE_DB_DATABASE=
 2. Run `yarn` or `npm install`
 3. Run `yarn dev -- --open` or `npm run dev -- --open`
 4. The development server would be ready on port 3000
+
+## remark
+the drug price came from http://ndi.fda.moph.go.th/drug_value/index/public/0/180

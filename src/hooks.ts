@@ -6,6 +6,7 @@ import setupTitles from '$lib/setupTitles';
 import { getConnection } from 'typeorm';
 import setupReligions from '$lib/setupReligions';
 import setupOccupations from '$lib/setupOccupations';
+import { setupDrug } from '$lib/setupDrug';
 
 export const handle: Handle = ({ request, resolve }) => {
 	try {
@@ -17,6 +18,7 @@ export const handle: Handle = ({ request, resolve }) => {
 				await setupTitles();
 				await setupReligions();
 				await setupOccupations();
+				await setupDrug();
 			})
 			.then(() => console.log('database connected'));
 	}
