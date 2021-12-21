@@ -8,7 +8,7 @@
 	const optionIdentifier = 'id';
 	const getOptionLabel = (option) => option.name;
 	const getSelectionLabel = (option) => option.name;
-	let value = [];
+	export let value = [];
 
 	function loadOptions(filterText) {
 		return superagent

@@ -103,8 +103,7 @@
 		request
 			.post('/sign-up/register')
 			.send({ title, firstName, lastName, IDCard, cardNumber, mobile, email, password })
-			.then((data) => {
-				console.log(JSON.stringify(data.body));
+			.then(() => {
 				showRegisteredModal = true;
 			});
 	};

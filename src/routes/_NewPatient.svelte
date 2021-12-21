@@ -38,11 +38,6 @@
 		step = 2;
 	};
 	const gotBasicInfo = () => {
-		console.log(citizenID);
-		console.log(firstName);
-		console.log(lastName);
-		console.log(birthday);
-		console.log(gender);
 		step = 3;
 	};
 	const gotAddress = () => {

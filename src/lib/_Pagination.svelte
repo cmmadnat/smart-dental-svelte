@@ -11,8 +11,6 @@
 		if (activePage != 1) dispatch('selectPage', activePage - 1);
 	};
 	const goForward = () => {
-		console.log(activePage);
-		console.log(pages);
 		if (activePage != pages) dispatch('selectPage', activePage + 1);
 	};
 </script>
