@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import Select from 'svelte-select';
-	import superagent from 'superagent';
 
 	const dispatch = createEventDispatcher();
 
@@ -10,12 +9,7 @@
 	const getSelectionLabel = (option) => option.name;
 	export let value = [];
 
-	function loadOptions(filterText) {
-		return superagent
-			.post('/service/search_drug')
-			.send({ limit: 30, query: filterText })
-			.then((data) => data.body);
-	}
+	export let loadOptions: (filterText: string) => Promise<{ id: string; name: string }[]>;
 </script>
 
 <div class="mt-2 mb-3">
