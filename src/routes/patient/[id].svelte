@@ -20,7 +20,6 @@
 	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
-	import NewRecord from './_NewRecord.svelte';
 	import Visits from './_Visits.svelte';
 	import type { AppUser } from '$lib/entity/AppUser';
 	import ButtonRed from '$lib/_ButtonRed.svelte';
@@ -28,9 +27,12 @@
 	import ButtonGreen from '$lib/_ButtonGreen.svelte';
 	import RowItem from './_RowItem.svelte';
 	import Allergy from '$lib/_Allergy.svelte';
+	import Tabs from '$lib/_Tabs.svelte';
+	import TabContent from '$lib/_TabContent.svelte';
 
 	export let user: AppUser;
 	export let id: string;
+	let currentTab = 0;
 	/*eslint-disable*/
 	let gender = 'm',
 		birthday = '2-5-1989',
@@ -81,7 +83,11 @@
 				<Visits />
 			</div>
 			<div class="w-2/3 p-2">
-				<NewRecord />
+				<Tabs bind:currentTab tabNames={[$_('treatment'), $_('examService'), $_('history')]}>
+					<TabContent tabIndex={0} openTab={currentTab}>Hello</TabContent>
+					<TabContent tabIndex={1} openTab={currentTab}>World</TabContent>
+					<TabContent tabIndex={2} openTab={currentTab}>Fuck</TabContent>
+				</Tabs>
 			</div>
 		</div>
 	{:else}
