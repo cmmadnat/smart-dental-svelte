@@ -98,6 +98,7 @@ export default class ImageTools {
 				callback(blob, true);
 			}
 		};
+		//@ts-ignore
 		ImageTools._loadImage(image, file);
 
 		return true;
@@ -127,6 +128,7 @@ export default class ImageTools {
 		if (hasBlobConstructor) {
 			blob = new Blob([hasArrayBufferViewSupport ? intArray : arrayBuffer], { type: mimeString });
 		} else {
+			//@ts-ignore
 			let bb = new BlobBuilder();
 			bb.append(arrayBuffer);
 			blob = bb.getBlob(mimeString);
@@ -134,7 +136,7 @@ export default class ImageTools {
 
 		return blob;
 	}
-
+	//@ts-ignore
 	static _loadImage(image, file, callback) {
 		if (typeof URL === 'undefined') {
 			let reader = new FileReader();

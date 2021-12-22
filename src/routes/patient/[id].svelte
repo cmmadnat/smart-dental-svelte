@@ -29,6 +29,7 @@
 	import Allergy from '$lib/_Allergy.svelte';
 	import Tabs from '$lib/_Tabs.svelte';
 	import TabContent from '$lib/_TabContent.svelte';
+	import Treatment from '$lib/Treatment.svelte';
 
 	export let user: AppUser;
 	export let id: string;
@@ -84,7 +85,7 @@
 			</div>
 			<div class="w-2/3 p-2">
 				<Tabs bind:currentTab tabNames={[$_('treatment'), $_('examService'), $_('history')]}>
-					<TabContent tabIndex={0} openTab={currentTab}>Hello</TabContent>
+					<TabContent tabIndex={0} openTab={currentTab}><Treatment /></TabContent>
 					<TabContent tabIndex={1} openTab={currentTab}>World</TabContent>
 					<TabContent tabIndex={2} openTab={currentTab}>Fuck</TabContent>
 				</Tabs>
