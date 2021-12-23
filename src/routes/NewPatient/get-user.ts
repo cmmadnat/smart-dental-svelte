@@ -8,7 +8,7 @@ import { Title } from '$lib/entity/Title';
 export const post = async ({ body }) => {
 	const { id } = body;
 	if (id.toLowerCase() === 'new') {
-		let user = new AppUser();
+		const user = new AppUser();
 		user.title = new Title();
 		const appUserInfo = new AppUserInfo();
 		appUserInfo.birthday = new Date();

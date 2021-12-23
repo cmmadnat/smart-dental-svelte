@@ -2,6 +2,8 @@
 // https://github.com/sendgrid/sendgrid-nodejs
 import sgMail from '@sendgrid/mail';
 import { AppUser } from '$lib/entity/AppUser';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 sgMail.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY);
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const post = async ({ body }) => {
