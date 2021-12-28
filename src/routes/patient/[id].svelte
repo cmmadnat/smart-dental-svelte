@@ -29,7 +29,7 @@
 	import Allergy from '$lib/_Allergy.svelte';
 	import Tabs from '$lib/_Tabs.svelte';
 	import TabContent from '$lib/_TabContent.svelte';
-	import Treatment from '$lib/Treatment.svelte';
+	import Treatment from '$lib/_Treatment.svelte';
 
 	export let user: AppUser;
 	export let id: string;
