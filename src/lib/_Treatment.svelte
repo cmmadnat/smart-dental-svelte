@@ -3,6 +3,14 @@
 	import RadioBox from './_RadioBox.svelte';
 	import SelectBox from './_SelectBox.svelte';
 	import TextBox from './_TextBox.svelte';
+
+	import FaWeight from 'svelte-icons/fa/FaWeight.svelte';
+	import FaRulerVertical from 'svelte-icons/fa/FaRulerVertical.svelte';
+	import FaWeightHanging from 'svelte-icons/fa/FaWeightHanging.svelte';
+	import FaTemperatureLow from 'svelte-icons/fa/FaTemperatureLow.svelte';
+	import FaHeartbeat from 'svelte-icons/fa/FaHeartbeat.svelte';
+	import TiWaves from 'svelte-icons/ti/TiWaves.svelte';
+
 	import TreatmentItem from './_TreatmentItem.svelte';
 	let purposeOfVisit = '';
 	let triange = '';
@@ -10,11 +18,12 @@
 	let anticoagulantMedicines = '';
 </script>
 
-<div class="flex gap-1">
-	<div class="flex-2">
-		{$_('treatmentRight')}
+<div class="flex">
+	<div class="flex-1">
+		<span class="">{$_('treatmentRight')}</span>
 		<SelectBox />
 
+		<hr class="my-1" />
 		{$_('purposeOfVisit')}
 		<p>
 			<RadioBox
@@ -40,6 +49,7 @@
 			/>
 		</p>
 
+		<hr class="my-1" />
 		{$_('triage')}
 		<p>
 			<RadioBox
@@ -73,7 +83,9 @@
 			/>
 		</p>
 
+		<hr class="my-1" />
 		<TextBox label={$_('generalAppearance')} />
+		<hr class="my-1" />
 		{$_('infectionRiskAssessment')}
 		<p>
 			<RadioBox
@@ -91,6 +103,7 @@
 				value="no"
 			/>
 		</p>
+		<hr class="my-1" />
 		{$_('anticoagulantMedicines ')}
 		<p>
 			<RadioBox
@@ -110,14 +123,50 @@
 			<TextBox label={$_('name')} />
 		</p>
 	</div>
-	<div class="flex-3 flex flex-wrap gap-1 ">
-		<TreatmentItem label="bw(kg)" />
-		<TreatmentItem label="ht(cm)" />
-		<TreatmentItem label="BMI" />
-		<TreatmentItem label="T(°C)" />
-		<TreatmentItem label="P(BPM)" />
-		<TreatmentItem label="R(/min)" />
-		<TreatmentItem label="Time" />
-		<TreatmentItem label="BP(mmHG)" />
+	<div class="flex flex-1 flex-col">
+		<div class="flex flex-1 flex-wrap gap-1 justify-center">
+			<TreatmentItem label="bw(kg)">
+				<div class="icon">
+					<FaWeight />
+				</div>
+			</TreatmentItem>
+			<TreatmentItem label="ht(cm)">
+				<div class="icon">
+					<FaRulerVertical />
+				</div>
+			</TreatmentItem>
+			<TreatmentItem label="BMI">
+				<div class="icon">
+					<FaWeightHanging />
+				</div>
+			</TreatmentItem>
+			<TreatmentItem label="T(°C)">
+				<div class="icon">
+					<FaTemperatureLow />
+				</div>
+			</TreatmentItem>
+			<TreatmentItem label="P(BPM)">
+				<div class="icon">
+					<FaHeartbeat />
+				</div>
+			</TreatmentItem>
+			<TreatmentItem label="R(/min)">
+				<div class="icon">
+					<TiWaves />
+				</div></TreatmentItem
+			>
+			<!-- <TreatmentItem label="Time" />
+		<TreatmentItem label="BP(mmHG)" /> -->
+		</div>
+		<div class="flex flex-1" />
 	</div>
 </div>
+
+<style>
+	.icon {
+		color: rgb(48, 41, 41);
+		width: 40px;
+		height: 40px;
+		margin-bottom: 10px;
+	}
+</style>

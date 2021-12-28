@@ -53,6 +53,7 @@
 		"svelte-check": "^2.2.6",
 		"svelte-dragdroplist": "^1.1.1",
 		"svelte-i18n": "^3.3.10",
+		"svelte-icons": "^2.1.0",
 		"svelte-preprocess": "^4.9.4",
 		"svelte-select": "^4.4.6",
 		"tailwindcss": "^2.2.15",
@@ -66,7 +67,7 @@
 		"dotenv": "^10.0.0"
 	},
 	"lint-staged": {
-		"*.{svelte,js,ts,html,css}": [
+		"*.{svelte,js,ts,css}": [
 			"prettier --write",
 			"eslint --fix  --max-warnings 0"
 		]
