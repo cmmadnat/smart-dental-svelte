@@ -12,6 +12,7 @@
 	import TiWaves from 'svelte-icons/ti/TiWaves.svelte';
 
 	import TreatmentItem from './_TreatmentItem.svelte';
+	import Bp from './_Bp.svelte';
 	let purposeOfVisit = '';
 	let triange = '';
 	let infectionRiskAssessment = '';
@@ -158,7 +159,9 @@
 			<!-- <TreatmentItem label="Time" />
 		<TreatmentItem label="BP(mmHG)" /> -->
 		</div>
-		<div class="flex flex-1" />
+		<div class="flex flex-1">
+			<Bp />
+		</div>
 	</div>
 </div>
 

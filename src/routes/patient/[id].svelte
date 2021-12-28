@@ -20,7 +20,6 @@
 	import Header from '$lib/_Navigation.svelte';
 	import LanguageSetting from '$lib/_SetLanguage.svelte';
 	import Schedule from './_Schedule.svelte';
-	import Visits from './_Visits.svelte';
 	import type { AppUser } from '$lib/entity/AppUser';
 	import ButtonRed from '$lib/_ButtonRed.svelte';
 	import { goto } from '$app/navigation';
@@ -78,18 +77,13 @@
 			</div>
 		</div>
 		<Allergy {id} />
-		<div class="flex">
-			<div class="w-1/3 p-2">
-				<Schedule />
-				<Visits />
-			</div>
-			<div class="w-2/3 p-2">
-				<Tabs bind:currentTab tabNames={[$_('treatment'), $_('examService'), $_('history')]}>
-					<TabContent tabIndex={0} openTab={currentTab}><Treatment /></TabContent>
-					<TabContent tabIndex={1} openTab={currentTab}>World</TabContent>
-					<TabContent tabIndex={2} openTab={currentTab}>Fuck</TabContent>
-				</Tabs>
-			</div>
+		<div class="flex flex-col">
+			<Tabs bind:currentTab tabNames={[$_('treatment'), $_('examService'), $_('history')]}>
+				<TabContent tabIndex={0} openTab={currentTab}><Treatment /></TabContent>
+				<TabContent tabIndex={1} openTab={currentTab}>World</TabContent>
+				<TabContent tabIndex={2} openTab={currentTab}>Fuck</TabContent>
+			</Tabs>
+			<Schedule />
 		</div>
 	{:else}
 		User Not Found <ButtonRed
