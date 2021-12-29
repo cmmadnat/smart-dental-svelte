@@ -13,6 +13,7 @@
 
 	import TreatmentItem from './_TreatmentItem.svelte';
 	import Bp from './_Bp.svelte';
+	import TreatmentTableRow from './_TreatmentTableRow.svelte';
 	let purposeOfVisit = '';
 	let triange = '';
 	let infectionRiskAssessment = '';
@@ -125,7 +126,7 @@
 		</p>
 	</div>
 	<div class="flex flex-1 flex-col">
-		<div class="flex flex-1 flex-wrap gap-1 justify-center">
+		<div class="flex flex-1 flex-wrap gap-2 justify-center">
 			<TreatmentItem label="bw(kg)">
 				<div class="icon">
 					<FaWeight />
@@ -164,6 +165,32 @@
 		</div>
 	</div>
 </div>
+
+<table class="table-fixed border-separate border border-gray-500">
+	<thead>
+		<tr>
+			<th class="border border-gray-600 p-4">Refer Clinic</th>
+			<th class="border border-gray-600 p-4">Tooth/area</th>
+			<th class="border border-gray-600 p-4">Record</th>
+			<th class="border border-gray-600 p-4">Payment Code</th>
+			<th class="border border-gray-600 p-4">Fee</th>
+			<th class="border border-gray-600 p-4">Paid</th>
+			<th class="border border-gray-600 p-4">Balance</th>
+		</tr>
+	</thead>
+	<tbody>
+		<TreatmentTableRow label="Chief Complain" />
+		<TreatmentTableRow label="E/O" />
+		<TreatmentTableRow label="I/O" />
+		<TreatmentTableRow label="X-ray" />
+		<TreatmentTableRow label="Dx" />
+		<TreatmentTableRow label="Tx" />
+		<TreatmentTableRow label="Beh(กรณีผู้ป่วยเด็ก)" />
+		<TreatmentTableRow label="OHI" />
+		<TreatmentTableRow label="Referral" />
+		<TreatmentTableRow label="Next Visit" />
+	</tbody>
+</table>
 
 <style>
 	.icon {

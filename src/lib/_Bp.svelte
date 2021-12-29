@@ -2,7 +2,7 @@
 	import FaTint from 'svelte-icons/fa/FaTint.svelte';
 </script>
 
-<div class="flex flex-col w-full items-center p-2 shadow-md m-2">
+<div class="flex flex-col w-full  p-2 m-2 justify-center items-center">
 	<div class="flex flex-col">
 		<div class="flex items-center justify-between mb-2">
 			<div class="flex items-center  ">
