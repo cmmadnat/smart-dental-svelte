@@ -24,4 +24,4 @@
 	];
 </script>
 
-<SelectBox options={labels} />
+<SelectBox on:change options={labels} />
