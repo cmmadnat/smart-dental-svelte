@@ -3,27 +3,27 @@
 	const labels = [
 		{
 			id: 'C',
-			label: 'dental caries'
+			label: 'Dental Caries'
 		},
 		{
 			id: 'P',
-			label: 'periodontal disease'
+			label: 'Periodontal Disease'
 		},
 		{
 			id: 'M',
-			label: 'missing tooth'
+			label: 'Missing Tooth'
 		},
 		{
 			id: 'Ex',
-			label: 'extracted tooth'
+			label: 'Extracted Tooth'
 		},
 		{
 			id: 'I',
-			label: 'impacted/embededtooth'
+			label: 'Impacted/embededtooth'
 		},
 		{
 			id: 'PE',
-			label: 'partial erupted tooth'
+			label: 'Partial Erupted tooth'
 		}
 	];
 </script>

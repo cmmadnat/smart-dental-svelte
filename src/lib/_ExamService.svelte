@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DiagnosisTd from './_DiagnosisTD.svelte';
+	import RadioBox from './_RadioBox.svelte';
 	import TreatmentTd from './_TreatmentTD.svelte';
 </script>
 
@@ -127,6 +128,147 @@
 		<DiagnosisTd />
 	</tr>
 </table>
+<div class="my-3">
+	<span class="dy-2 text-xl font-bold">Oral & Maxillofacial Examinaton</span>
+
+	<div class="flex gap-1 w-full justify-evenly">
+		<div class="w-[350px] flex gap-2 flex-col">
+			<div class="flex justify-between">
+				<div>Face/neck</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Skin</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Lymph node</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>TMJ</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Lips</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Gingiva/peiodontium</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+		</div>
+		<div class="w-[350px] flex gap-2 flex-col">
+			<div class="flex justify-between">
+				<div>Floor of the mouth</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Palate</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Oropharynx</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Enamel/Dentin</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Alveolar mucosa</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div>Tongue</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+		</div>
+		<div class="w-[350px] flex gap-2 flex-col">
+			<div class="flex justify-between">
+				<div class="w-[180px]">Frenum attachment/vestibule</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div class="w-[180px]">If edentulous max/mand ridges</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div class="w-[180px]">Buccal mucosa</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+			<div class="flex justify-between">
+				<div class="w-[180px]">Saliva/Salivary glands and ducts</div>
+				<div>
+					<RadioBox label="Normal" /><RadioBox label="Abnormal" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="flex flex-row flex-wrap w-9/12 mx-auto my-3">
+	<div class="w-1/2 flex ">
+		<div class="font-bold mr-2">Calculus</div>
+		<div class="">
+			<RadioBox label="Absent" />
+			<RadioBox label="Slight" />
+			<RadioBox label="Moderate" />
+			<RadioBox label="Heavy" />
+		</div>
+	</div>
+	<div class="w-1/2 flex">
+		<div class="font-bold mr-2">Oral hygiene</div>
+		<div class="">
+			<RadioBox label="Excellent" />
+			<RadioBox label="Average" />
+			<RadioBox label="Poor	" />
+		</div>
+	</div>
+
+	<div class="w-1/2 flex">
+		<div class="font-bold mr-2">Occlusion</div>
+		<div class="flex">
+			<RadioBox label="Class I" />
+			<RadioBox label="Class II" />
+			<RadioBox label="Class III" />
+			<RadioBox label="Other	" />
+		</div>
+	</div>
+</div>
+<div class="my-3">
+	<span class="dy-2 text-xl font-bold">Radiographic Examination</span>
+</div>
 <img src="/exam_service.jpg" alt="" />
 
 <style>
