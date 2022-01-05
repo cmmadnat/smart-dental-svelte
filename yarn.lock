@@ -4944,6 +4944,11 @@ please-upgrade-node@^3.2.0:
   dependencies:
     semver-compare "^1.0.0"
 
+pleasejs@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/pleasejs/-/pleasejs-0.4.2.tgz#aaaa1a5fa6902518de7e51e3c63b5f537f823164"
+  integrity sha1-qqoaX6aQJRjeflHjxjtfU3+CMWQ=
+
 postcss-calc@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/postcss-calc/-/postcss-calc-8.0.0.tgz#a05b87aacd132740a5db09462a3612453e5df90a"

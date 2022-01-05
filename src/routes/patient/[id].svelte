@@ -30,6 +30,7 @@
 	import TabContent from '$lib/_TabContent.svelte';
 	import Treatment from '$lib/_Treatment.svelte';
 	import Visits from './_Visits.svelte';
+	import ExamService from '$lib/_ExamService.svelte';
 
 	export let user: AppUser;
 	export let id: string;
@@ -82,7 +83,7 @@
 			<Tabs bind:currentTab tabNames={[$_('treatment'), $_('examService'), $_('history')]}>
 				<TabContent tabIndex={0} openTab={currentTab}><Treatment /></TabContent>
 				<TabContent tabIndex={1} openTab={currentTab}>
-					<img src="/exam_service.jpg" alt="" />
+					<ExamService />
 				</TabContent>
 				<TabContent tabIndex={2} openTab={currentTab}>
 					<Visits /></TabContent
