@@ -1,7 +1,12 @@
 <script lang="ts">
+	import CheckBox from './_CheckBox.svelte';
+	import CheckBoxOther from './_CheckBoxOther.svelte';
+
 	import DiagnosisTd from './_DiagnosisTD.svelte';
 	import RadioBox from './_RadioBox.svelte';
 	import TreatmentTd from './_TreatmentTD.svelte';
+	export let operativeTreatment = false;
+	export let prostheticTreatment = false;
 </script>
 
 <table class="table-fixed">
@@ -268,9 +273,125 @@
 </div>
 <div class="my-3">
 	<span class="dy-2 text-xl font-bold">Radiographic Examination</span>
+	<div class="flex gap-4 flex-wrap">
+		<CheckBox name="panoramic" label="Panoramic" />
+		<CheckBox name="latCeph" label="Lat. Ceph" />
+		<CheckBox name="paCeph" label="PA Ceph." />
+		<CheckBox name="fm" label="FM" />
+		<CheckBox name="pw" label="PW" />
+		<CheckBoxOther name="bw" label="BW" />
+		<CheckBoxOther name="occlusal" label="Occlusal" />
+		<CheckBoxOther name="other" label="Other" />
+		<div class="flex items-center w-full gap-1">
+			Finding
+			<div class="flex-1">
+				<input type="text" class="w-full" name="" id="" />
+			</div>
+		</div>
+	</div>
 </div>
-<img src="/exam_service.jpg" alt="" />
+<div class="my-3">
+	<span class="dy-2 text-xl font-bold">Provisional Diagnosis</span>
+	<textarea name="" class="w-full" id="" cols="30" rows="2" />
+</div>
 
+<div class="my-3 flex">
+	<div class="flex-1">
+		<span class="dy-2 text-xl font-bold">Treatment planning</span>
+		<CheckBoxOther name="primaryAndEmergencyTreatment" label="Primary and Emergency Treatment" />
+		<CheckBox name="oralProphylaxis" label="Oral Prophylaxis" />
+		<div class="flex gap-2">
+			<CheckBox name="periodontalTreatment" label="Periodontal Treatment" />
+			<CheckBox name="scaling" label="Scaling" />
+			<CheckBox name="gingivitisTreatment" label="Gingivitis Treatment" />
+			<CheckBox name="advPeriodontalTreatment" label="Adv Periodontal Treatment" />
+		</div>
+		<CheckBox
+			on:change={(e) => {
+				// eslint-disable-next-line
+				//@ts-ignore
+				operativeTreatment = e.target.checked;
+			}}
+			name="operativeTreatment"
+			label="Operative Treatment (put C in () for any complicated case]"
+		/>
+		{#if operativeTreatment}
+			<div class="pl-8">
+				<div class="flex gap-2">
+					<CheckBox name="" label="Class I" />
+					<CheckBox name="" label="Class II" />
+					<CheckBox name="" label="Class III" />
+					<CheckBox name="" label="Class IV" />
+					<CheckBox name="" label="Class V" />
+				</div>
+				<div class="flex gap-2">
+					<CheckBoxOther name="inlayOnlay" label="Inlay/onlay" />
+					<CheckBoxOther name="veneer" label="Veneer" />
+					<CheckBoxOther name="diastemaClosure" label="Diastema closure" />
+				</div>
+				<CheckBox name="bleaching" label="Bleaching" />
+				<div class="pl-8 flex gap-2">
+					<CheckBox name="vital" label="Vital" />
+					<CheckBox name="nonvital" label="Non Vital" />
+				</div>
+			</div>
+		{/if}
+		<div class="flex gap-2">
+			<CheckBoxOther name="endodonticTreatment" label="Endodontic Treatment" />
+			<CheckBoxOther name="retreatment" label="Retreatment" />
+			<CheckBoxOther name="endoSurg" label="Endo Surg." />
+		</div>
+		<CheckBox
+			name="prostheticTreatment"
+			label="Prosthetic Treatment"
+			on:change={(e) => {
+				// eslint-disable-next-line
+				//@ts-ignore
+				prostheticTreatment = e.target.checked;
+			}}
+		/>
+		{#if prostheticTreatment}
+			<div class="pl-8 flex gap-2 flex-wrap">
+				<CheckBox name="removableProsthesis" label="Removable Prosthesis" />
+				<CheckBox name="apd" label="APD" />
+				<CheckBox name="rpd" label="RPD" />
+				<CheckBox name="cd" label="CD" />
+				<CheckBox name="fixedProsthesis" label="Fixed Prosthesis" />
+				<CheckBoxOther name="crown" label="Crown" />
+				<CheckBoxOther name="Post and core" label="Post and core" />
+				<CheckBoxOther name="bridge" label="Bridge" />
+				<CheckBox name="oralRehabilitation" label="Oral Rehabilitation" />
+				<CheckBox name="dentalImplant" label="Dental Implant" />
+				<CheckBox name="maxillofacialProsthesis" label="Maxillofacial Prosthesis" />
+			</div>
+		{/if}
+		<CheckBox name="mdAndOrofacialPainTreatment" label="MD and Orofacial Pain Treatment" />
+		<CheckBox name="oralAndMaxillofacialSurgery" label="Oral and Maxillofacial Surgery" />
+		<CheckBox name="oralMedicineTreatment" label="Oral Medicine Treatment" />
+		<CheckBox name="orthodonticTreatment" label="Orthodontic Treatment" />
+
+		<!--
+
+-->
+	</div>
+	<div class="w-1/3">
+		Periodontal Screening & Recording (PSR)
+		<table>
+			<tr>
+				<td><textarea cols="10" rows="2" /></td>
+				<td><textarea cols="10" rows="2" /></td>
+				<td><textarea cols="10" rows="2" /></td>
+			</tr>
+			<tr>
+				<td><textarea cols="10" rows="2" /></td>
+				<td><textarea cols="10" rows="2" /></td>
+				<td><textarea cols="10" rows="2" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- <img src="/exam_service.jpg" alt="" /> -->
 <style>
 	.alternate-column td {
 		border: 1px dotted gray;
