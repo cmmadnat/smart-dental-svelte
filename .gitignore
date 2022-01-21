@@ -6,3 +6,6 @@ node_modules
 .vercel_build_output
 .env
 sendgrid.env
+/doc/master data/venv/**
+doc/master data/.ipynb_checkpoints/
+
