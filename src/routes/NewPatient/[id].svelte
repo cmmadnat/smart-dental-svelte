@@ -45,7 +45,7 @@
 	let maritalStatus = user.appUserInfo.maritalStatus;
 	let religion = user.appUserInfo.religion ? user.appUserInfo.religion.code + '' : '';
 	let nationality = user.appUserInfo.nationality;
-	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
+	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.thaiName : '';
 	let organization = user.appUserInfo.organization;
 	let expireDate = user.appUserInfo.expireDate;
 	// address
@@ -156,7 +156,7 @@
 		maritalStatus = user.appUserInfo.maritalStatus;
 		religion = user.appUserInfo.religion.code + '';
 		nationality = user.appUserInfo.nationality;
-		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.name : '';
+		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.thaiName : '';
 		organization = user.appUserInfo.organization;
 		expireDate = user.appUserInfo.expireDate;
 		//address type

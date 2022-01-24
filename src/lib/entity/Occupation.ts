@@ -6,8 +6,14 @@ export class Occupation extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column('varchar', { length: 150 })
-	name: string;
+	@Column('text')
+	thaiName: string;
+
+	@Column('text', { nullable: true })
+	engName: string;
+
+	@Column('bigint')
+	code: string;
 
 	@OneToMany(() => AppUserInfo, (appUserInfo) => appUserInfo.occupation)
 	appUserInfos: AppUserInfo[];

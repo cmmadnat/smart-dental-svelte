@@ -46,7 +46,7 @@ export const post = async ({ body }) => {
 	const titleCode = await Title.findOne({ code: title });
 	const religionCode =
 		religion.length != 0 ? await Religion.findOne({ code: parseInt(religion) }) : null;
-	const occupationCode = await Occupation.findOne({ name: occupation });
+	const occupationCode = await Occupation.findOne({ thaiName: occupation });
 
 	let user = await AppUser.findOne(
 		{ id },

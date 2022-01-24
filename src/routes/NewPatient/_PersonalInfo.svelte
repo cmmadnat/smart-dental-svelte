@@ -40,15 +40,14 @@
 				(data) =>
 					(countries = data.map((it) => ({ id: it.alpha3, label: it.name + ' - ' + it.enName })))
 			);
-		fetch('/occupations.csv')
-			.then((data) => data.text())
-			.then((data) => Papa.parse(data, { header: true }).data)
+		fetch('occupations')
+			.then((data) => data.json())
 			.then((data) =>
 				data.sort((a, b) => {
-					return a.name.localeCompare(b.name);
+					return a.thaiName.localeCompare(b.thaiName);
 				})
 			)
-			.then((data) => (occupations = data.map((it) => ({ id: it.name, label: it.name }))));
+			.then((data) => (occupations = data.map((it) => ({ id: it.thaiName, label: it.thaiName }))));
 
 		fetch('/religions.csv')
 			.then((data) => data.text())
