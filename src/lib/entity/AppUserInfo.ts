@@ -13,6 +13,7 @@ import { Address } from './Address';
 import { AppUser } from './AppUser';
 import { Drug } from './Drug';
 import { FamilyInfo } from './FamilyInfo';
+import { Nationality } from './Nationality';
 import { Occupation } from './Occupation';
 import { Religion } from './Religion';
 
@@ -32,8 +33,9 @@ export class AppUserInfo extends BaseEntity {
 	birthday: Date;
 	@Column('char', { default: '1' })
 	maritalStatus: string;
-	@Column('varchar', { length: 3, default: 'THA' })
-	nationality: string;
+
+	@ManyToOne(() => Nationality, (nationality) => nationality.appUserInfos)
+	nationality: Nationality;
 
 	@ManyToOne(() => Religion, (religion) => religion.appUserInfos)
 	religion: Religion;

@@ -4,6 +4,7 @@ import { AppUser } from './entity/AppUser';
 import { AppUserInfo } from './entity/AppUserInfo';
 import { Drug } from './entity/Drug';
 import { FamilyInfo } from './entity/FamilyInfo';
+import { Nationality } from './entity/Nationality';
 import { Occupation } from './entity/Occupation';
 import { Photo } from './entity/Photo';
 import { Religion } from './entity/Religion';
@@ -28,7 +29,8 @@ export function connectionToDatabase(): Promise<Connection> {
 			Address,
 			Occupation,
 			Photo,
-			ShoppingItems
+			ShoppingItems,
+			Nationality
 		],
 		synchronize: true
 	}).then((connection) => {

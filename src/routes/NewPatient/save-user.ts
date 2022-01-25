@@ -1,4 +1,5 @@
 import { AppUser } from '$lib/entity/AppUser';
+import { Nationality } from '$lib/entity/Nationality';
 import { Occupation } from '$lib/entity/Occupation';
 import { Religion } from '$lib/entity/Religion';
 import { Title } from '$lib/entity/Title';
@@ -47,6 +48,7 @@ export const post = async ({ body }) => {
 	const religionCode =
 		religion.length != 0 ? await Religion.findOne({ code: parseInt(religion) }) : null;
 	const occupationCode = await Occupation.findOne({ thaiName: occupation });
+	const nationalityCode = await Nationality.findOne({ id: nationality });
 
 	let user = await AppUser.findOne(
 		{ id },
@@ -59,7 +61,8 @@ export const post = async ({ body }) => {
 				'appUserInfo.address',
 				'appUserInfo.fatherFamilyInfo',
 				'appUserInfo.motherFamilyInfo',
-				'appUserInfo.sprouseFamilyInfo'
+				'appUserInfo.sprouseFamilyInfo',
+				'appUserInfo.nationality'
 			]
 		}
 	);
@@ -73,7 +76,7 @@ export const post = async ({ body }) => {
 	user.appUserInfo.gender = gender;
 	user.appUserInfo.birthday = dayjs(birthday).toDate();
 	user.appUserInfo.maritalStatus = maritalStatus;
-	user.appUserInfo.nationality = nationality;
+	user.appUserInfo.nationality = nationalityCode;
 	user.appUserInfo.religion = religionCode;
 	user.appUserInfo.organization = organization;
 	user.appUserInfo.occupation = occupationCode;

@@ -32,7 +32,8 @@ export const post = async ({ body }) => {
 				'appUserInfo.occupation',
 				'appUserInfo.fatherFamilyInfo',
 				'appUserInfo.motherFamilyInfo',
-				'appUserInfo.sprouseFamilyInfo'
+				'appUserInfo.sprouseFamilyInfo',
+				'appUserInfo.nationality'
 			]
 		}
 	);

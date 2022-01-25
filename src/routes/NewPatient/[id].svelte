@@ -44,7 +44,7 @@
 	let birthday = user.appUserInfo.birthday;
 	let maritalStatus = user.appUserInfo.maritalStatus;
 	let religion = user.appUserInfo.religion ? user.appUserInfo.religion.code + '' : '';
-	let nationality = user.appUserInfo.nationality;
+	let nationality = user.appUserInfo.nationality ? user.appUserInfo.nationality.id : '';
 	let occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.thaiName : '';
 	let organization = user.appUserInfo.organization;
 	let expireDate = user.appUserInfo.expireDate;
@@ -155,7 +155,7 @@
 		birthday = user.appUserInfo.birthday;
 		maritalStatus = user.appUserInfo.maritalStatus;
 		religion = user.appUserInfo.religion.code + '';
-		nationality = user.appUserInfo.nationality;
+		nationality = user.appUserInfo.nationality ? user.appUserInfo.nationality.id : '';
 		occupation = user.appUserInfo.occupation ? user.appUserInfo.occupation.thaiName : '';
 		organization = user.appUserInfo.organization;
 		expireDate = user.appUserInfo.expireDate;
@@ -218,7 +218,7 @@
 			email === user.email &&
 			gender === user.appUserInfo.gender &&
 			maritalStatus === user.appUserInfo.maritalStatus &&
-			nationality === user.appUserInfo.nationality &&
+			nationality === user.appUserInfo.nationality.id &&
 			organization === user.appUserInfo.organization &&
 			emergencyContact === user.appUserInfo.emergencyName &&
 			emergencyRelationship === user.appUserInfo.emergencyRelationship &&

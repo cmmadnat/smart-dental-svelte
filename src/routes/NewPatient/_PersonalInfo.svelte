@@ -13,7 +13,7 @@
 	export let expireDate = null;
 	export let firstName = '';
 	export let lastName = '';
-	export let title = '';
+	export let title: string | number;
 	export let idType = '1';
 	export let cardNumber = '';
 	export let gender = '';
@@ -23,7 +23,7 @@
 
 	export let occupation = '';
 	export let organization = '';
-	export let nationality = 'THA';
+	export let nationality: string | number;
 	export let religion = '1';
 
 	onMount(() => {
@@ -32,11 +32,14 @@
 			.then((data) => {
 				titles = data.map((it) => ({ id: it.code, label: it.thaiName }));
 			});
-		fetch('/country-list-th.json')
+		fetch('nationalities')
 			.then((data) => data.json())
 			.then(
 				(data) =>
-					(countries = data.map((it) => ({ id: it.alpha3, label: it.name + ' - ' + it.enName })))
+					(countries = data.map((it) => ({
+						id: it.id,
+						label: it.thaiName + (it.engName ? ' - ' + it.engName : '')
+					})))
 			);
 		fetch('occupations')
 			.then((data) => data.json())
