@@ -6,12 +6,15 @@ export class Title extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column('varchar', { length: 3 })
-	code: string;
+	@Column('bigint')
+	code: number;
 
 	@OneToMany(() => AppUser, (user) => user.title)
 	users: AppUser[];
 
-	@Column('varchar', { length: 50 })
-	name: string;
+	@Column('text', { nullable: true })
+	thaiName: string;
+
+	@Column('text', { nullable: true })
+	engName: string;
 }

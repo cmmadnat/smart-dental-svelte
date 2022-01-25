@@ -35,7 +35,7 @@
 	//basic info
 	let firstName = user.firstName;
 	let lastName = user.lastName;
-	let title = user.title.code;
+	let title = user.title ? user.title.code : '';
 	let idType = user.IDCard;
 	let cardNumber = user.cardNumber;
 	let mobile = user.mobile;
@@ -146,7 +146,7 @@
 	const reset = () => {
 		firstName = user.firstName;
 		lastName = user.lastName;
-		title = user.title.code;
+		title = user.title ? user.title.code : '';
 		idType = user.IDCard;
 		cardNumber = user.cardNumber;
 		mobile = user.mobile;

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 
-	import Papa from 'papaparse';
 	import { onMount } from 'svelte';
 	import TextBox from '$lib/_SmallTextBox.svelte';
 	import SelectBox from '$lib/_SmallSelectBox.svelte';
@@ -28,11 +27,10 @@
 	export let religion = '1';
 
 	onMount(() => {
-		fetch('/titles.csv')
-			.then((data) => data.text())
-			.then((data) => Papa.parse(data, { header: true }).data)
+		fetch('titles')
+			.then((data) => data.json())
 			.then((data) => {
-				titles = data.map((it) => ({ id: it.CODE, label: it.TITLE }));
+				titles = data.map((it) => ({ id: it.code, label: it.thaiName }));
 			});
 		fetch('/country-list-th.json')
 			.then((data) => data.json())
