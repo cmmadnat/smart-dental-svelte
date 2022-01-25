@@ -6,11 +6,14 @@ export class Religion extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column('tinyint')
+	@Column('bigint', { nullable: true })
 	code: number;
 
-	@Column('varchar', { length: 40 })
-	name: string;
+	@Column('text', { nullable: true })
+	thaiName: string;
+
+	@Column('text', { nullable: true })
+	engName: string;
 
 	@OneToMany(() => AppUserInfo, (appUserInfo) => appUserInfo.religion)
 	appUserInfos: AppUserInfo[];

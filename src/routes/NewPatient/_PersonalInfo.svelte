@@ -49,10 +49,9 @@
 			)
 			.then((data) => (occupations = data.map((it) => ({ id: it.thaiName, label: it.thaiName }))));
 
-		fetch('/religions.csv')
-			.then((data) => data.text())
-			.then((data) => Papa.parse(data, { header: true }).data)
-			.then((data) => (religions = data.map((it) => ({ id: it.code, label: it.name }))));
+		fetch('religions')
+			.then((data) => data.json())
+			.then((data) => (religions = data.map((it) => ({ id: it.code, label: it.thaiName }))));
 	});
 </script>
 
