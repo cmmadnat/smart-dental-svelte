@@ -25,7 +25,10 @@ const config = {
 			}
 		}),
 		vite: {
-			plugins: [esbuildCommonjs(['typeorm'])]
+			plugins: [esbuildCommonjs(['typeorm'])],
+			optimizeDeps: {
+				include: ['tui-image-editor']
+			}
 		}
 	}
 };

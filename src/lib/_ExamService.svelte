@@ -1,12 +1,46 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import CheckBox from './_CheckBox.svelte';
 	import CheckBoxOther from './_CheckBoxOther.svelte';
-
+	import ImageEditor from 'tui-image-editor';
+	import 'tui-image-editor/dist/tui-image-editor.css';
+	import 'tui-color-picker/dist/tui-color-picker.css';
 	import DiagnosisTd from './_DiagnosisTD.svelte';
 	import RadioBox from './_RadioBox.svelte';
 	import TreatmentTd from './_TreatmentTD.svelte';
 	export let operativeTreatment = false;
 	export let prostheticTreatment = false;
+	onMount(() => {
+		// const FileSaver = require('file-saver'); //to download edited image to local. Use after npm install file-saver
+		// const blackTheme = require('./js/theme/black-theme.js');
+		// const locale_ru_RU = {
+		// 	// override default English locale to your custom
+		// 	Crop: 'Обзрезать',
+		// 	'Delete-all': 'Удалить всё'
+		// 	// etc...
+		// };
+		/*const instance = new ImageEditor(document.querySelector('#tui-image-editor'), {*/
+		new ImageEditor(document.querySelector('#tui-image-editor'), {
+			includeUI: {
+				loadImage: {
+					path: '/exam_service_chart.png',
+					name: 'SampleImage'
+				},
+				// locale: locale_ru_RU,
+				// theme: blackTheme, // or whiteTheme
+				menu: ['draw'],
+				// initMenu: 'draw',
+				menuBarPosition: 'bottom'
+			},
+			// cssMaxWidth: 700,
+			// cssMaxHeight: 500,
+			selectionStyle: {
+				cornerSize: 20,
+				rotatingPointOffset: 70
+			}
+		});
+	});
 </script>
 
 <table class="table-fixed">
@@ -389,6 +423,9 @@
 			</tr>
 		</table>
 	</div>
+</div>
+<div style="height: 600px;">
+	<div id="tui-image-editor" />
 </div>
 
 <!-- <img src="/exam_service.jpg" alt="" /> -->
